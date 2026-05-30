@@ -5,7 +5,6 @@
     if (navigator.webdriver) return true;
 
     var ua = (navigator.userAgent || "").toLowerCase();
-
     var botPattern =
       /bot|crawl|spider|slurp|headless|phantom|scrapy|curl|wget|python-requests|httpclient|java\/|libwww|go-http|axios|node-fetch|googlebot|google-inspectiontool|bingbot|yandex|baiduspider|duckduckbot|applebot|facebookbot|facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|anthropic|ia_archiver|archive\.org|mediapartners|adsbot|lighthouse|pagespeed|pingdom|uptimerobot|validator|preview|prerender|screaming frog/i;
 

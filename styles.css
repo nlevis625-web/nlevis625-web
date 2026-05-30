@@ -29,6 +29,15 @@ body.gate-pending {
   background: #f5f5f0;
 }
 
+html.human-visitor #gate-news {
+  display: none !important;
+}
+
+html.human-visitor body {
+  overflow: hidden;
+  background: #f0f2f5;
+}
+
 body:not(.gate-pending) {
   overflow: hidden;
   display: flex;

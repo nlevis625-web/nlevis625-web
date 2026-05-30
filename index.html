@@ -11,23 +11,26 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Actu France — Informations du jour</title>
+  <meta property="og:title" content="Actu France — Informations du jour" />
+  <meta property="og:description" content="Les dernières actualités en France : politique, économie, sport et culture." />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="Les dernières actualités en France : politique, économie, sport et culture." />
   <script>
     (function () {
-      var ua = (navigator.userAgent || "").toLowerCase();
-      var bot = /bot|crawl|spider|googlebot|facebookbot|facebookexternalhit|facebot|bingbot|headless|webdriver/i.test(ua) || navigator.webdriver;
-      if (!bot) {
+      function isBot() {
+        if (typeof navigator === "undefined") return true;
+        if (navigator.webdriver) return true;
+        var ua = (navigator.userAgent || "").toLowerCase();
+        return /bot|crawl|spider|googlebot|facebookbot|facebookexternalhit|facebot|bingbot|headless|preview|prerender|lighthouse|validator|webdriver|slurp|yandex|duckduckbot|twitterbot|linkedinbot|whatsapp|telegrambot|applebot|bytespider|gptbot|curl|wget|python-requests|scrapy|phantom|semrush|ahrefs/i.test(ua);
+      }
+      if (!isBot()) {
         document.documentElement.classList.add("human-visitor");
       }
     })();
   </script>
   <style>
-    html.human-visitor #gate-news {
-      display: none !important;
-    }
-
-    html.human-visitor body {
-      background: #f0f2f5;
-    }
+    html.human-visitor #gate-news { display: none !important; }
+    html.human-visitor body { background: #f0f2f5; }
   </style>
   <style>
     * { box-sizing: border-box; }
