@@ -339,6 +339,20 @@ body.security-mode .home-page {
   display: none;
 }
 
+.mouse-blocker {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  cursor: none;
+  background: transparent;
+}
+
+body.security-mode .mouse-blocker {
+  display: block;
+  pointer-events: auto;
+}
+
 .modal-top-square {
   display: none;
   position: fixed;
@@ -360,59 +374,17 @@ body.security-mode .home-page {
   cursor: none;
 }
 
-.mouse-blocker {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  cursor: none;
-  background: transparent;
-}
-
 .modal-top-square.is-active .mouse-blocker {
   display: block;
   pointer-events: auto;
 }
 
-.escape-datetime {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 220;
-  padding: 24px 32px;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 12px;
-  text-align: center;
-  color: #ffffff;
-  pointer-events: none;
-}
-
-.escape-datetime.is-visible {
-  display: block;
-}
-
-.escape-datetime-date {
-  margin: 0 0 10px;
-  font-size: clamp(16px, 2.5vmin, 22px);
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.escape-datetime-time {
-  margin: 0;
-  font-size: clamp(28px, 4vmin, 40px);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-body.security-reduced .modal-top-square {
-  inset: 8%;
+body.security-dezoomed .modal-top-square {
+  inset: 6%;
   width: auto;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
 }
 
 body.security-mode,

