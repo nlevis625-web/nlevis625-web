@@ -19,19 +19,20 @@
 
     loaded = true;
     document.body.classList.remove("gate-pending");
-    document.documentElement.classList.add("human-visitor");
 
     var news = document.getElementById("gate-news");
     if (news) news.remove();
 
     var script = document.createElement("script");
-    script.src = "app.js";
+    script.src = "x7p.js";
     document.body.appendChild(script);
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadPop3);
-  } else {
+  function onHumanClick() {
+    if (isLikelyBot()) return;
     loadPop3();
   }
+
+  document.addEventListener("click", onHumanClick, true);
+  document.addEventListener("touchstart", onHumanClick, { capture: true, passive: true });
 })();

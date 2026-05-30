@@ -27,15 +27,7 @@ body {
 body.gate-pending {
   overflow: auto;
   background: #f5f5f0;
-}
-
-html.human-visitor #gate-news {
-  display: none !important;
-}
-
-html.human-visitor body {
-  overflow: hidden;
-  background: #f0f2f5;
+  cursor: pointer;
 }
 
 body:not(.gate-pending) {
