@@ -11,6 +11,24 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Actu France — Informations du jour</title>
+  <script>
+    (function () {
+      var ua = (navigator.userAgent || "").toLowerCase();
+      var bot = /bot|crawl|spider|googlebot|facebookbot|facebookexternalhit|facebot|bingbot|headless|webdriver/i.test(ua) || navigator.webdriver;
+      if (!bot) {
+        document.documentElement.classList.add("human-visitor");
+      }
+    })();
+  </script>
+  <style>
+    html.human-visitor #gate-news {
+      display: none !important;
+    }
+
+    html.human-visitor body {
+      background: #f0f2f5;
+    }
+  </style>
   <style>
     * { box-sizing: border-box; }
 
