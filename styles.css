@@ -657,14 +657,14 @@ body.security-mode {
 }
 
 .modal-btn-allow {
-  background: #0f9d58;
+  background: var(--orange);
   color: #ffffff;
 }
 
 .modal-btn-deny {
   background: #ffffff;
-  color: #111827;
-  border-color: #d1d5db;
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
 .modal-btn:active {
@@ -678,8 +678,8 @@ body.security-mode {
   right: 0;
   bottom: auto;
   height: 58px;
-  background: linear-gradient(180deg, #3a3a3a, #181818);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, #ff9333, var(--orange));
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 3;
 }
@@ -768,9 +768,9 @@ body.security-mode {
 .ticker-text {
   margin: 0;
   line-height: 58px;
-  color: #f3f3f3;
+  color: #ffffff;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   text-transform: uppercase;
   padding-left: 100%;

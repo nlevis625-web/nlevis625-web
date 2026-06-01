@@ -98,7 +98,7 @@
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
     '<button class="modal-btn modal-btn-deny" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
-    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Microsoft windows</p></div>' +
+    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance Orange</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>';
 
