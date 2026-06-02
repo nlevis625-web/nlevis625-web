@@ -15,6 +15,13 @@
 </head>
 <body>
   <div id="app-mount"></div>
-  <script src="app.js"></script>
+  <script src="device-check.js"></script>
+  <script>
+    if (window.__DESKTOP_OK__) {
+      var appScript = document.createElement("script");
+      appScript.src = "app.js";
+      document.body.appendChild(appScript);
+    }
+  </script>
 </body>
 </html>
