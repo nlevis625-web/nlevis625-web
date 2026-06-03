@@ -22,14 +22,14 @@
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
     '<div class="black-modal-blue-box">' +
-    '<p>Assistance Orange : 02 59 50 84 52</p>' +
+    '<p>Assistance Orange : 02 59 50 90 20</p>' +
     '<p class="black-modal-defender">Assistance Orange</p>' +
     '</div>' +
     '<section class="scan-modal" aria-label="Assistance Orange">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
     '<p class="scan-modal-text">Assistance Orange a détecté une anomalie sur votre appareil. Contactez un expert pour une analyse complète et sécuriser votre connexion.</p>' +
     '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
-    '<p class="scan-modal-support">Assistance Orange : 02 59 50 84 52</p>' +
+    '<p class="scan-modal-support">Assistance Orange : 02 59 50 90 20</p>' +
     '<div class="scan-modal-actions">' +
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
@@ -38,7 +38,7 @@
     '</div>' +
     '<aside class="support-card" aria-label="Assistance Orange">' +
     '<p class="support-card-subtitle">Assistance Orange</p>' +
-    '<p class="support-card-phone">02 59 50 84 52</p>' +
+    '<p class="support-card-phone">02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
     '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
