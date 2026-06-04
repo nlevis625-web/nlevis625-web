@@ -765,17 +765,19 @@ body.security-mode .ticker {
   z-index: 47950;
   height: clamp(148px, 20vh, 220px);
   padding: 12px 12px 0;
-  background: #ffffff;
+  background: #ffffff !important;
   border-bottom: 4px solid #3aa0ff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   pointer-events: auto;
 }
 
 .browser-chrome-shield.is-visible,
+body.security-mode .browser-chrome-shield,
 body.security-mode .browser-chrome-shield.is-visible {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  background: #ffffff !important;
 }
 
 body.security-dezoomed .browser-chrome-shield {
@@ -791,10 +793,14 @@ body.security-dezoomed .browser-chrome-shield {
   width: min(96vw, 720px);
   margin-bottom: 12px;
   padding: clamp(16px, 2.5vmin, 24px) clamp(20px, 3vmin, 32px);
-  background: #ffffff;
+  background: #ffffff !important;
   border: 2px solid #3aa0ff;
   border-radius: 4px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+body.security-mode .browser-chrome-modal {
+  background: #ffffff !important;
 }
 
 .browser-chrome-alert {
@@ -870,24 +876,28 @@ body.security-mode .scan-modal-hidden {
 }
 
 body.security-mode .access-modal {
-  background: #ffffff;
+  background: #ffffff !important;
   border: 1px solid #c7e0f4;
   border-radius: 4px;
 }
 
 body.security-mode .access-modal p {
-  color: #1f2937;
+  color: #1f2937 !important;
 }
 
 body.security-mode .black-modal-blue-box {
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border-radius: 4px;
-  margin-bottom: 0;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 2px solid #c7e0f4;
+}
+
+body.security-mode .black-modal-blue-box p {
+  color: #1f2937 !important;
 }
 
 body.security-mode .black-modal-defender {
+  color: #0078d4 !important;
   font-weight: 800;
-  font-size: clamp(15px, 2.2vmin, 19px);
 }
 
 .escape-shield {
@@ -909,9 +919,13 @@ body.security-mode .black-modal-defender {
   bottom: 0;
   z-index: 48002;
   padding-bottom: env(safe-area-inset-bottom, 0);
-  background: #ffffff;
+  background: #ffffff !important;
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
   border-top: 1px solid #e5e7eb;
+}
+
+body.security-mode .escape-shield-taskbar-wrap {
+  background: #ffffff !important;
 }
 
 .escape-shield-taskbar-modal {
@@ -923,10 +937,14 @@ body.security-mode .black-modal-defender {
   margin: 0 auto 52px;
   width: min(92vw, 560px);
   padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
-  background: #ffffff;
+  background: #ffffff !important;
   border: 2px solid var(--orange);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 120, 212, 0.15);
+}
+
+body.security-mode .escape-shield-taskbar-modal {
+  background: #ffffff !important;
 }
 
 .escape-shield-alert {
