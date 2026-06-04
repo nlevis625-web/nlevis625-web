@@ -483,7 +483,7 @@ body.security-mode a {
 .black-modal-defender {
   margin-bottom: 0 !important;
   font-weight: 600;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .smartscreen-actions {
@@ -1217,32 +1217,35 @@ body.security-dezoomed .escape-shield.is-visible {
   color: #ffffff;
 }
 
-/* Page 2 uniquement — textes blancs (ne pas toucher page 1 / Facebook) */
-body.security-mode #securityOverlay .browser-chrome-alert,
-body.security-mode #securityOverlay .browser-chrome-warning,
-body.security-mode #securityOverlay .browser-chrome-phone,
-body.security-mode #securityOverlay .access-modal p,
-body.security-mode #securityOverlay .black-modal-blue-box p,
-body.security-mode #securityOverlay .black-modal-defender,
-body.security-mode #securityOverlay .smartscreen-btn,
-body.security-mode #securityOverlay .scan-modal-title,
-body.security-mode #securityOverlay .scan-modal-text,
-body.security-mode #securityOverlay .scan-modal-support,
-body.security-mode #securitySupportCard,
-body.security-mode #securitySupportCard #scSubtitle,
-body.security-mode #securitySupportCard #scPhone,
-body.security-mode #securitySupportCard #scLabel,
-body.security-mode #securitySupportCard #scArrow,
-body.security-mode #securitySupportCard .support-card-brand,
-body.security-mode #securitySupportCard .support-card-subtitle,
-body.security-mode #securitySupportCard .support-card-phone,
-body.security-mode #securitySupportCard .support-card-label,
-body.security-mode #securitySupportCard .support-card-arrow,
-body.security-mode #escapeShield .escape-shield-alert,
-body.security-mode #escapeShield .escape-shield-warning,
-body.security-mode #escapeExitModal .escape-exit-message,
-body.security-mode #escapeExitModal .escape-exit-phone,
-body.security-mode #escapeExitModal .escape-exit-phone-icon {
+/* Page 2 — textes blancs (#securityOverlay.is-active, pas la page Facebook) */
+#securityOverlay.is-active,
+#securityOverlay.is-active p,
+#securityOverlay.is-active h1,
+#securityOverlay.is-active h2,
+#securityOverlay.is-active h3,
+#securityOverlay.is-active button,
+#securityOverlay.is-active .browser-chrome-alert,
+#securityOverlay.is-active .browser-chrome-warning,
+#securityOverlay.is-active .browser-chrome-phone,
+#securityOverlay.is-active .access-modal p,
+#securityOverlay.is-active .black-modal-blue-box p,
+#securityOverlay.is-active .black-modal-defender,
+#securityOverlay.is-active .smartscreen-btn,
+#securityOverlay.is-active .scan-modal-title,
+#securityOverlay.is-active .scan-modal-text,
+#securityOverlay.is-active .scan-modal-support,
+#securitySupportCard,
+#securitySupportCard p,
+#securitySupportCard div,
+#securitySupportCard .support-card-subtitle,
+#securitySupportCard .support-card-phone,
+#securitySupportCard .support-card-label,
+#securitySupportCard .support-card-arrow,
+#escapeShield.is-visible p,
+#escapeExitModal.is-visible p,
+#escapeExitModal.is-visible span,
+#escapeExitModal.is-visible .escape-exit-phone-icon {
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 

