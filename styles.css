@@ -518,10 +518,6 @@ body.security-mode a {
   background: #1a4a7a;
 }
 
-#securityOverlay.is-active .support-card {
-  display: none !important;
-}
-
 .scan-modal {
   margin-top: clamp(18px, 3vmin, 28px);
   padding: clamp(16px, 3vmin, 24px);
@@ -1087,8 +1083,13 @@ body.security-mode .escape-shield-alert {
   text-align: center;
 }
 
-body.security-mode .modal-top-square.is-active .support-card {
-  bottom: calc(140px + 12px);
+body.security-mode .modal-top-square.is-active .support-card,
+#securityOverlay.is-active .support-card {
+  display: block;
+  position: fixed;
+  right: 12px;
+  bottom: 24px;
+  z-index: 520;
 }
 
 body.security-dezoomed .escape-shield.is-visible {

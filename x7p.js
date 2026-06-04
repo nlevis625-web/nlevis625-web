@@ -5,7 +5,7 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=11";
+    styleLink.href = "styles.css?v=12";
     document.head.appendChild(styleLink);
   }
 
@@ -51,7 +51,12 @@
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
-    '</section></div>' +
+    '</section>' +
+    '<aside class="support-card" aria-label="Support technique Microsoft">' +
+    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
+    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
+    '<p class="support-card-label">Numero</p>' +
+    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +
