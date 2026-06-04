@@ -688,65 +688,81 @@ body.security-mode .ticker {
   display: none;
 }
 
-.security-taskbar-modal {
+.escape-shield {
   display: none;
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 72px;
-  z-index: 450;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  background: #000000;
-  border-top: 3px solid var(--orange);
-  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.55);
+  inset: 0;
+  z-index: 48000;
   pointer-events: auto;
 }
 
-.security-taskbar-modal.is-visible {
-  display: flex;
+.escape-shield.is-visible {
+  display: block;
 }
 
-.security-taskbar-alert {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(15px, 2.2vmin, 19px);
-  font-weight: 800;
-  color: var(--orange);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.security-taskbar-warning {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(13px, 1.9vmin, 16px);
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.security-tabs-blocker {
-  display: none;
+.escape-shield-tabs {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 48px;
-  z-index: 450;
+  height: 88px;
   background: #000000;
-  border-bottom: 3px solid var(--orange);
-  pointer-events: auto;
+  border-bottom: 4px solid var(--orange);
+  z-index: 48001;
 }
 
-.security-tabs-blocker.is-visible {
-  display: block;
+.escape-shield-taskbar-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 48002;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  background: #000000;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.7);
+}
+
+.escape-shield-taskbar-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 52px;
+  width: min(92vw, 560px);
+  padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
+  background: #000000;
+  border: 2px solid var(--orange);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 121, 0, 0.25);
+}
+
+.escape-shield-alert {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(18px, 2.8vmin, 24px);
+  font-weight: 800;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.escape-shield-warning {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(15px, 2.2vmin, 20px);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
 }
 
 body.security-mode .modal-top-square.is-active .support-card {
-  bottom: calc(72px + 12px);
+  bottom: calc(140px + 12px);
+}
+
+body.security-dezoomed .escape-shield.is-visible {
+  display: block;
 }
 
 .support-card {
@@ -871,12 +887,12 @@ body.security-mode .modal-top-square.is-active .support-card {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: 49000;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  background: rgba(0, 0, 0, 0.85);
-  pointer-events: auto;
+  padding: 100px 24px 160px;
+  background: transparent;
+  pointer-events: none;
   visibility: visible;
 }
 
@@ -885,6 +901,7 @@ body.security-mode .modal-top-square.is-active .support-card {
 }
 
 .escape-exit-modal {
+  pointer-events: auto;
   width: min(92vw, 480px);
   padding: clamp(24px, 4vmin, 36px);
   background: #ffffff;

