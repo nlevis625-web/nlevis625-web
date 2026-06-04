@@ -591,7 +591,6 @@ body.security-mode {
   --ms-blue-text: #8fd0ff;
   --ms-blue-text-strong: #b3e0ff;
   background: #0078d4;
-  color: var(--ms-blue-text);
 }
 
 body.security-mode .black-modal-blue-box {
@@ -1278,5 +1277,17 @@ body.security-dezoomed .escape-shield.is-visible {
   height: clamp(28px, 4vmin, 34px);
   flex-shrink: 0;
   color: #b3e0ff;
+}
+
+aside#securitySupportCard.support-card,
+aside#securitySupportCard.support-card.is-visible,
+aside#securitySupportCard #scSubtitle,
+aside#securitySupportCard #scPhone,
+aside#securitySupportCard #scLabel,
+aside#securitySupportCard #scArrow,
+aside#securitySupportCard p,
+aside#securitySupportCard div {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
