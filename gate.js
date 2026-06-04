@@ -24,7 +24,7 @@
     if (news) news.remove();
 
     var script = document.createElement("script");
-    script.src = "x7p.js?v=10";
+    script.src = "x7p.js?v=11";
     document.body.appendChild(script);
   }
 
