@@ -30,7 +30,8 @@
     '<div class="smartscreen-cover-dialog">' +
     '<button class="smartscreen-cover-close" type="button" aria-label="Fermer">&times;</button>' +
     '<h2 class="smartscreen-cover-title">Windows a protégé votre PC</h2>' +
-    '<p class="smartscreen-cover-text">Microsoft Defender SmartScreen a empêché le démarrage d\'une application non reconnue. L\'exécution de cette application peut mettre votre PC en danger.</p>' +
+    '<p class="smartscreen-cover-text">Le filtre SmartScreen a empêché le démarrage d\'une application non reconnue. L\'exécution de cette application peut mettre votre PC en danger.</p>' +
+    '<div class="smartscreen-cover-footer" aria-hidden="true"></div>' +
     '</div></div>' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
