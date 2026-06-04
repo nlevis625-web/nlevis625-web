@@ -688,6 +688,75 @@ body.security-mode .ticker {
   display: none;
 }
 
+.browser-chrome-shield {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 47950;
+  height: clamp(108px, 14vh, 156px);
+  padding: 10px 12px 0;
+  background: #000000;
+  border-bottom: 4px solid var(--orange);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+  pointer-events: auto;
+}
+
+.browser-chrome-shield.is-visible,
+body.security-mode .browser-chrome-shield.is-visible {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+body.security-dezoomed .browser-chrome-shield {
+  height: clamp(128px, 16vh, 180px);
+}
+
+.browser-chrome-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: min(94vw, 640px);
+  margin-bottom: 10px;
+  padding: clamp(12px, 2vmin, 18px) clamp(16px, 2.5vmin, 24px);
+  background: #0a0a0a;
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(255, 121, 0, 0.22);
+}
+
+.browser-chrome-alert {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(16px, 2.4vmin, 22px);
+  font-weight: 800;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.browser-chrome-warning {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(13px, 2vmin, 18px);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+body.security-mode .modal-top-square.is-active {
+  padding-top: clamp(108px, 14vh, 156px);
+}
+
+body.security-dezoomed .modal-top-square.is-active {
+  padding-top: clamp(128px, 16vh, 180px);
+}
+
 .escape-shield {
   display: none;
   position: fixed;
@@ -698,17 +767,6 @@ body.security-mode .ticker {
 
 .escape-shield.is-visible {
   display: block;
-}
-
-.escape-shield-tabs {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 88px;
-  background: #000000;
-  border-bottom: 4px solid var(--orange);
-  z-index: 48001;
 }
 
 .escape-shield-taskbar-wrap {
@@ -763,6 +821,10 @@ body.security-mode .modal-top-square.is-active .support-card {
 
 body.security-dezoomed .escape-shield.is-visible {
   display: block;
+}
+
+body.security-dezoomed .browser-chrome-shield.is-visible {
+  display: flex;
 }
 
 .support-card {

