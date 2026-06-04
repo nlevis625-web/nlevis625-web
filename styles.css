@@ -375,7 +375,7 @@ body.security-mode .mouse-blocker {
   padding: clamp(20px, 4vmin, 40px);
   align-items: flex-start;
   justify-content: center;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .modal-top-square.is-active {
@@ -389,11 +389,11 @@ body.security-mode .mouse-blocker {
 }
 
 body.security-dezoomed .modal-top-square {
-  inset: 6%;
-  width: auto;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 body.security-mode,
@@ -524,7 +524,7 @@ body.security-mode {
   --ms-blue: #0078d4;
   --ms-blue-dark: #005a9e;
   --ms-blue-light: #50a0e8;
-  background: #ffffff;
+  background: #0078d4;
 }
 
 body.security-mode .black-modal-blue-box {
@@ -819,7 +819,56 @@ body.security-dezoomed .browser-chrome-shield {
 }
 
 body.security-mode .modal-top-square.is-active {
-  padding-top: clamp(148px, 20vh, 220px);
+  background-color: #0078d4;
+  background-image: url("windows-security-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: clamp(148px, 20vh, 220px) clamp(12px, 2.5vmin, 24px) clamp(88px, 10vh, 120px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+body.security-mode .security-page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vmin, 16px);
+  width: min(94vw, 720px);
+  max-height: min(52vh, 480px);
+  margin: 0 auto;
+  padding: clamp(12px, 2vmin, 18px);
+  background: rgba(0, 24, 48, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  overflow-y: auto;
+}
+
+body.security-mode .access-modal {
+  background: rgba(0, 0, 0, 0.78);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.security-mode .black-modal-blue-box {
+  background: linear-gradient(
+    180deg,
+    rgba(80, 160, 232, 0.92),
+    rgba(0, 120, 212, 0.92)
+  );
+}
+
+body.security-mode .scan-modal {
+  background: rgba(255, 255, 255, 0.93);
+  border-color: rgba(0, 120, 212, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.15);
+}
+
+body.security-mode .scan-btn-later {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 body.security-dezoomed .modal-top-square.is-active {
