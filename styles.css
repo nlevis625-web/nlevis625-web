@@ -606,9 +606,10 @@ body.security-mode .escape-exit-phone-icon {
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: #0078d4;
+  background: #1877f2;
 }
 
+.fb-page-logo svg,
 .orange-logo svg,
 .fb-logo svg {
   width: clamp(72px, 12vmin, 96px);

