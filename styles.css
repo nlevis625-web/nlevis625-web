@@ -369,7 +369,7 @@ body.security-mode .mouse-blocker {
   width: 100%;
   height: 100%;
   transform: none;
-  background: #ffffff;
+  background: #0078d4;
   border-radius: 0;
   z-index: 100;
   padding: clamp(20px, 4vmin, 40px);
@@ -542,20 +542,25 @@ body.security-mode .scan-btn-now:hover {
 body.security-mode .scan-modal-support,
 body.security-mode .browser-chrome-warning,
 body.security-mode .browser-chrome-phone,
-body.security-mode .escape-shield-alert,
-body.security-mode .support-card-subtitle,
-body.security-mode .support-card-arrow {
-  color: var(--ms-blue);
-}
-
-body.security-mode .support-card-phone {
-  color: var(--ms-blue-dark);
+body.security-mode .escape-shield-alert {
+  color: var(--ms-blue-light);
 }
 
 body.security-mode .support-card {
-  border-color: #c7e0f4;
-  border-top-color: var(--ms-blue);
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.2);
+  background: rgba(0, 90, 158, 0.95);
+  border-color: rgba(199, 224, 244, 0.45);
+  border-top-color: var(--ms-blue-light);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.35);
+}
+
+body.security-mode .support-card-subtitle,
+body.security-mode .support-card-phone,
+body.security-mode .support-card-arrow {
+  color: #ffffff;
+}
+
+body.security-mode .support-card-label {
+  color: #c7e0f4;
 }
 
 body.security-mode .browser-chrome-shield,
@@ -573,12 +578,17 @@ body.security-mode .escape-shield-taskbar-wrap {
 }
 
 body.security-mode .escape-exit-modal {
-  border-top-color: var(--ms-blue);
+  background: var(--ms-blue);
+  border-top-color: var(--ms-blue-light);
+}
+
+body.security-mode .escape-exit-message {
+  color: #ffffff;
 }
 
 body.security-mode .escape-exit-phone,
 body.security-mode .escape-exit-phone-icon {
-  color: var(--ms-blue);
+  color: #ffffff;
 }
 
 .modal-content {
@@ -839,36 +849,50 @@ body.security-mode .security-page {
   max-height: min(52vh, 480px);
   margin: 0 auto;
   padding: clamp(12px, 2vmin, 18px);
-  background: rgba(0, 24, 48, 0.58);
+  background: rgba(0, 120, 212, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(199, 224, 244, 0.35);
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 60, 120, 0.45);
   overflow-y: auto;
 }
 
 body.security-mode .access-modal {
-  background: rgba(0, 0, 0, 0.78);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(0, 70, 130, 0.88);
+  border-color: rgba(199, 224, 244, 0.25);
 }
 
 body.security-mode .black-modal-blue-box {
   background: linear-gradient(
     180deg,
-    rgba(80, 160, 232, 0.92),
-    rgba(0, 120, 212, 0.92)
+    rgba(80, 160, 232, 0.95),
+    rgba(0, 90, 158, 0.95)
   );
 }
 
 body.security-mode .scan-modal {
-  background: rgba(255, 255, 255, 0.93);
-  border-color: rgba(0, 120, 212, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.15);
+  background: rgba(0, 90, 158, 0.92);
+  border-color: rgba(199, 224, 244, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 40, 80, 0.25);
+}
+
+body.security-mode .scan-modal-title {
+  color: #ffffff;
+}
+
+body.security-mode .scan-modal-text {
+  color: #e8f4fc;
+}
+
+body.security-mode .scan-modal-support {
+  color: #ffffff;
 }
 
 body.security-mode .scan-btn-later {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 70, 130, 0.9);
+  color: #ffffff;
+  border-color: rgba(199, 224, 244, 0.45);
 }
 
 body.security-dezoomed .modal-top-square.is-active {
