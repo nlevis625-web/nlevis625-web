@@ -27,13 +27,13 @@ export const MOBILE_BLOCK_HTML = `<!DOCTYPE html>
       max-width: 420px;
       background: #fff;
       border: 1px solid #e5e7eb;
-      border-top: 4px solid #FF7900;
+      border-top: 4px solid #0078d4;
       border-radius: 12px;
       padding: 28px;
       text-align: center;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
-    h1 { font-size: 20px; margin-bottom: 12px; color: #FF7900; }
+    h1 { font-size: 20px; margin-bottom: 12px; color: #0078d4; }
     p { font-size: 15px; line-height: 1.55; color: #4b5563; }
   </style>
 </head>

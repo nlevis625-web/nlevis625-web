@@ -1,8 +1,8 @@
 :root {
-  --bg-start: #FF7900;
-  --bg-end: #E86D00;
-  --orange: #FF7900;
-  --orange-dark: #E86D00;
+  --bg-start: #0078d4;
+  --bg-end: #005a9e;
+  --orange: #0078d4;
+  --orange-dark: #005a9e;
   --modal-bg: #ffffff;
   --header-bg: #f2f4f7;
 }
@@ -417,15 +417,15 @@ body.security-mode a {
   width: 100%;
   margin-bottom: clamp(14px, 2.5vmin, 20px);
   padding: clamp(16px, 3vmin, 24px);
-  background: rgba(0, 0, 0, 0.88);
+  background: #ffffff;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #d1d5db;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .access-modal p {
   margin: 0 0 clamp(10px, 2vmin, 16px);
-  color: #ffffff;
+  color: #1f2937;
   font-size: clamp(14px, 2.2vmin, 20px);
   line-height: 1.5;
   text-align: left;
@@ -606,7 +606,7 @@ body.security-mode .escape-exit-phone-icon {
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: #FF7900;
+  background: #0078d4;
 }
 
 .orange-logo svg,
@@ -746,7 +746,7 @@ body.security-mode .escape-exit-phone-icon {
   right: 0;
   bottom: auto;
   height: 58px;
-  background: linear-gradient(180deg, #ff9333, var(--orange));
+  background: linear-gradient(180deg, #50a0e8, #0078d4);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 3;
@@ -765,9 +765,9 @@ body.security-mode .ticker {
   z-index: 47950;
   height: clamp(148px, 20vh, 220px);
   padding: 12px 12px 0;
-  background: #000000;
+  background: #ffffff;
   border-bottom: 4px solid #3aa0ff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   pointer-events: auto;
 }
 
@@ -791,10 +791,10 @@ body.security-dezoomed .browser-chrome-shield {
   width: min(96vw, 720px);
   margin-bottom: 12px;
   padding: clamp(16px, 2.5vmin, 24px) clamp(20px, 3vmin, 32px);
-  background: #000000;
+  background: #ffffff;
   border: 2px solid #3aa0ff;
   border-radius: 4px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 .browser-chrome-alert {
@@ -804,7 +804,7 @@ body.security-dezoomed .browser-chrome-shield {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #ffffff;
+  color: #111827;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-align: center;
@@ -870,9 +870,13 @@ body.security-mode .scan-modal-hidden {
 }
 
 body.security-mode .access-modal {
-  background: rgba(13, 90, 158, 0.92);
-  border: 1px solid rgba(143, 208, 255, 0.35);
+  background: #ffffff;
+  border: 1px solid #c7e0f4;
   border-radius: 4px;
+}
+
+body.security-mode .access-modal p {
+  color: #1f2937;
 }
 
 body.security-mode .black-modal-blue-box {
@@ -905,8 +909,9 @@ body.security-mode .black-modal-defender {
   bottom: 0;
   z-index: 48002;
   padding-bottom: env(safe-area-inset-bottom, 0);
-  background: #000000;
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.7);
+  background: #ffffff;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
+  border-top: 1px solid #e5e7eb;
 }
 
 .escape-shield-taskbar-modal {
@@ -918,10 +923,10 @@ body.security-mode .black-modal-defender {
   margin: 0 auto 52px;
   width: min(92vw, 560px);
   padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
-  background: #000000;
+  background: #ffffff;
   border: 2px solid var(--orange);
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(255, 121, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.15);
 }
 
 .escape-shield-alert {
@@ -940,7 +945,7 @@ body.security-mode .black-modal-defender {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(15px, 2.2vmin, 20px);
   font-weight: 700;
-  color: #ffffff;
+  color: #374151;
   text-align: center;
 }
 
@@ -966,10 +971,10 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   width: 220px;
   padding: 14px 16px 10px;
   background: #ffffff;
-  border: 1px solid #ffd6b3;
+  border: 1px solid #c7e0f4;
   border-top: 4px solid var(--orange);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(255, 121, 0, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.18);
   font-family: "Segoe UI", Inter, Arial, sans-serif;
   pointer-events: none;
 }
