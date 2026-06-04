@@ -623,16 +623,11 @@ body.security-mode .support-card {
 }
 
 body.security-mode .support-card-subtitle,
-body.security-mode .support-card-arrow {
-  color: #5eb3ff;
-}
-
-body.security-mode .support-card-phone {
-  color: var(--ms-blue-pale);
-}
-
-body.security-mode .support-card-label {
-  color: #c7e0f4;
+body.security-mode .support-card-arrow,
+body.security-mode .support-card-phone,
+body.security-mode .support-card-label,
+body.security-mode .support-card-brand {
+  color: #ffffff;
 }
 
 body.security-mode .browser-chrome-shield,
@@ -999,7 +994,7 @@ body.security-mode .scan-btn-later {
 }
 
 body.security-mode .support-card-brand {
-  color: #8fd0ff;
+  color: #ffffff;
 }
 
 body.security-mode .escape-exit-overlay.is-visible {
@@ -1095,6 +1090,18 @@ body.security-mode #securitySupportCard {
   opacity: 1 !important;
 }
 
+#securitySupportCard .support-card-subtitle,
+#securitySupportCard .support-card-phone,
+#securitySupportCard .support-card-label,
+#securitySupportCard .support-card-arrow,
+#securitySupportCard .support-card-brand,
+.support-card .support-card-subtitle,
+.support-card .support-card-phone,
+.support-card .support-card-label,
+.support-card .support-card-arrow {
+  color: #ffffff !important;
+}
+
 body.security-dezoomed .escape-shield.is-visible {
   display: block;
 }
@@ -1143,7 +1150,7 @@ body.security-dezoomed .escape-shield.is-visible {
 .support-card-brand {
   font-size: 16px;
   font-weight: 700;
-  color: #8fd0ff;
+  color: #ffffff;
   line-height: 1.2;
 }
 
@@ -1159,7 +1166,7 @@ body.security-dezoomed .escape-shield.is-visible {
   margin: 0 0 8px;
   font-size: 22px;
   font-weight: 800;
-  color: #8fd0ff;
+  color: #ffffff;
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.2;
@@ -1168,7 +1175,7 @@ body.security-dezoomed .escape-shield.is-visible {
 .support-card-label {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #8fd0ff;
+  color: #ffffff;
   text-align: center;
   line-height: 1.3;
 }

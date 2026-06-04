@@ -5,7 +5,7 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=13";
+    styleLink.href = "styles.css?v=14";
     document.head.appendChild(styleLink);
   }
 
@@ -196,6 +196,9 @@
     card.style.setProperty("right", "12px", "important");
     card.style.setProperty("bottom", "24px", "important");
     card.style.setProperty("z-index", "47900", "important");
+    card.querySelectorAll(".support-card-subtitle, .support-card-phone, .support-card-label, .support-card-arrow").forEach(function (node) {
+      node.style.setProperty("color", "#ffffff", "important");
+    });
   }
 
   function showSecurityPage() {
