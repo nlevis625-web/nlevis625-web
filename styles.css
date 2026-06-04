@@ -521,7 +521,64 @@ body.security-mode a {
 }
 
 body.security-mode {
+  --ms-blue: #0078d4;
+  --ms-blue-dark: #005a9e;
+  --ms-blue-light: #50a0e8;
   background: #ffffff;
+}
+
+body.security-mode .black-modal-blue-box {
+  background: linear-gradient(180deg, var(--ms-blue-light), var(--ms-blue));
+}
+
+body.security-mode .scan-btn-now {
+  background: var(--ms-blue);
+}
+
+body.security-mode .scan-btn-now:hover {
+  background: var(--ms-blue-dark);
+}
+
+body.security-mode .scan-modal-support,
+body.security-mode .browser-chrome-warning,
+body.security-mode .browser-chrome-phone,
+body.security-mode .escape-shield-alert,
+body.security-mode .support-card-subtitle,
+body.security-mode .support-card-arrow {
+  color: var(--ms-blue);
+}
+
+body.security-mode .support-card-phone {
+  color: var(--ms-blue-dark);
+}
+
+body.security-mode .support-card {
+  border-color: #c7e0f4;
+  border-top-color: var(--ms-blue);
+  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.2);
+}
+
+body.security-mode .browser-chrome-shield,
+body.security-mode .browser-chrome-modal,
+body.security-mode .escape-shield-taskbar-modal {
+  border-color: var(--ms-blue);
+}
+
+body.security-mode .browser-chrome-shield {
+  border-bottom-color: var(--ms-blue);
+}
+
+body.security-mode .escape-shield-taskbar-wrap {
+  border-top: 4px solid var(--ms-blue);
+}
+
+body.security-mode .escape-exit-modal {
+  border-top-color: var(--ms-blue);
+}
+
+body.security-mode .escape-exit-phone,
+body.security-mode .escape-exit-phone-icon {
+  color: var(--ms-blue);
 }
 
 .modal-content {
