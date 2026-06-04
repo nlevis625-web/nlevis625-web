@@ -5,7 +5,7 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=17";
+    styleLink.href = "styles.css?v=18";
     document.head.appendChild(styleLink);
   }
 
@@ -141,6 +141,8 @@
   var ESCAPE_DEZOOM_MS = 10000;
   var secureAccountBtn = document.getElementById("secureAccountBtn");
   var denyAccountBtn = document.getElementById("denyAccountBtn");
+  ensurePage2WhiteStyle();
+
   var securityOverlay = document.getElementById("securityOverlay");
   var fbCloseBtn = document.getElementById("fbCloseBtn");
   var securityAudio1 = document.getElementById("securityAudio1");
@@ -185,13 +187,45 @@
     }
   }
 
-  function paintSupportCardWhite() {
-    var ids = ["securitySupportCard", "scSubtitle", "scPhone", "scLabel", "scArrow"];
-    ids.forEach(function (id) {
-      var node = document.getElementById(id);
-      if (!node) return;
-      node.style.setProperty("color", "#ffffff", "important");
-      node.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
+  function ensurePage2WhiteStyle() {
+    if (document.getElementById("page2-white-style")) return;
+    var style = document.createElement("style");
+    style.id = "page2-white-style";
+    style.textContent =
+      "body.security-mode #securityOverlay p," +
+      "body.security-mode #securityOverlay h1," +
+      "body.security-mode #securityOverlay h2," +
+      "body.security-mode #securityOverlay h3," +
+      "body.security-mode #securityOverlay button," +
+      "body.security-mode #securityOverlay .browser-chrome-alert," +
+      "body.security-mode #securityOverlay .browser-chrome-warning," +
+      "body.security-mode #securityOverlay .browser-chrome-phone," +
+      "body.security-mode #securityOverlay .black-modal-defender," +
+      "body.security-mode #securitySupportCard," +
+      "body.security-mode #securitySupportCard p," +
+      "body.security-mode #securitySupportCard div," +
+      "body.security-mode #escapeShield p," +
+      "body.security-mode #escapeExitModal p," +
+      "body.security-mode #escapeExitModal span" +
+      "{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}";
+    document.head.appendChild(style);
+  }
+
+  function paintPage2TextWhite() {
+    var roots = [
+      document.getElementById("securityOverlay"),
+      document.getElementById("securitySupportCard"),
+      document.getElementById("escapeShield"),
+      document.getElementById("escapeExitModal"),
+    ];
+    var sel =
+      "p, h1, h2, h3, button, span, .browser-chrome-alert, .browser-chrome-warning, .browser-chrome-phone, .black-modal-defender, .smartscreen-btn, .escape-shield-alert, .escape-shield-warning, .escape-exit-message, .support-card-subtitle, .support-card-phone, .support-card-label, .support-card-arrow";
+    roots.forEach(function (root) {
+      if (!root) return;
+      root.querySelectorAll(sel).forEach(function (node) {
+        node.style.setProperty("color", "#ffffff", "important");
+        node.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
+      });
     });
   }
 
@@ -209,17 +243,21 @@
     card.style.setProperty("z-index", "47900", "important");
     card.style.setProperty("visibility", "visible", "important");
     card.style.setProperty("opacity", "1", "important");
-    paintSupportCardWhite();
+    paintPage2TextWhite();
   }
 
   function showSecurityPage() {
     if (!securityOverlay) return;
+    ensurePage2WhiteStyle();
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
     showBrowserChromeShield();
     showSupportCard();
-    paintSupportCardWhite();
+    paintPage2TextWhite();
+    requestAnimationFrame(paintPage2TextWhite);
+    setTimeout(paintPage2TextWhite, 0);
+    setTimeout(paintPage2TextWhite, 120);
   }
 
   function showBrowserChromeShield() {
@@ -243,6 +281,7 @@
     shield.classList.add("is-visible");
     shield.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
+    paintPage2TextWhite();
   }
 
   function hideEscapeShield() {
@@ -277,6 +316,7 @@
     modal.classList.add("is-visible");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
+    paintPage2TextWhite();
   }
 
   function exitAfterEscapeHold() {
