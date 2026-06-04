@@ -387,8 +387,7 @@ body.security-mode .mouse-blocker {
   gap: clamp(16px, 2.5vmin, 24px);
   padding: clamp(20px, 3vmin, 32px);
   padding-bottom: clamp(32px, 4vh, 48px);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
   justify-content: flex-start;
   cursor: none;
   background-color: #1a5a9e;
@@ -1084,12 +1083,16 @@ body.security-mode .escape-shield-alert {
 }
 
 body.security-mode .modal-top-square.is-active .support-card,
-#securityOverlay.is-active .support-card {
-  display: block;
-  position: fixed;
-  right: 12px;
-  bottom: 24px;
-  z-index: 520;
+#securityOverlay.is-active .support-card,
+#securitySupportCard.is-visible,
+body.security-mode #securitySupportCard {
+  display: block !important;
+  position: fixed !important;
+  right: 12px !important;
+  bottom: 24px !important;
+  z-index: 47900 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 body.security-dezoomed .escape-shield.is-visible {
