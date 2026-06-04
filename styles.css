@@ -801,3 +801,55 @@ body.security-mode {
     transform: translateX(-130%);
   }
 }
+
+.escape-exit-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.escape-exit-overlay.is-visible {
+  display: flex;
+}
+
+.escape-exit-modal {
+  width: min(92vw, 480px);
+  padding: clamp(24px, 4vmin, 36px);
+  background: #ffffff;
+  border-radius: 14px;
+  border-top: 5px solid var(--orange);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.escape-exit-message {
+  margin: 0 0 clamp(20px, 3vmin, 28px);
+  font-size: clamp(16px, 2.4vmin, 20px);
+  line-height: 1.5;
+  font-weight: 600;
+  color: #111827;
+}
+
+.escape-exit-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  font-size: clamp(20px, 3vmin, 26px);
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+
+.escape-exit-phone-icon {
+  width: clamp(28px, 4vmin, 34px);
+  height: clamp(28px, 4vmin, 34px);
+  flex-shrink: 0;
+  color: var(--orange);
+}

