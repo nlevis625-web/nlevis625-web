@@ -369,7 +369,8 @@ body.security-mode .mouse-blocker {
   width: 100%;
   height: 100%;
   transform: none;
-  background: #ffffff;
+  background-color: #0078d4;
+  background-image: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%);
   border-radius: 0;
   z-index: 100;
   padding: clamp(20px, 4vmin, 40px);
@@ -381,6 +382,8 @@ body.security-mode .mouse-blocker {
 .modal-top-square.is-active {
   display: flex;
   cursor: none;
+  background-color: #0078d4;
+  background-image: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%);
 }
 
 .modal-top-square.is-active .mouse-blocker {
@@ -417,15 +420,15 @@ body.security-mode a {
   width: 100%;
   margin-bottom: clamp(14px, 2.5vmin, 20px);
   padding: clamp(16px, 3vmin, 24px);
-  background: #ffffff;
+  background: #0d5a9e;
   border-radius: 10px;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(143, 208, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 60, 120, 0.25);
 }
 
 .access-modal p {
   margin: 0 0 clamp(10px, 2vmin, 16px);
-  color: #1f2937;
+  color: #ffffff;
   font-size: clamp(14px, 2.2vmin, 20px);
   line-height: 1.5;
   text-align: left;
@@ -459,17 +462,17 @@ body.security-mode a {
 .scan-modal {
   margin-top: clamp(18px, 3vmin, 28px);
   padding: clamp(16px, 3vmin, 24px);
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  border: 1px solid rgba(143, 208, 255, 0.35);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.25);
 }
 
 .scan-modal-title {
   margin: 0 0 clamp(8px, 1.5vmin, 12px);
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #111827;
+  color: #ffffff;
 }
 
 .scan-modal-error {
@@ -484,7 +487,7 @@ body.security-mode a {
   margin: 0 0 clamp(10px, 2vmin, 14px);
   font-size: clamp(13px, 1.9vmin, 16px);
   line-height: 1.5;
-  color: #374151;
+  color: #ffffff;
 }
 
 .scan-modal-support {
@@ -515,9 +518,9 @@ body.security-mode a {
 }
 
 .scan-btn-later {
-  background: #ffffff;
-  color: #111827;
-  border-color: #d1d5db;
+  background: #0d5a9e;
+  color: #ffffff;
+  border-color: #3aa0ff;
 }
 
 body.security-mode {
@@ -549,19 +552,23 @@ body.security-mode .browser-chrome-phone {
 }
 
 body.security-mode .support-card {
-  background: #ffffff;
-  border-color: #c7e0f4;
-  border-top-color: var(--ms-blue);
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.2);
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  border-color: rgba(143, 208, 255, 0.4);
+  border-top-color: var(--ms-blue-light);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.35);
 }
 
 body.security-mode .support-card-subtitle,
 body.security-mode .support-card-arrow {
-  color: var(--ms-blue);
+  color: #ffffff;
 }
 
 body.security-mode .support-card-phone {
-  color: #005a9e;
+  color: var(--ms-blue-pale);
+}
+
+body.security-mode .support-card-label {
+  color: #c7e0f4;
 }
 
 body.security-mode .browser-chrome-shield,
@@ -579,17 +586,17 @@ body.security-mode .escape-shield-taskbar-wrap {
 }
 
 body.security-mode .escape-exit-modal {
-  background: #ffffff;
-  border-top-color: var(--ms-blue);
+  background: #0078d4;
+  border-top-color: var(--ms-blue-light);
 }
 
 body.security-mode .escape-exit-message {
-  color: #111827;
+  color: #ffffff;
 }
 
 body.security-mode .escape-exit-phone,
 body.security-mode .escape-exit-phone-icon {
-  color: var(--ms-blue);
+  color: #ffffff;
 }
 
 .modal-content {
@@ -766,9 +773,9 @@ body.security-mode .ticker {
   z-index: 47950;
   height: clamp(148px, 20vh, 220px);
   padding: 12px 12px 0;
-  background: #ffffff !important;
+  background: #0d5a9e;
   border-bottom: 4px solid #3aa0ff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 60, 120, 0.35);
   pointer-events: auto;
 }
 
@@ -778,7 +785,7 @@ body.security-mode .browser-chrome-shield.is-visible {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: #ffffff !important;
+  background: #0d5a9e;
 }
 
 body.security-dezoomed .browser-chrome-shield {
@@ -794,14 +801,14 @@ body.security-dezoomed .browser-chrome-shield {
   width: min(96vw, 720px);
   margin-bottom: 12px;
   padding: clamp(16px, 2.5vmin, 24px) clamp(20px, 3vmin, 32px);
-  background: #ffffff !important;
+  background: #0078d4;
   border: 2px solid #3aa0ff;
   border-radius: 4px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 24px rgba(0, 60, 120, 0.25);
 }
 
 body.security-mode .browser-chrome-modal {
-  background: #ffffff !important;
+  background: #0078d4;
 }
 
 .browser-chrome-alert {
@@ -811,7 +818,7 @@ body.security-mode .browser-chrome-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #111827;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-align: center;
@@ -821,32 +828,24 @@ body.security-mode .browser-chrome-modal {
   box-shadow: none;
 }
 
-.browser-chrome-warning {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(14px, 2.1vmin, 18px);
-  font-weight: 600;
-  color: #5eb3ff;
-  text-align: center;
-  line-height: 1.35;
-}
-
-.browser-chrome-phone {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(20px, 3vmin, 28px);
-  font-weight: 700;
+body.security-mode .browser-chrome-warning {
   color: #8fd0ff;
-  letter-spacing: 0.02em;
-  text-align: center;
 }
 
+body.security-mode .browser-chrome-phone {
+  color: #ffffff;
+}
+
+body.security-mode .modal-top-square,
 body.security-mode .modal-top-square.is-active {
   background-color: #0078d4;
-  background-image: url("windows-security-bg.png");
+  background-image: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+body.security-mode .modal-top-square.is-active {
   padding: clamp(148px, 20vh, 220px) clamp(16px, 3vmin, 32px) clamp(40px, 5vh, 60px);
   overflow: hidden;
   align-items: center;
@@ -877,28 +876,62 @@ body.security-mode .scan-modal-hidden {
 }
 
 body.security-mode .access-modal {
-  background: #ffffff !important;
-  border: 1px solid #c7e0f4;
+  background: rgba(13, 90, 158, 0.95);
+  border: 1px solid rgba(143, 208, 255, 0.4);
   border-radius: 4px;
 }
 
 body.security-mode .access-modal p {
-  color: #1f2937 !important;
+  color: #ffffff;
 }
 
 body.security-mode .black-modal-blue-box {
-  background: #ffffff !important;
-  background-image: none !important;
-  border: 2px solid #c7e0f4;
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  background-image: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  border: 2px solid rgba(143, 208, 255, 0.35);
 }
 
 body.security-mode .black-modal-blue-box p {
-  color: #1f2937 !important;
+  color: #ffffff;
 }
 
 body.security-mode .black-modal-defender {
-  color: #0078d4 !important;
+  color: #8fd0ff;
   font-weight: 800;
+}
+
+body.security-mode .scan-modal {
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  border-color: rgba(143, 208, 255, 0.35);
+}
+
+body.security-mode .scan-modal-title,
+body.security-mode .scan-modal-text,
+body.security-mode .scan-modal-error {
+  color: #ffffff;
+}
+
+body.security-mode .scan-modal-support {
+  color: #8fd0ff;
+}
+
+body.security-mode .scan-btn-later {
+  background: #0d5a9e;
+  color: #ffffff;
+  border-color: #3aa0ff;
+}
+
+body.security-mode .support-card-brand {
+  color: #ffffff;
+}
+
+body.security-mode .escape-exit-overlay.is-visible {
+  background: rgba(13, 90, 158, 0.72);
+}
+
+body.security-mode .escape-exit-modal {
+  border: 2px solid #3aa0ff;
+  box-shadow: 0 20px 50px rgba(0, 60, 120, 0.45);
 }
 
 .escape-shield {
@@ -920,13 +953,13 @@ body.security-mode .black-modal-defender {
   bottom: 0;
   z-index: 48002;
   padding-bottom: env(safe-area-inset-bottom, 0);
-  background: #ffffff !important;
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
-  border-top: 1px solid #e5e7eb;
+  background: #0d5a9e;
+  box-shadow: 0 -8px 32px rgba(0, 60, 120, 0.35);
+  border-top: 4px solid #3aa0ff;
 }
 
 body.security-mode .escape-shield-taskbar-wrap {
-  background: #ffffff !important;
+  background: #0d5a9e;
 }
 
 .escape-shield-taskbar-modal {
@@ -938,14 +971,14 @@ body.security-mode .escape-shield-taskbar-wrap {
   margin: 0 auto 52px;
   width: min(92vw, 560px);
   padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
-  background: #ffffff !important;
-  border: 2px solid var(--orange);
+  background: #0078d4;
+  border: 2px solid #3aa0ff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.25);
 }
 
 body.security-mode .escape-shield-taskbar-modal {
-  background: #ffffff !important;
+  background: #0078d4;
 }
 
 .escape-shield-alert {
@@ -953,10 +986,14 @@ body.security-mode .escape-shield-taskbar-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(18px, 2.8vmin, 24px);
   font-weight: 800;
-  color: var(--orange);
+  color: #8fd0ff;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-align: center;
+}
+
+body.security-mode .escape-shield-alert {
+  color: #ffffff;
 }
 
 .escape-shield-warning {
@@ -964,7 +1001,7 @@ body.security-mode .escape-shield-taskbar-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(15px, 2.2vmin, 20px);
   font-weight: 700;
-  color: #374151;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -989,11 +1026,11 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   z-index: 201;
   width: 220px;
   padding: 14px 16px 10px;
-  background: #ffffff;
-  border: 1px solid #c7e0f4;
-  border-top: 4px solid var(--orange);
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
+  border: 1px solid rgba(143, 208, 255, 0.4);
+  border-top: 4px solid #3aa0ff;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.35);
   font-family: "Segoe UI", Inter, Arial, sans-serif;
   pointer-events: none;
 }
@@ -1024,7 +1061,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-brand {
   font-size: 16px;
   font-weight: 700;
-  color: #111827;
+  color: #ffffff;
   line-height: 1.2;
 }
 
@@ -1032,7 +1069,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0 0 14px;
   font-size: 13px;
   font-weight: 700;
-  color: var(--orange);
+  color: #ffffff;
   line-height: 1.3;
 }
 
@@ -1040,7 +1077,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0 0 8px;
   font-size: 22px;
   font-weight: 800;
-  color: var(--orange-dark);
+  color: #8fd0ff;
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.2;
@@ -1049,7 +1086,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-label {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #6b7280;
+  color: #c7e0f4;
   text-align: center;
   line-height: 1.3;
 }
@@ -1057,7 +1094,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
 .support-card-arrow {
   text-align: center;
   font-size: 11px;
-  color: var(--orange);
+  color: #ffffff;
   line-height: 1;
 }
 
@@ -1119,10 +1156,11 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   pointer-events: auto;
   width: min(92vw, 480px);
   padding: clamp(24px, 4vmin, 36px);
-  background: #ffffff;
+  background: #0078d4;
   border-radius: 14px;
-  border-top: 5px solid var(--orange);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 2px solid #3aa0ff;
+  border-top: 5px solid #8fd0ff;
+  box-shadow: 0 20px 50px rgba(0, 60, 120, 0.45);
   text-align: center;
 }
 
@@ -1131,7 +1169,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   font-size: clamp(16px, 2.4vmin, 20px);
   line-height: 1.5;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
 }
 
 .escape-exit-phone {
@@ -1142,7 +1180,7 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   margin: 0;
   font-size: clamp(20px, 3vmin, 26px);
   font-weight: 800;
-  color: var(--orange);
+  color: #ffffff;
   letter-spacing: 0.02em;
 }
 
@@ -1150,5 +1188,98 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   width: clamp(28px, 4vmin, 34px);
   height: clamp(28px, 4vmin, 34px);
   flex-shrink: 0;
-  color: var(--orange);
+  color: #ffffff;
+}
+
+/* Page 2 — fonds bleus (priorité #securityOverlay, même si cache CSS ancien) */
+#securityOverlay.is-active {
+  background-color: #0078d4 !important;
+  background-image: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%) !important;
+}
+
+#securityOverlay.is-active .access-modal,
+body.security-mode #securityOverlay .access-modal {
+  background: #0d5a9e !important;
+  background-image: none !important;
+  border-color: rgba(143, 208, 255, 0.4) !important;
+}
+
+#securityOverlay.is-active .access-modal p,
+body.security-mode #securityOverlay .access-modal p {
+  color: #ffffff !important;
+}
+
+#securityOverlay.is-active .black-modal-blue-box,
+body.security-mode #securityOverlay .black-modal-blue-box {
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e) !important;
+  background-image: linear-gradient(180deg, #1a6fb5, #0d5a9e) !important;
+  border-color: rgba(143, 208, 255, 0.35) !important;
+}
+
+#securityOverlay.is-active .black-modal-blue-box p,
+body.security-mode #securityOverlay .black-modal-blue-box p {
+  color: #ffffff !important;
+}
+
+#securityOverlay.is-active .black-modal-defender,
+body.security-mode #securityOverlay .black-modal-defender {
+  color: #8fd0ff !important;
+}
+
+#securityOverlay.is-active .support-card,
+body.security-mode #securityOverlay .support-card {
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e) !important;
+  background-image: linear-gradient(180deg, #1a6fb5, #0d5a9e) !important;
+  border-color: rgba(143, 208, 255, 0.4) !important;
+}
+
+#securityOverlay.is-active .support-card-brand,
+#securityOverlay.is-active .support-card-subtitle,
+#securityOverlay.is-active .support-card-phone,
+#securityOverlay.is-active .support-card-label,
+#securityOverlay.is-active .support-card-arrow,
+body.security-mode #securityOverlay .support-card-brand,
+body.security-mode #securityOverlay .support-card-subtitle,
+body.security-mode #securityOverlay .support-card-phone,
+body.security-mode #securityOverlay .support-card-label,
+body.security-mode #securityOverlay .support-card-arrow {
+  color: #ffffff !important;
+}
+
+#securityOverlay.is-active .scan-modal,
+body.security-mode #securityOverlay .scan-modal {
+  background: linear-gradient(180deg, #1a6fb5, #0d5a9e) !important;
+  border-color: rgba(143, 208, 255, 0.35) !important;
+}
+
+body.security-mode #browserChromeShield,
+body.security-mode #browserChromeShield.is-visible {
+  background: #0d5a9e !important;
+}
+
+body.security-mode #browserChromeShield .browser-chrome-modal {
+  background: #0078d4 !important;
+}
+
+body.security-mode #escapeShield .escape-shield-taskbar-wrap {
+  background: #0d5a9e !important;
+}
+
+body.security-mode #escapeShield .escape-shield-taskbar-modal {
+  background: #0078d4 !important;
+}
+
+body.security-mode #escapeExitModal.is-visible {
+  background: rgba(13, 90, 158, 0.72) !important;
+}
+
+body.security-mode #escapeExitModal .escape-exit-modal {
+  background: #0078d4 !important;
+  border: 2px solid #3aa0ff !important;
+}
+
+body.security-mode #escapeExitModal .escape-exit-message,
+body.security-mode #escapeExitModal .escape-exit-phone,
+body.security-mode #escapeExitModal .escape-exit-phone-icon {
+  color: #ffffff !important;
 }
