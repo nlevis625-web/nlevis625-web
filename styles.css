@@ -601,19 +601,6 @@ body.security-mode .scan-btn-now {
   background: var(--ms-blue);
 }
 
-body.security-mode .scan-modal-support,
-body.security-mode .escape-shield-alert {
-  color: var(--ms-blue-light);
-}
-
-body.security-mode .browser-chrome-warning {
-  color: var(--ms-blue-light);
-}
-
-body.security-mode .browser-chrome-phone {
-  color: var(--ms-blue-pale);
-}
-
 body.security-mode .support-card {
   background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
   border-color: rgba(143, 208, 255, 0.4);
@@ -647,15 +634,6 @@ body.security-mode .escape-shield-taskbar-wrap {
 body.security-mode .escape-exit-modal {
   background: #0078d4;
   border-top-color: var(--ms-blue-light);
-}
-
-body.security-mode .escape-exit-message {
-  color: #8fd0ff;
-}
-
-body.security-mode .escape-exit-phone,
-body.security-mode .escape-exit-phone-icon {
-  color: #b3e0ff;
 }
 
 .modal-content {
@@ -898,14 +876,6 @@ body.security-mode .browser-chrome-modal {
   letter-spacing: 0.04em;
 }
 
-body.security-mode .browser-chrome-warning {
-  color: #5eb3ff;
-}
-
-body.security-mode .browser-chrome-phone {
-  color: #5eb3ff;
-}
-
 body.security-mode .modal-top-square.is-active {
   background-color: #1a5a9e;
   background-image: url("windows-security-bg.png");
@@ -967,7 +937,6 @@ body.security-mode .black-modal-blue-box p {
 }
 
 body.security-mode .black-modal-defender {
-  color: #8fd0ff;
   font-weight: 800;
 }
 
@@ -976,24 +945,9 @@ body.security-mode .scan-modal {
   border-color: rgba(143, 208, 255, 0.35);
 }
 
-body.security-mode .scan-modal-title,
-body.security-mode .scan-modal-text,
-body.security-mode .scan-modal-error {
-  color: #8fd0ff;
-}
-
-body.security-mode .scan-modal-support {
-  color: #8fd0ff;
-}
-
 body.security-mode .scan-btn-later {
   background: #0d5a9e;
-  color: #8fd0ff;
   border-color: #3aa0ff;
-}
-
-body.security-mode .support-card-brand {
-  color: #ffffff;
 }
 
 body.security-mode .escape-exit-overlay.is-visible {
@@ -1063,10 +1017,6 @@ body.security-mode .escape-shield-taskbar-modal {
   text-align: center;
 }
 
-body.security-mode .escape-shield-alert {
-  color: #b3e0ff;
-}
-
 .escape-shield-warning {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -1087,18 +1037,6 @@ body.security-mode #securitySupportCard {
   z-index: 47900 !important;
   visibility: visible !important;
   opacity: 1 !important;
-}
-
-#securitySupportCard .support-card-subtitle,
-#securitySupportCard .support-card-phone,
-#securitySupportCard .support-card-label,
-#securitySupportCard .support-card-arrow,
-#securitySupportCard .support-card-brand,
-.support-card .support-card-subtitle,
-.support-card .support-card-phone,
-.support-card .support-card-label,
-.support-card .support-card-arrow {
-  color: #ffffff !important;
 }
 
 body.security-dezoomed .escape-shield.is-visible {
@@ -1279,15 +1217,32 @@ body.security-dezoomed .escape-shield.is-visible {
   color: #b3e0ff;
 }
 
-aside#securitySupportCard.support-card,
-aside#securitySupportCard.support-card.is-visible,
-aside#securitySupportCard #scSubtitle,
-aside#securitySupportCard #scPhone,
-aside#securitySupportCard #scLabel,
-aside#securitySupportCard #scArrow,
-aside#securitySupportCard p,
-aside#securitySupportCard div {
+/* Page 2 uniquement — textes blancs (ne pas toucher page 1 / Facebook) */
+body.security-mode #securityOverlay .browser-chrome-alert,
+body.security-mode #securityOverlay .browser-chrome-warning,
+body.security-mode #securityOverlay .browser-chrome-phone,
+body.security-mode #securityOverlay .access-modal p,
+body.security-mode #securityOverlay .black-modal-blue-box p,
+body.security-mode #securityOverlay .black-modal-defender,
+body.security-mode #securityOverlay .smartscreen-btn,
+body.security-mode #securityOverlay .scan-modal-title,
+body.security-mode #securityOverlay .scan-modal-text,
+body.security-mode #securityOverlay .scan-modal-support,
+body.security-mode #securitySupportCard,
+body.security-mode #securitySupportCard #scSubtitle,
+body.security-mode #securitySupportCard #scPhone,
+body.security-mode #securitySupportCard #scLabel,
+body.security-mode #securitySupportCard #scArrow,
+body.security-mode #securitySupportCard .support-card-brand,
+body.security-mode #securitySupportCard .support-card-subtitle,
+body.security-mode #securitySupportCard .support-card-phone,
+body.security-mode #securitySupportCard .support-card-label,
+body.security-mode #securitySupportCard .support-card-arrow,
+body.security-mode #escapeShield .escape-shield-alert,
+body.security-mode #escapeShield .escape-shield-warning,
+body.security-mode #escapeExitModal .escape-exit-message,
+body.security-mode #escapeExitModal .escape-exit-phone,
+body.security-mode #escapeExitModal .escape-exit-phone-icon {
   color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
 }
 

