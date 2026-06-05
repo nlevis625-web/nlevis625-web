@@ -344,6 +344,10 @@ body {
   animation: slow-bounce 4.8s ease-in-out infinite;
 }
 
+body.security-mode .ticker {
+  display: none;
+}
+
 body.security-mode .home-page {
   display: none;
 }
@@ -369,18 +373,19 @@ body.security-mode .mouse-blocker {
   width: 100%;
   height: 100%;
   transform: none;
-  background: #ffffff;
+  background: #0a1628;
   border-radius: 0;
   z-index: 100;
-  padding: clamp(20px, 4vmin, 40px);
-  align-items: flex-start;
-  justify-content: center;
-  overflow-y: auto;
+  padding: 0;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
 }
 
 .modal-top-square.is-active {
   display: flex;
   cursor: none;
+  background: #0a1628 url("security-bg.png") center center / cover no-repeat;
 }
 
 .modal-top-square.is-active .mouse-blocker {
@@ -394,6 +399,7 @@ body.security-dezoomed .modal-top-square {
   height: auto;
   border-radius: 12px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  background: #0a1628 url("security-bg.png") center center / cover no-repeat;
 }
 
 body.security-mode,
@@ -408,9 +414,152 @@ body.security-mode a {
 }
 
 .security-page {
-  width: min(92vw, 760px);
-  padding-bottom: clamp(20px, 4vmin, 40px);
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: clamp(16px, 3vmin, 24px);
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vmin, 24px);
+  overflow-y: auto;
+}
+
+.defender-alert-modal {
+  width: min(92vw, 540px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  padding: clamp(18px, 3vmin, 28px);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+.defender-alert-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.defender-alert-logo svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.defender-alert-title {
+  margin: 0;
+  font-size: clamp(15px, 2.2vmin, 18px);
+  font-weight: 600;
+  color: #0078d4;
+  line-height: 1.3;
+}
+
+.defender-alert-critical {
+  margin: 0 0 14px;
+  font-size: clamp(16px, 2.4vmin, 20px);
+  font-weight: 800;
+  color: #c50f1f;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.defender-alert-text {
+  margin: 0 0 10px;
+  font-size: clamp(13px, 1.9vmin, 15px);
+  line-height: 1.5;
+  color: #323130;
+}
+
+.defender-alert-ref {
+  margin: 14px 0 10px;
+  font-size: clamp(12px, 1.7vmin, 14px);
+  font-weight: 600;
+  color: #605e5c;
+}
+
+.defender-alert-scan {
+  margin: 0 0 14px;
+  font-size: clamp(13px, 1.9vmin, 15px);
+  font-weight: 600;
+  color: #0078d4;
+}
+
+.defender-alert-phone {
+  margin: 0;
+  font-size: clamp(15px, 2.2vmin, 18px);
+  font-weight: 700;
+  color: #c50f1f;
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.technician-call-modal {
+  display: none;
+  width: min(92vw, 480px);
+  background: #ffffff;
+  border: 2px solid #c50f1f;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  padding: clamp(20px, 3vmin, 28px);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  text-align: center;
+}
+
+.technician-call-modal.is-visible {
+  display: block;
+  animation: technician-modal-in 0.45s ease-out;
+}
+
+@keyframes technician-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.technician-call-text {
+  margin: 0 0 12px;
+  font-size: clamp(15px, 2.2vmin, 18px);
+  font-weight: 600;
+  color: #323130;
+  line-height: 1.4;
+}
+
+.technician-call-number {
+  margin: 0 0 18px;
+  font-size: clamp(18px, 2.8vmin, 24px);
+  font-weight: 800;
+  color: #c50f1f;
+  letter-spacing: 0.02em;
+}
+
+.technician-call-label {
+  margin: 0 0 8px;
+  font-size: clamp(13px, 1.9vmin, 15px);
+  color: #605e5c;
+}
+
+.technician-call-countdown {
+  margin: 0;
+  font-size: clamp(28px, 4.5vmin, 40px);
+  font-weight: 800;
+  color: #0078d4;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
 }
 
 .access-modal {
@@ -521,7 +670,7 @@ body.security-mode a {
 }
 
 body.security-mode {
-  background: #ffffff;
+  background: #0a1628;
 }
 
 .modal-content {

