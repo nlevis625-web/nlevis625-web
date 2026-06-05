@@ -339,6 +339,7 @@ body {
   flex-direction: column;
   background: var(--modal-bg);
   border-radius: 12px;
+  border-top: 4px solid var(--orange-brand);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   overflow: hidden;
   position: relative;
@@ -606,34 +607,13 @@ body.security-mode .escape-exit-phone-icon {
   gap: clamp(10px, 2vmin, 16px);
 }
 
-.home-page .modal {
-  border-top: 4px solid var(--orange-brand);
-}
-
-.home-page .fb-submodal-header {
-  background: var(--orange-brand);
-}
-
-.home-page .modal-btn-allow {
-  background: var(--orange-brand);
-}
-
-.home-page .modal-btn-deny {
-  color: var(--orange-brand);
-  border-color: var(--orange-brand);
-}
-
-.home-page .ticker {
-  background: linear-gradient(180deg, #ff9333, var(--orange-brand));
-}
-
 .fb-submodal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: #0078d4;
+  background: var(--orange-brand);
 }
 
 .orange-logo svg,
@@ -752,14 +732,14 @@ body.security-mode .escape-exit-phone-icon {
 }
 
 .modal-btn-allow {
-  background: var(--orange);
+  background: var(--orange-brand);
   color: #ffffff;
 }
 
 .modal-btn-deny {
   background: #ffffff;
-  color: var(--orange);
-  border-color: var(--orange);
+  color: var(--orange-brand);
+  border-color: var(--orange-brand);
 }
 
 .modal-btn:active {
@@ -773,7 +753,7 @@ body.security-mode .escape-exit-phone-icon {
   right: 0;
   bottom: auto;
   height: 58px;
-  background: linear-gradient(180deg, #50a0e8, #0078d4);
+  background: linear-gradient(180deg, #ff9333, var(--orange-brand));
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 3;

