@@ -1,10 +1,8 @@
 :root {
-  --bg-start: #0078d4;
-  --bg-end: #005a9e;
-  --orange: #0078d4;
-  --orange-dark: #005a9e;
-  --orange-brand: #ff7900;
-  --orange-brand-dark: #e86d00;
+  --bg-start: #FF7900;
+  --bg-end: #E86D00;
+  --orange: #FF7900;
+  --orange-dark: #E86D00;
   --modal-bg: #ffffff;
   --header-bg: #f2f4f7;
 }
@@ -339,7 +337,6 @@ body {
   flex-direction: column;
   background: var(--modal-bg);
   border-radius: 12px;
-  border-top: 4px solid var(--orange-brand);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   overflow: hidden;
   position: relative;
@@ -378,15 +375,7 @@ body.security-mode .mouse-blocker {
   padding: clamp(20px, 4vmin, 40px);
   align-items: flex-start;
   justify-content: center;
-  overflow: hidden;
-}
-
-.security-bg-photo {
-  display: none;
-}
-
-.bg-phone-cover {
-  display: none;
+  overflow-y: auto;
 }
 
 .modal-top-square.is-active {
@@ -400,11 +389,11 @@ body.security-mode .mouse-blocker {
 }
 
 body.security-dezoomed .modal-top-square {
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  box-shadow: none;
+  inset: 6%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
 }
 
 body.security-mode,
@@ -428,15 +417,15 @@ body.security-mode a {
   width: 100%;
   margin-bottom: clamp(14px, 2.5vmin, 20px);
   padding: clamp(16px, 3vmin, 24px);
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.88);
   border-radius: 10px;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .access-modal p {
   margin: 0 0 clamp(10px, 2vmin, 16px);
-  color: #111827;
+  color: #ffffff;
   font-size: clamp(14px, 2.2vmin, 20px);
   line-height: 1.5;
   text-align: left;
@@ -532,79 +521,7 @@ body.security-mode a {
 }
 
 body.security-mode {
-  --ms-blue: #0078d4;
-  --ms-blue-light: #5eb3ff;
-  --ms-blue-pale: #8fd0ff;
-  background: #0078d4;
-}
-
-body.security-mode .black-modal-blue-box {
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-}
-
-body.security-mode .scan-btn-now {
-  background: var(--ms-blue);
-}
-
-body.security-mode .scan-modal-support,
-body.security-mode .escape-shield-alert {
-  color: var(--ms-blue-light);
-}
-
-body.security-mode .browser-chrome-warning {
-  color: #0078d4;
-}
-
-body.security-mode .browser-chrome-phone {
-  color: #005a9e;
-}
-
-body.security-mode .browser-chrome-alert {
-  color: #111827;
-}
-
-body.security-mode .support-card {
   background: #ffffff;
-  border-color: #c7e0f4;
-  border-top-color: var(--ms-blue);
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.2);
-}
-
-body.security-mode .support-card-subtitle,
-body.security-mode .support-card-arrow {
-  color: var(--ms-blue);
-}
-
-body.security-mode .support-card-phone {
-  color: #005a9e;
-}
-
-body.security-mode .browser-chrome-shield,
-body.security-mode .browser-chrome-modal,
-body.security-mode .escape-shield-taskbar-modal {
-  border-color: #3aa0ff;
-}
-
-body.security-mode .browser-chrome-shield {
-  border-bottom-color: #3aa0ff;
-}
-
-body.security-mode .escape-shield-taskbar-wrap {
-  border-top: 4px solid var(--ms-blue);
-}
-
-body.security-mode .escape-exit-modal {
-  background: #ffffff;
-  border-top-color: var(--ms-blue);
-}
-
-body.security-mode .escape-exit-message {
-  color: #111827;
-}
-
-body.security-mode .escape-exit-phone,
-body.security-mode .escape-exit-phone-icon {
-  color: var(--ms-blue);
 }
 
 .modal-content {
@@ -621,7 +538,7 @@ body.security-mode .escape-exit-phone-icon {
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: var(--orange-brand);
+  background: #FF7900;
 }
 
 .orange-logo svg,
@@ -740,14 +657,14 @@ body.security-mode .escape-exit-phone-icon {
 }
 
 .modal-btn-allow {
-  background: var(--orange-brand);
+  background: var(--orange);
   color: #ffffff;
 }
 
 .modal-btn-deny {
   background: #ffffff;
-  color: var(--orange-brand);
-  border-color: var(--orange-brand);
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
 .modal-btn:active {
@@ -761,251 +678,10 @@ body.security-mode .escape-exit-phone-icon {
   right: 0;
   bottom: auto;
   height: 58px;
-  background: linear-gradient(180deg, #ff9333, var(--orange-brand));
+  background: linear-gradient(180deg, #ff9333, var(--orange));
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 3;
-}
-
-body.security-mode .ticker {
-  display: none;
-}
-
-.browser-chrome-shield {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 47950;
-  height: clamp(148px, 20vh, 220px);
-  padding: 12px 12px 0;
-  background: #ffffff;
-  border-bottom: 4px solid #3aa0ff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  pointer-events: auto;
-}
-
-.browser-chrome-shield.is-visible,
-body.security-mode .browser-chrome-shield.is-visible {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-body.security-dezoomed .browser-chrome-shield {
-  height: clamp(168px, 22vh, 248px);
-}
-
-.browser-chrome-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: min(96vw, 720px);
-  margin-bottom: 12px;
-  padding: clamp(16px, 2.5vmin, 24px) clamp(20px, 3vmin, 32px);
-  background: #ffffff;
-  border: 2px solid #3aa0ff;
-  border-radius: 4px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-}
-
-.browser-chrome-alert {
-  margin: 0;
-  width: 100%;
-  padding: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(16px, 2.4vmin, 22px);
-  font-weight: 800;
-  color: #111827;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  text-align: center;
-  line-height: 1.25;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.browser-chrome-warning {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(14px, 2.1vmin, 18px);
-  font-weight: 600;
-  color: #0078d4;
-  text-align: center;
-  line-height: 1.35;
-}
-
-.browser-chrome-phone {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(20px, 3vmin, 28px);
-  font-weight: 700;
-  color: #005a9e;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-body.security-mode .modal-top-square.is-active {
-  background: #1a1a1a;
-  padding: 0;
-  overflow: hidden;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-body.security-mode .modal-top-square.is-active .security-bg-photo {
-  display: block;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 38%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-body.security-mode .modal-top-square.is-active .bg-phone-cover {
-  display: block;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  max-width: min(92vw, 560px);
-  padding: 6px 10px;
-  text-align: center;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(10px, 1.45vmin, 13px);
-  line-height: 1.35;
-  pointer-events: none;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-}
-
-body.security-mode .modal-top-square.is-active .bg-phone-cover strong {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-body.security-mode .modal-top-square.is-active .bg-phone-cover--white {
-  top: 56%;
-  background: #ffffff;
-  color: #111827;
-  border: 1px solid #e5e7eb;
-}
-
-body.security-mode .modal-top-square.is-active .bg-phone-cover--blue {
-  top: 70%;
-  background: #1a6fb5;
-  color: #ffffff;
-  border: 1px solid #0d5a9e;
-}
-
-body.security-dezoomed .modal-top-square.is-active {
-  padding: 0;
-}
-
-body.security-mode .security-page {
-  display: none;
-}
-
-body.security-mode .scan-modal-hidden {
-  display: none !important;
-}
-
-body.security-mode .access-modal {
-  background: #ffffff;
-  border: 1px solid #c7e0f4;
-  border-radius: 4px;
-}
-
-body.security-mode .access-modal p {
-  color: #111827;
-}
-
-body.security-mode .black-modal-blue-box {
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border-radius: 4px;
-  margin-bottom: 0;
-}
-
-body.security-mode .black-modal-defender {
-  font-weight: 800;
-  font-size: clamp(15px, 2.2vmin, 19px);
-}
-
-.escape-shield {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 48000;
-  pointer-events: auto;
-}
-
-.escape-shield.is-visible {
-  display: block;
-}
-
-.escape-shield-taskbar-wrap {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 48002;
-  padding-bottom: env(safe-area-inset-bottom, 0);
-  background: #ffffff;
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.1);
-}
-
-.escape-shield-taskbar-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 auto 52px;
-  width: min(92vw, 560px);
-  padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
-  background: #ffffff;
-  border: 2px solid var(--orange);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 120, 212, 0.2);
-}
-
-.escape-shield-alert {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(18px, 2.8vmin, 24px);
-  font-weight: 800;
-  color: var(--orange);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
-
-.escape-shield-warning {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(15px, 2.2vmin, 20px);
-  font-weight: 700;
-  color: #111827;
-  text-align: center;
-}
-
-body.security-mode .modal-top-square.is-active .support-card {
-  bottom: calc(140px + 12px);
-  z-index: 2;
-}
-
-body.security-dezoomed .escape-shield.is-visible {
-  display: block;
-}
-
-body.security-dezoomed .browser-chrome-shield.is-visible {
-  display: flex;
 }
 
 .support-card {
@@ -1018,10 +694,10 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   width: 220px;
   padding: 14px 16px 10px;
   background: #ffffff;
-  border: 1px solid #c7e0f4;
+  border: 1px solid #ffd6b3;
   border-top: 4px solid var(--orange);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.18);
+  box-shadow: 0 8px 24px rgba(255, 121, 0, 0.18);
   font-family: "Segoe UI", Inter, Arial, sans-serif;
   pointer-events: none;
 }
@@ -1124,59 +800,4 @@ body.security-dezoomed .browser-chrome-shield.is-visible {
   100% {
     transform: translateX(-130%);
   }
-}
-
-.escape-exit-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 49000;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 24px 160px;
-  background: transparent;
-  pointer-events: none;
-  visibility: visible;
-}
-
-.escape-exit-overlay.is-visible {
-  display: flex !important;
-}
-
-.escape-exit-modal {
-  pointer-events: auto;
-  width: min(92vw, 480px);
-  padding: clamp(24px, 4vmin, 36px);
-  background: #ffffff;
-  border-radius: 14px;
-  border-top: 5px solid var(--orange);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  text-align: center;
-}
-
-.escape-exit-message {
-  margin: 0 0 clamp(20px, 3vmin, 28px);
-  font-size: clamp(16px, 2.4vmin, 20px);
-  line-height: 1.5;
-  font-weight: 600;
-  color: #111827;
-}
-
-.escape-exit-phone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 0;
-  font-size: clamp(20px, 3vmin, 26px);
-  font-weight: 800;
-  color: var(--orange);
-  letter-spacing: 0.02em;
-}
-
-.escape-exit-phone-icon {
-  width: clamp(28px, 4vmin, 34px);
-  height: clamp(28px, 4vmin, 34px);
-  flex-shrink: 0;
-  color: var(--orange);
 }
