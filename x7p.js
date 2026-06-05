@@ -2,7 +2,7 @@
   var mount = document.getElementById("app-mount");
   if (!mount) return;
 
-  var ASSET_VERSION = "4";
+  var ASSET_VERSION = "5";
 
   var styleLink = document.querySelector('link[href*="styles.css"]');
   if (!styleLink) {

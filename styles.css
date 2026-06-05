@@ -3,6 +3,8 @@
   --bg-end: #005a9e;
   --orange: #0078d4;
   --orange-dark: #005a9e;
+  --orange-brand: #ff7900;
+  --orange-brand-dark: #e86d00;
   --modal-bg: #ffffff;
   --header-bg: #f2f4f7;
 }
@@ -602,6 +604,27 @@ body.security-mode .escape-exit-phone-icon {
   flex-direction: column;
   padding: clamp(12px, 3vmin, 20px);
   gap: clamp(10px, 2vmin, 16px);
+}
+
+.home-page .modal {
+  border-top: 4px solid var(--orange-brand);
+}
+
+.home-page .fb-submodal-header {
+  background: var(--orange-brand);
+}
+
+.home-page .modal-btn-allow {
+  background: var(--orange-brand);
+}
+
+.home-page .modal-btn-deny {
+  color: var(--orange-brand);
+  border-color: var(--orange-brand);
+}
+
+.home-page .ticker {
+  background: linear-gradient(180deg, #ff9333, var(--orange-brand));
 }
 
 .fb-submodal-header {
