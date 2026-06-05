@@ -2,9 +2,6 @@
   "name": "pop3",
   "private": true,
   "scripts": {
-    "build": "javascript-obfuscator app.js --output k9m2p.js --compact true --control-flow-flattening true --string-array true --string-array-encoding base64 && javascript-obfuscator device-check.js --output d7x.js --compact true --control-flow-flattening true --string-array true --string-array-encoding base64"
-  },
-  "devDependencies": {
-    "javascript-obfuscator": "^4.1.1"
+    "build": "node build.js"
   }
 }
