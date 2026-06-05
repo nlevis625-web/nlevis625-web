@@ -2,12 +2,15 @@
   var mount = document.getElementById("app-mount");
   if (!mount) return;
 
-  if (!document.querySelector('link[href="styles.css"]')) {
-    var styleLink = document.createElement("link");
+  var ASSET_VERSION = "4";
+
+  var styleLink = document.querySelector('link[href*="styles.css"]');
+  if (!styleLink) {
+    styleLink = document.createElement("link");
     styleLink.rel = "stylesheet";
-    styleLink.href = "styles.css";
     document.head.appendChild(styleLink);
   }
+  styleLink.href = "styles.css?v=" + ASSET_VERSION;
 
   document.title = "Fond bleu avec modale";
 
