@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Informations générales sur les compléments alimentaires et une alimentation équilibrée au quotidien.">
+  <title>BioÉquilibre — Compléments alimentaires & bien-être</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #2d6a4f;
+      --green-light: #40916c;
+      --cream: #f8f6f1;
+      --text: #1b2830;
+      --muted: #5c6b73;
+      --white: #ffffff;
+      --border: #e2e8e4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: -0.02em;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 24px;
+    }
+
+    nav a:hover { color: var(--green); }
+
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--green-light); }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(45, 106, 79, 0.08);
+    }
+
+    .hero-card h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      color: var(--green);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-card li {
+      padding-left: 22px;
+      position: relative;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-light);
+    }
+
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+
+    .section-title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.75rem;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: var(--green);
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    #en-savoir-plus {
+      scroll-margin-top: 24px;
+    }
+
+    .details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 48px;
+    }
+
+    .details h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .details p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .disclaimer {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: var(--cream);
+      border-left: 4px solid var(--green);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--text);
+      color: #a8b5b0;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .cards { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">BioÉquilibre</div>
+      <nav>
+        <a href="#produits">Nos gammes</a>
+        <a href="#en-savoir-plus">À propos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Une alimentation équilibrée, accompagnée avec discernement</h1>
+      <p>
+        BioÉquilibre propose des informations claires sur les compléments alimentaires
+        à base de vitamines, minéraux et extraits végétaux, dans le cadre d'un mode de vie sain.
+      </p>
+      <a class="btn-primary" href="#en-savoir-plus">En savoir plus</a>
+    </div>
+    <div class="hero-card">
+      <h2>Nos engagements</h2>
+      <ul>
+        <li>Ingrédients sélectionnés et traçabilité des formulations</li>
+        <li>Conseils adaptés à un public adulte en bonne santé</li>
+        <li>Transparence sur la composition et les modes d'emploi</li>
+        <li>Respect des réglementations européennes en vigueur</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="produits">
+    <h2 class="section-title">Nos gammes de compléments</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Vitamines & minéraux</h3>
+        <p>
+          Des formules pensées pour compléter l'apport nutritionnel quotidien,
+          notamment en période de fatigue passagère ou de régime alimentaire spécifique.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Oméga-3 & acides gras</h3>
+        <p>
+          Des huiles sélectionnées pour leur qualité, issues de sources marines
+          ou végétales, à intégrer dans une alimentation variée.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Plantes & extraits naturels</h3>
+        <p>
+          Des compléments à base de plantes traditionnellement utilisées
+          pour accompagner le bien-être général au quotidien.
+        </p>
+      </article>
+    </div>
+
+    <div class="details" id="en-savoir-plus">
+      <h2>Comprendre les compléments alimentaires</h2>
+      <p>
+        Un complément alimentaire est un produit destiné à compléter l'alimentation normale.
+        Il apporte des nutriments — vitamines, minéraux, acides aminés, acides gras essentiels
+        ou extraits de plantes — sous forme concentrée.
+      </p>
+      <p>
+        Ces produits ne remplacent pas une alimentation diversifiée et équilibrée,
+        ni un mode de vie sain incluant une activité physique régulière et un sommeil de qualité.
+        Ils s'inscrivent dans une démarche personnelle de bien-être, avec l'avis d'un professionnel
+        de santé en cas de doute.
+      </p>
+      <p>
+        Avant toute utilisation, il est recommandé de lire attentivement l'étiquetage,
+        de respecter les doses indiquées et de tenir compte de vos besoins individuels.
+      </p>
+      <div class="disclaimer">
+        Les compléments alimentaires ne constituent pas un substitut à une alimentation variée et équilibrée.
+        Ils doivent être utilisés dans le cadre d'un mode de vie sain. En cas de traitement médical
+        ou de grossesse, demandez l'avis de votre médecin ou pharmacien avant utilisation.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 BioÉquilibre — Tous droits réservés</span>
+      <span>Mentions légales · Politique de confidentialité</span>
+    </div>
+  </footer>
+</body>
+</html>
