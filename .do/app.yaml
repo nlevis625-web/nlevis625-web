@@ -1,8 +1,7 @@
-name: pop4
+name: pop3
 region: fra
 services:
   - name: web
-    source_dir: pop4
     github:
       repo: nlevis625-web/nlevis625-web
       branch: master
@@ -12,7 +11,7 @@ services:
     environment_slug: node-js
     instance_count: 1
     instance_size_slug: basic-xxs
-    http_port: 8081
+    http_port: 8080
     health_check:
       http_path: /health
       initial_delay_seconds: 20

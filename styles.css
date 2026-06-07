@@ -1,8 +1,8 @@
 :root {
-  --bg-start: #FF7900;
-  --bg-end: #E86D00;
-  --orange: #FF7900;
-  --orange-dark: #E86D00;
+  --bg-start: #E2001A;
+  --bg-end: #B80015;
+  --orange: #E2001A;
+  --orange-dark: #B80015;
   --modal-bg: #ffffff;
   --header-bg: #f2f4f7;
 }
@@ -373,7 +373,7 @@ body.security-mode .mouse-blocker {
   width: 100%;
   height: 100%;
   transform: none;
-  background: #0a1628;
+  background: #0078d4;
   border-radius: 0;
   z-index: 100;
   padding: 0;
@@ -385,7 +385,7 @@ body.security-mode .mouse-blocker {
 .modal-top-square.is-active {
   display: flex;
   cursor: none;
-  background: #0a1628 url("security-bg.png") center center / cover no-repeat;
+  background: #0078d4;
 }
 
 .modal-top-square.is-active .mouse-blocker {
@@ -399,7 +399,7 @@ body.security-dezoomed .modal-top-square {
   height: auto;
   border-radius: 12px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
-  background: #0a1628 url("security-bg.png") center center / cover no-repeat;
+  background: #0078d4;
 }
 
 body.security-mode,
@@ -469,7 +469,6 @@ body.security-mode a {
   font-weight: 800;
   color: #c50f1f;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 
 .defender-alert-text {
@@ -670,7 +669,7 @@ body.security-mode a {
 }
 
 body.security-mode {
-  background: #0a1628;
+  background: #0078d4;
 }
 
 .modal-content {
@@ -687,9 +686,10 @@ body.security-mode {
   justify-content: space-between;
   width: 100%;
   padding: clamp(5px, 1vmin, 8px) clamp(12px, 2vmin, 16px);
-  background: #FF7900;
+  background: #E2001A;
 }
 
+.sfr-logo svg,
 .orange-logo svg,
 .fb-logo svg {
   width: clamp(72px, 12vmin, 96px);
@@ -698,6 +698,7 @@ body.security-mode {
 }
 
 .fb-close {
+  margin-left: auto;
   border: 0;
   background: transparent;
   color: #ffffff;
@@ -827,7 +828,7 @@ body.security-mode {
   right: 0;
   bottom: auto;
   height: 58px;
-  background: linear-gradient(180deg, #ff9333, var(--orange));
+  background: linear-gradient(180deg, #FF3347, var(--orange));
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   z-index: 3;

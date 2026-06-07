@@ -2,6 +2,14 @@
   "name": "pop3",
   "private": true,
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2",
+    "javascript-obfuscator": "^5.4.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
